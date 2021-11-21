@@ -350,7 +350,7 @@ async function repasseChart() {
             data: {
                 labels: anoData,
                 datasets: [{
-                    labels:esferaData,
+                    labels: modalidadeData[0],
                     datasets: valorTotalData,
                     backgroundColor:'rgba(2,33,36,0.6)',
                     borderColor: 'rgba(2,33,36,0.6)',
@@ -365,8 +365,7 @@ async function repasseChart() {
 repasseChart()
 
 async function getRepasseData(){
-    const apiUrl = "https://amali-api.herokuapp.com/repasse"
-   // const apiUrl = "http://dummy.restapiexample.com/api/v1/employees"
+    const apiUrl = "https://amali-api.herokuapp.com/repasse/lchart?municipio=vitoria_do_jari"
 
     const response = await fetch(apiUrl,{
         method: 'GET',
@@ -375,20 +374,22 @@ async function getRepasseData(){
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
           }});
-    const barChartData = await response.json();
+    const Content = await response.json();
    
     
-    const ano = barChartData.map((x) => x.ano)
-    const esfera = barChartData.map((x) => x.esferaGoverno)
-    const valorTotal = barChartData.map((x) => x.valorTotalEscolas) 
-    const municipio = barChartData.map((x) => x.municipio)
-
-    municipioData = municipio
-    console.log(municipioData)
-
+    const ano = Content.map((x) => x.ano)
+    const esfera = Content.map((x) => x.esferaGoverno)
+    const valorTotal = Content.map((x) => x.valorTotalEscolas)
+    const modalidade = Content.map((x) => x.modalidadeEnsino)
     
+    
+
+    modalidadeData = modalidade
 
     anoData = ano
     esferaData = esfera
     valorTotalData = valorTotal
+    console.log(valorTotalData)
+    
+    
 }

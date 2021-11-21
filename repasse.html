@@ -1,151 +1,85 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="UTF-8">
-        <title> Amali | UI </title>
-        <!--Biblioteca do ChartJS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js">
-        <link rel="stylesheet" href="style.css">
-        <!--Biblioteca do icones utilizando o  Boxicons  -->
-        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Amali-UI | Dashboard  </title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Biblioteca do Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
-    <div class="sidebar">
-        <div class="logo-details">
-            <i class='bx bxs-business'></i>
-
-            <div class="logo_name">Amali End</div>
-
-            <i class='bx bx-menu' id="btn" ></i>
-        </div>
-
-        <ul class="nav-list">
-            <li>
-                <i class='bx bx-search' ></i>
-                <input type="text" placeholder="Procurar...">
-                <span class="tooltip">Procurar</span>
-            </li>
-
-            <li>
-                <a href="index.html">
-                    <i class='bx bx-grid-alt'></i>
-                    <span class="links_name">Início</span>
-                </a>
-                <span class="tooltip">Início</span>
-            </li>
-            <li>
-                <a href="alunos.html">
-                    <i class='bx bxs-school' ></i>
-                    <span class="links_name">Alunos</span>
-                </a>
-                <span class="tooltip">Alunos</span>
-            </li>
-            <li>
-                <a href="repasse.html">
-                    <i class='bx bx-money' ></i>
-                    <span class="links_name">Recursos</span>
-                </a>
-                <span class="tooltip">Recursos</span>
-            </li>
-            <li>
-                <a href="escolas.html">
-                    <i class='bx bx-map-alt' ></i>
-                    <span class="links_name">Escolas</span>
-                </a>
-                <span class="tooltip">Escolas</span>
-            </li>
-            <li>
-                <a href="quemsomos.html">
-                    <i class='bx bxs-user-detail'></i>
-                    <span class="links_name">Quem somos</span>
-                </a>
-                <span class="tooltip">Quem somos</span>
-            </li>
-            <li> 
-            </li>
-            <li>
-            
-            <li>
-       
-            <li class="perfil">
-                <div class="perfil_detalhes">
-                    <img src="amali_logo.jpg" alt="profileImg">
-                    <div class="name_job">
-                        <div class="nome">Amali End</div>
-                        <div class="trabalho">Dashboard</div>
-                    </div>
-                </div>
-                <i class='bx bxs-happy-alt'></i>
-            </li>
-        </ul>
-
+  <div class="sidebar close">
+    <div class="logodetalhes">
+      <i class='bx bxs-business'></i>
+      <span class="logonome">Amali-UI</span>
     </div>
-  
-    <section class="tela_inicio">
-
-        <div class="texto_grafico">
-            <h1>Inicío</h1>
-            <a href="https://www.fnde.gov.br/programas/pnae">
-                Sobre PNAE
-            </a>
+    <ul class="nav-links">
+      <li>
+        <a href="index.html">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Início</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="index.html">Início</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-money'></i>
+            <span class="link_name">Recursos</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
         </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Rercusos</a></li>
+          <li><a href="escolas.html">Escolas</a></li>
+          <li><a href="repasse.html">Repasse</a></li>
+          <li><a href="modalidade.html">Modalidades</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="alunos.html">
+          <i class='bx bxs-school'></i>
+          <span class="link_name">Alunos</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="alunos.html">Alunos</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="sobre.html">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Sobre API</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="sobre.html">Sobre API</a></li>
+        </ul>
+      </li>
       
+    <div class="perfildetalhes">
+      <div class="perfilconteudo">
+        <img src="image/amali_logo.jpg" alt="amali_logo.jpg">
+      </div>
+      <div class="nometrabalho">
+        <div class="perfilnome">Amali-UI</div>
+        <div class="trabalho">Dashboard</div>
+      </div>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="tela_inicio">
+    <div class="inicio_conteudo">
+      <i class='bx bx-menu' ></i>
+      <span class="texto">Amali-UI Atulizado 20.11</span>
+    </div>
+  </section>
 
-        <!--Inicio do código estrangeiro-->
-        <div class="divgrafico">
-            <div class="grafico">
-               <h2 class="titulografico">• Repasse por modalidade </h2>
-               <canvas class="line-chartModalidade"></canvas>
-            </div>
-        </div>
-        <div class="divgrafico">
-            <div class="grafico">
-               <h2 class="titulografico">• Recursos Repassados </h2>
-               <canvas class="line-chartRecursos"></canvas>
-            </div>
-        </div>
-        <div class="divgrafico">
-            <div class="grafico">
-               <h2 class="titulografico">• Repasse por município </h2>
-               <canvas class="line-chartMunicipio"></canvas>
-            </div>
-        </div>
-        
-        <!--Fim do código estrangeiro-->
-    </section>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="app.js"></script>
 
-    <footer>
-        <strong>Copyright &copy; 2021 <a href="https://i.pinimg.com/564x/3a/60/b2/3a60b2d1d4b3e848611e7a0b69eeaecf.jpg"></a> </strong>
-          AGORA TODOS OS DIRETOS RESERVADOS OK?
-    </footer>
-    <script>
-        
-        let sidebar = document.querySelector(".sidebar");
-        let closeBtn = document.querySelector("#btn");
-        let searchBtn = document.querySelector(".bx-search");
-
-        closeBtn.addEventListener("click", ()=>{
-            sidebar.classList.toggle("open");
-            menuBtnChange();//calling the function(optional)
-        });
-
-        searchBtn.addEventListener("click", ()=>{ // Sidebar para pesquisar 
-            sidebar.classList.toggle("open");
-            menuBtnChange(); //buscar ligação
-        });
-
-        // função da barra lateral 
-        function menuBtnChange() {
-            if(sidebar.classList.contains("open")){
-                closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//substituição dos icones 
-            }else {
-                closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//substituição dos icones 
-            }
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="app.js"></script>
-    <script src="repasse.js"></script>
 </body>
 </html>
