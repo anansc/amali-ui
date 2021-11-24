@@ -4,17 +4,20 @@
 		  "2018": {
 			"esferaGoverno": "MUNICIPAL",
 			"modalidadeEnsino": "ENSINO FUNDAMENTAL",
-			"valorTotalEscolas": 7938.0
+			"valorTotalEscolas": 7938.0,
+			"ano":"2018"
 		  },
 		  "2019": {
 			"esferaGoverno": "MUNICIPAL",
 			"modalidadeEnsino": "ENSINO FUNDAMENTAL",
-			"valorTotalEscolas": 7938.0
+			"valorTotalEscolas": 7938.0,
+			"ano":"2019"
 		  },
 		  "2020": {
 			"esferaGoverno": "MUNICIPAL",
 			"modalidadeEnsino": "ENSINO FUNDAMENTAL",
-			"valorTotalEscolas": 7938.0
+			"valorTotalEscolas": 7938.0,
+			"ano":"2020"
 		  }
 		}
 	  ],
@@ -74,6 +77,10 @@
 		  "valorTotalEscolas": 7938.0
 		}
 	  }
-	]
+	],
+	"anos":{
+		"ano": 2020,
+		"ano": 2021
+	} 
   }
   
