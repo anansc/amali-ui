@@ -1,5 +1,6 @@
 var anoData = [], modalidadeData = [], valorData = [];
 
+
 async function repasseChart() {
     await getRepasseData()
 
@@ -45,10 +46,12 @@ async function getRepasseData(){
 
     function unique(value, index, self) { 
         return self.indexOf(value) === index;
-    }    
+    }
+    const anoU = ano.filter(unique) 
     const modalidadeU = modalidade.filter(unique)
-    
-    anoData = ano
+
+    anoData = anoU
+
     modalidadeData = modalidadeU
     valorData = valor
 
