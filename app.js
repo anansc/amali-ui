@@ -3,7 +3,7 @@
 async function repasseChart() {
     await getRepasseData()
 
-    const ctx = document.getElementById('line-chartAmapá').getContext('2d');
+    const ctx = document.getElementById('line-chartAmapa').getContext('2d');
 
         const chart = new Chart(ctx, {
             type: 'line',
@@ -11,7 +11,7 @@ async function repasseChart() {
                 labels: anoData,
                 datasets: [{
                     labels:esferaData,
-                    datasets: valorTotalData, 
+                    datasets: valorTotalData,
                     backgroundColor:'rgba(2,33,36,0.6)',
                     borderColor: 'rgba(2,33,36,0.6)',
 
