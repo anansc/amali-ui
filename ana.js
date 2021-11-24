@@ -1,5 +1,5 @@
+var anoData = [], modalidadeData = [], valorData = [];
 
-/*
 async function repasseChart() {
     await getRepasseData()
 
@@ -8,11 +8,11 @@ async function repasseChart() {
         const chart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ano,
+                labels: anoData,
                     datasets: [
                         {
                             label: modalidadeData,
-                            data: valor,
+                            data: valorData,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(82,33,143,0.6)',
                         }
@@ -22,12 +22,12 @@ async function repasseChart() {
 
 }
 
-**/
+
 
 repasseChart()
 
 async function getRepasseData(){
-    const apiUrl = "https://amali-api.herokuapp.com/repasse"
+    const apiUrl = "http://localhost:8080/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal"
 
     const response = await fetch(apiUrl,{
         method: 'GET',
@@ -37,32 +37,22 @@ async function getRepasseData(){
           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
           }});
     const data = await response.json();
-    console.log(data)
-
-var um = data.Macapa[0][2018];
-var dois = data.Macapa[0][2019]
 
 
-const modalidadeUm = um["modalidadeEnsino"]
-console.log(modalidadeUm)
-const modalidadeDois = dois["modalidadeEnsino"]
-console.log(modalidadeDois)
-    /*
-const ana = data
-console.log(ana)
-const modalidade = ana["modalidadeEnsino"]
-modalidadeData =  modalidade.toString()
-console.log(modalidadeData)
+    const ano = data.map((x) => x.ano)
+    const valor = data.map((x) => x.valorTotalEscolas)
+    const modalidade = data.map((x) => x.modalidadeEnsino)
 
-const esfera = ana["esferaGoverno"]
+    function unique(value, index, self) { 
+        return self.indexOf(value) === index;
+    }    
+    const modalidadeU = modalidade.filter(unique)
+    
+    anoData = ano
+    modalidadeData = modalidadeU
+    valorData = valor
 
-const valor = ana["valorTotalEscolas"]
-
-const ano = ana["ano"]
-anoData = ano.toString()
-console.log(ano)
-*/
-
+   console.log(modalidadeData)
 
 
 }
