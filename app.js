@@ -348,24 +348,30 @@ async function repasseChart() {
         const chart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: anoData,
-                datasets: [{
-                    labels: modalidadeData[0],
-                    datasets: valorTotalData,
-                    backgroundColor:'rgba(2,33,36,0.6)',
-                    borderColor: 'rgba(2,33,36,0.6)',
-
-                    }
-                ]
+                labels: [2018,2019,2020,2021],
+                    datasets: [
+                        {
+                            label: "Creche",
+                            data: [1,2,3,4],
+                            backgroundColor:'transparent',
+                            borderColor: 'rgba(2,33,36,0.6)',
+                        },
+                        {
+                            label: "Ensino Fundamental",
+                            data: [4,7,6,2],
+                            backgroundColor:'transparent',
+                            borderColor: 'rgba(6,243,16,0.6)',
+                        }
+                     ],
             }
-        })
+        });
     
 }
 
 repasseChart()
 
 async function getRepasseData(){
-    const apiUrl = "https://amali-api.herokuapp.com/repasse/lchart?municipio=vitoria_do_jari"
+    const apiUrl = "http://127.0.0.1:5500/json.json"
 
     const response = await fetch(apiUrl,{
         method: 'GET',
@@ -374,13 +380,12 @@ async function getRepasseData(){
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
           }});
-    const Content = await response.json();
-   
+    const barChartData = await response.json();
     
-    const ano = Content.map((x) => x.ano)
-    const esfera = Content.map((x) => x.esferaGoverno)
-    const valorTotal = Content.map((x) => x.valorTotalEscolas)
-    const modalidade = Content.map((x) => x.modalidadeEnsino)
+    const ano = barChartData.content.map((x) => x.ano)
+    const esfera = barChartData.content.map((x) => x.esferaGoverno)
+    const valorTotal = barChartData.content.map((x) => x.valorTotalEscolas)
+    const modalidade = barChartData.content.map((x) => x.modalidadeEnsino)
     
     
 
