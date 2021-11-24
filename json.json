@@ -1,170 +1,79 @@
 {
-	"municipio":[
+	"Macapa": [
 		{
-			"macapa":{
-				"ano":[
-					{
-						"2018":[
-							{
-								"esfera":[
-									{
-										"estadual":[
-											{
-												"modalidadeEnsino": "eja",
-												"valorTotalEscolas": 134
-											},
-											{
-												"modalidadeEnsino": "fundamental",
-												"valorTotalEscolas": 425
-											},
-											{
-												"modalidadeEnsino": "medio",
-												"valorTotalEscolas": 234
-											}
-										]
-									},
-									{
-										"municipal":[
-											{
-												"modalidadeEnsino": "eja",
-												"valorTotalEscolas": 345
-											},
-											{
-												"modalidadeEnsino": "fundamental",
-												"valorTotalEscolas": 375
-											},
-											{
-												"modalidadeEnsino": "medio",
-												"valorTotalEscolas": 245
-											}
-										]
-									}
-								]
-							}
-						]
-					},
-					{
-						"2019":[
-							{
-								"esfera":[
-									{
-										"estadual":[
-											{
-												"modalidadeEnsino": "eja",
-												"valorTotalEscolas": 765
-											},
-											{
-												"modalidadeEnsino": "fundamental",
-												"valorTotalEscolas": 245
-											},
-											{
-												"modalidadeEnsino": "medio",
-												"valorTotalEscolas": 453
-											}
-										]
-									},
-									{
-										"municipal":[
-											{
-												"modalidadeEnsino": "eja",
-												"valorTotalEscolas": 732
-											},
-											{
-												"modalidadeEnsino": "fundamental",
-												"valorTotalEscolas": 135
-											},
-											{
-												"modalidadeEnsino": "medio",
-												"valorTotalEscolas": 345
-											}
-										]
-									}
-								]
-							}
-						]
-					},
-					{
-						"2020":[
-							{
-								"esfera":[
-									{
-										"estadual":[
-											{
-												"modalidadeEnsino": "eja",
-												"valorTotalEscolas": 567
-											},
-											{
-												"modalidadeEnsino": "fundamental",
-												"valorTotalEscolas": 987
-											},
-											{
-												"modalidadeEnsino": "medio",
-												"valorTotalEscolas": 567
-											}
-										]
-									},
-									{
-										"municipal":[
-											{
-												"modalidadeEnsino": "eja",
-												"valorTotalEscolas": 746
-											},
-											{
-												"modalidadeEnsino": "fundamental",
-												"valorTotalEscolas": 367
-											},
-											{
-												"modalidadeEnsino": "medio",
-												"valorTotalEscolas": 467
-											}
-										]
-									}
-								]
-							}
-						]
-					},
-					{
-						"2021":[
-							{
-								"esfera":[
-									{
-										"estadual":[
-											{
-												"modalidadeEnsino": "eja",
-												"valorTotalEscolas": 368
-											},
-											{
-												"modalidadeEnsino": "fundamental",
-												"valorTotalEscolas": 786
-											},
-											{
-												"modalidadeEnsino": "medio",
-												"valorTotalEscolas": 245
-											}
-										]
-									},
-									{
-										"municipal":[
-											{
-												"modalidadeEnsino": "eja",
-												"valorTotalEscolas": 876
-											},
-											{
-												"modalidadeEnsino": "fundamental",
-												"valorTotalEscolas": 456
-											},
-											{
-												"modalidadeEnsino": "medio",
-												"valorTotalEscolas": 256
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			}
+		  "2018": {
+			"esferaGoverno": "MUNICIPAL",
+			"modalidadeEnsino": "ENSINO FUNDAMENTAL",
+			"valorTotalEscolas": 7938.0
+		  },
+		  "2019": {
+			"esferaGoverno": "MUNICIPAL",
+			"modalidadeEnsino": "ENSINO FUNDAMENTAL",
+			"valorTotalEscolas": 7938.0
+		  },
+		  "2020": {
+			"esferaGoverno": "MUNICIPAL",
+			"modalidadeEnsino": "ENSINO FUNDAMENTAL",
+			"valorTotalEscolas": 7938.0
+		  }
 		}
+	  ],
+	"santana": [
+		{
+		  "Macapa": {
+			"esferaGoverno": "MUNICIPAL",
+			"modalidadeEnsino": "ENSINO FUNDAMENTAL",
+			"valorTotalEscolas": 7938.0
+		  },
+		  "Cutias": {
+			"esferaGoverno": "MUNICIPAL",
+			"modalidadeEnsino": "ENSINO FUNDAMENTAL",
+			"valorTotalEscolas": 7938.0
+		  },
+		  "Calcoene": {
+			"esferaGoverno": "MUNICIPAL",
+			"modalidadeEnsino": "ENSINO FUNDAMENTAL",
+			"valorTotalEscolas": 7938.0
+		  }
+		}
+	  ],
+	"vitoria": [
+	  {
+		"Macapa": {
+		  "esferaGoverno": "MUNICIPAL",
+		  "modalidadeEnsino": "ENSINO FUNDAMENTAL",
+		  "valorTotalEscolas": 7938.0
+		},
+		"Cutias": {
+		  "esferaGoverno": "MUNICIPAL",
+		  "modalidadeEnsino": "ENSINO FUNDAMENTAL",
+		  "valorTotalEscolas": 7938.0
+		},
+		"Calcoene": {
+		  "esferaGoverno": "MUNICIPAL",
+		  "modalidadeEnsino": "ENSINO FUNDAMENTAL",
+		  "valorTotalEscolas": 7938.0
+		}
+	  }
+	],
+	"mazagao": [
+	  {
+		"Macapa": {
+		  "esferaGoverno": "MUNICIPAL",
+		  "modalidadeEnsino": "ENSINO FUNDAMENTAL",
+		  "valorTotalEscolas": 7938.0
+		},
+		"Cutias": {
+		  "esferaGoverno": "MUNICIPAL",
+		  "modalidadeEnsino": "ENSINO FUNDAMENTAL",
+		  "valorTotalEscolas": 7938.0
+		},
+		"Calcoene": {
+		  "esferaGoverno": "MUNICIPAL",
+		  "modalidadeEnsino": "ENSINO FUNDAMENTAL",
+		  "valorTotalEscolas": 7938.0
+		}
+	  }
 	]
-}
+  }
+  
