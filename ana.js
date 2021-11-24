@@ -27,7 +27,7 @@ async function repasseChart() {
 repasseChart()
 
 async function getRepasseData(){
-    const apiUrl = "http://127.0.0.1:5500/json.json"
+    const apiUrl = "https://amali-api.herokuapp.com/repasse"
 
     const response = await fetch(apiUrl,{
         method: 'GET',
@@ -41,8 +41,7 @@ async function getRepasseData(){
 
 var um = data.Macapa[0][2018];
 var dois = data.Macapa[0][2019]
-console.log(um)
-console.log(dois)
+
 
 const modalidadeUm = um["modalidadeEnsino"]
 console.log(modalidadeUm)
