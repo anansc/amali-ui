@@ -1,8 +1,10 @@
-var anoData = [], modalidadeData = [], valorData = [];
+var anoData = [], modalidadeData = [], valorCrecheData = [], valorFundData = [];
 
 
 async function repasseChart() {
     await getRepasseData()
+    await getCrecheData()
+    await getFundData
 
     const ctx = document.getElementById('line-chartVitoria').getContext('2d');
 
@@ -12,50 +14,75 @@ async function repasseChart() {
                 labels: anoData,
                     datasets: [
                         {
-                            label: modalidadeData,
-                            data: valorData,
+                            label: "Creche",
+                            data: valorCrecheData,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(82,33,143,0.6)',
-                        }
+                        },
+                        {
+                            label: "Fundamental",
+                            data: valorFundData,
+                            backgroundColor:'transparent',
+                            borderColor: 'rgba(154, 47, 102, 0.8)',
+                        },
                      ]
             }
         })
 
 }
 
-
-
 repasseChart()
-
+function unique(value, index, self) { 
+    return self.indexOf(value) === index;
+}
 async function getRepasseData(){
-    const apiUrl = "http://localhost:8080/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal"
+    var Rep = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal"
 
-    const response = await fetch(apiUrl,{
+    var response = await fetch(Rep,{
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
+            }});
+    var data = await response.json();
+    
+    const ano = data.map((x) => x.ano)
+    const anoU = ano.filter(unique) 
+    anoData = anoU
+}
+async function getCrecheData(){
+   var Crech = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=creche"
+
+    response = await fetch(Crech,{
         method: 'GET',
         headers: {
           'Content-type': 'application/json',
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
           }});
-    const data = await response.json();
-
-
-    const ano = data.map((x) => x.ano)
-    const valor = data.map((x) => x.valorTotalEscolas)
-    const modalidade = data.map((x) => x.modalidadeEnsino)
-
-    function unique(value, index, self) { 
-        return self.indexOf(value) === index;
-    }
-    const anoU = ano.filter(unique) 
-    const modalidadeU = modalidade.filter(unique)
-
-    anoData = anoU
-
-    modalidadeData = modalidadeU
-    valorData = valor
-
-   console.log(modalidadeData)
-
-
+    data = await response.json();
+    const valorCreche = data.map((x) => x.valorTotalEscolas)
+    valorCrecheData = valorCreche
 }
+async function getFundData(){
+    var Fund = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=ensinoFundamental"
+
+    response = await fetch(Fund,{
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
+          }});
+    data = await response.json();
+    console.log(data)
+    const valorFund = data.map((x) => x.valorTotalEscolas)
+    valorFundData = valorFund
+    console.log(valorFundData)
+}
+
+
+
+
+
