@@ -1,10 +1,15 @@
-var anoData = [], modalidadeData = [], valorCrecheData = [], valorFundData = [];
+var anoData = [], modalidadeData = [], valorCrecheData = [], valorFundData = [], preData = [], aeeData = [], ejaData = [], maisFundData = [], quiloData = [];
 
 
 async function repasseChart() {
     await getRepasseData()
     await getCrecheData()
-    await getFundData
+    await getFundData()
+    await getPreData()
+    await getAeeData()
+    await getEjaData()
+    await getMaisFundData()
+    await getQuiloData()
 
     const ctx = document.getElementById('line-chartVitoria').getContext('2d');
 
@@ -25,6 +30,36 @@ async function repasseChart() {
                             backgroundColor:'transparent',
                             borderColor: 'rgba(154, 47, 102, 0.8)',
                         },
+                        {
+                            label: "Pré-Escola",
+                            data: preData,
+                            backgroundColor:'transparent',
+                            borderColor: 'rgba(2,233,14,0.6)',
+                        },
+                        {
+                            label: "AEE",
+                            data: aeeData,
+                            backgroundColor:'transparent',
+                            borderColor: 'rgba(142,23,194,0.6)',
+                        },
+                        {
+                            label: "EJA",
+                            data: ejaData,
+                            backgroundColor:'transparent',
+                            borderColor: 'rgba(244,3,234,0.6)',
+                        },
+                        {
+                            label: "+Educação - Fundamental",
+                            data: maisFundData,
+                            backgroundColor:'transparent',
+                            borderColor: 'rgba(45,133,164,0.6)',
+                        },
+                        {
+                            label: "Quilombola",
+                            data: quiloData,
+                            backgroundColor:'transparent',
+                            borderColor: 'rgba(25,243,256,0.6)',
+                        },
                      ]
             }
         })
@@ -36,9 +71,9 @@ function unique(value, index, self) {
     return self.indexOf(value) === index;
 }
 async function getRepasseData(){
-    var Rep = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal"
+    var url = "http://localhost:8080/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal"
 
-    var response = await fetch(Rep,{
+    var response = await fetch(url,{
         method: 'GET',
         headers: {
             'Content-type': 'application/json',
@@ -51,24 +86,11 @@ async function getRepasseData(){
     const anoU = ano.filter(unique) 
     anoData = anoU
 }
-async function getCrecheData(){
-   var Crech = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=creche"
 
-    response = await fetch(Crech,{
-        method: 'GET',
-        headers: {
-          'Content-type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
-          }});
-    data = await response.json();
-    const valorCreche = data.map((x) => x.valorTotalEscolas)
-    valorCrecheData = valorCreche
-}
 async function getFundData(){
-    var Fund = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=ensinoFundamental"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
 
-    response = await fetch(Fund,{
+    response = await fetch(url,{
         method: 'GET',
         headers: {
           'Content-type': 'application/json',
@@ -77,12 +99,92 @@ async function getFundData(){
           }});
     data = await response.json();
     console.log(data)
-    const valorFund = data.map((x) => x.valorTotalEscolas)
-    valorFundData = valorFund
+    var valor = data.map((x) => x.valorTotalEscolas)
+    valorFundData = valor
     console.log(valorFundData)
 }
 
-
-
-
-
+async function getCrecheData(){
+    url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=creche"
+ 
+    response = await fetch(url,{
+         method: 'GET',
+         headers: {
+           'Content-type': 'application/json',
+           'Access-Control-Allow-Origin': '*',
+           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
+           }});
+     data = await response.json();
+     valor = data.map((x) => x.valorTotalEscolas)
+     valorCrecheData = valor
+ }
+ async function getPreData(){
+    url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+ 
+    response = await fetch(url,{
+         method: 'GET',
+         headers: {
+           'Content-type': 'application/json',
+           'Access-Control-Allow-Origin': '*',
+           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
+           }});
+    data = await response.json();
+    valor = data.map((x) => x.valorTotalEscolas)
+    preData = valor
+}
+async function getAeeData(){
+    url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=aee"
+ 
+    response = await fetch(url,{
+         method: 'GET',
+         headers: {
+           'Content-type': 'application/json',
+           'Access-Control-Allow-Origin': '*',
+           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
+           }});
+    data = await response.json();
+    valor = data.map((x) => x.valorTotalEscolas)
+    aeeData = valor
+}
+async function getEjaData(){
+    url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=eja"
+ 
+    response = await fetch(url,{
+         method: 'GET',
+         headers: {
+           'Content-type': 'application/json',
+           'Access-Control-Allow-Origin': '*',
+           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
+           }});
+    data = await response.json();
+    valor = data.map((x) => x.valorTotalEscolas)
+    ejaData = valor
+}
+async function getMaisFundData(){
+    url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+ 
+    response = await fetch(url,{
+         method: 'GET',
+         headers: {
+           'Content-type': 'application/json',
+           'Access-Control-Allow-Origin': '*',
+           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
+           }});
+    data = await response.json();
+    valor = data.map((x) => x.valorTotalEscolas)
+    maisFundData = valor
+}
+async function getQuiloData(){
+    url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+ 
+    response = await fetch(url,{
+         method: 'GET',
+         headers: {
+           'Content-type': 'application/json',
+           'Access-Control-Allow-Origin': '*',
+           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
+           }});
+    data = await response.json();
+    valor = data.map((x) => x.valorTotalEscolas)
+    quiloData = valor
+}
