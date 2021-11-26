@@ -23,6 +23,7 @@ async function amapaChart() {
                             data: valorCrecheDataAmapa,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(82,33,143,0.6)',
+                            
                         },
                         {
                             label: "Fundamental",
@@ -60,7 +61,7 @@ async function amapaChart() {
                             backgroundColor:'transparent',
                             borderColor: 'rgba(25,243,256,0.6)',
                         },
-                     ]
+                     ],
             }
         })
 
