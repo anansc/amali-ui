@@ -22,11 +22,13 @@ async function pracuubaChart() {
                             label: "Creche",
                             data: valorCrecheDataPracuuba,
                             backgroundColor:'transparent',
+                            tension:0.3,
                             borderColor: 'rgba(82,33,143,0.6)',
                         },
                         {
                             label: "Fundamental",
                             data: valorFundDataPracuuba,
+                            tension:0.3,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(154, 47, 102, 0.8)',
                         },
@@ -35,17 +37,20 @@ async function pracuubaChart() {
                             data: preDataPracuuba,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(2,233,14,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "AEE",
                             data: aeeDataPracuuba,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(142,23,194,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "EJA",
                             data: ejaDataPracuuba,
                             backgroundColor:'transparent',
+                            tension:0.3,
                             borderColor: 'rgba(244,3,234,0.6)',
                         },
                         {
@@ -53,11 +58,13 @@ async function pracuubaChart() {
                             data: maisFundDataPracuuba,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(45,133,164,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "Quilombola",
                             data: quiloDataPracuuba,
                             backgroundColor:'transparent',
+                            tension:0.3,
                             borderColor: 'rgba(25,243,256,0.6)',
                         },
                      ]

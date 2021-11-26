@@ -23,30 +23,35 @@ async function oiapoqueChart() {
                             data: valorCrecheDataOia,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(82,33,143,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "Fundamental",
                             data: valorFundDataOia,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(154, 47, 102, 0.8)',
+                            tension:0.3,
                         },
                         {
                             label: "Pré-Escola",
                             data: preDataOia,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(2,233,14,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "AEE",
                             data: aeeDataOia,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(142,23,194,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "EJA",
                             data: ejaDataOia,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(244,3,234,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "+Educação - Fundamental",
@@ -59,6 +64,7 @@ async function oiapoqueChart() {
                             data: quiloDataOia,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(25,243,256,0.6)',
+                            tension:0.3,
                         },
                      ]
             }

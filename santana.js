@@ -21,12 +21,14 @@ async function santanaChart() {
                         {
                             label: "Creche",
                             data: valorCrecheDataSan,
+                            tension:0.3,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(82,33,143,0.6)',
                         },
                         {
                             label: "Fundamental",
                             data: valorFundDataSan,
+                            tension:0.3,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(154, 47, 102, 0.8)',
                         },
@@ -34,12 +36,14 @@ async function santanaChart() {
                             label: "Pré-Escola",
                             data: preDataSan,
                             backgroundColor:'transparent',
+                            tension:0.3,
                             borderColor: 'rgba(2,233,14,0.6)',
                         },
                         {
                             label: "AEE",
                             data: aeeDataSan,
                             backgroundColor:'transparent',
+                            tension:0.3,
                             borderColor: 'rgba(142,23,194,0.6)',
                         },
                         {
@@ -47,17 +51,20 @@ async function santanaChart() {
                             data: ejaDataSan,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(244,3,234,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "+Educação - Fundamental",
                             data: maisFundDataSan,
                             backgroundColor:'transparent',
+                            tension:0.3,
                             borderColor: 'rgba(45,133,164,0.6)',
                         },
                         {
                             label: "Quilombola",
                             data: quiloDataSan,
                             backgroundColor:'transparent',
+                            tension:0.3,
                             borderColor: 'rgba(25,243,256,0.6)',
                         },
                      ]

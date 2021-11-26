@@ -21,18 +21,21 @@ async function repasseChart() {
                         {
                             label: "Creche",
                             data: valorCrecheData,
+                            tension:0.3,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(82,33,143,0.6)',
                         },
                         {
                             label: "Fundamental",
                             data: valorFundData,
+                            tension:0.3,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(154, 47, 102, 0.8)',
                         },
                         {
                             label: "Pré-Escola",
                             data: preData,
+                            tension:0.3,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(2,233,14,0.6)',
                         },
@@ -41,15 +44,18 @@ async function repasseChart() {
                             data: aeeData,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(142,23,194,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "EJA",
                             data: ejaData,
                             backgroundColor:'transparent',
+                            tension:0.3,
                             borderColor: 'rgba(244,3,234,0.6)',
                         },
                         {
                             label: "+Educação - Fundamental",
+                            tension:0.3,
                             data: maisFundData,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(45,133,164,0.6)',
@@ -57,6 +63,7 @@ async function repasseChart() {
                         {
                             label: "Quilombola",
                             data: quiloData,
+                            tension:0.3,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(25,243,256,0.6)',
                         },

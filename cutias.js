@@ -23,43 +23,51 @@ async function cutiasChart() {
                             data: valorCrecheDataCut,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(82,33,143,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "Fundamental",
                             data: valorFundDataCut,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(154, 47, 102, 0.8)',
+                            tension:0.3,
                         },
                         {
                             label: "Pré-Escola",
                             data: preDataCut,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(2,233,14,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "AEE",
                             data: aeeDataCut,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(142,23,194,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "EJA",
                             data: ejaDataCut,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(244,3,234,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "+Educação - Fundamental",
                             data: maisFundDataCut,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(45,133,164,0.6)',
+                            tension:0.3,
                         },
                         {
                             label: "Quilombola",
                             data: quiloDataCut,
                             backgroundColor:'transparent',
                             borderColor: 'rgba(25,243,256,0.6)',
+                            tension:0.3,
                         },
+
                      ]
             }
         })
