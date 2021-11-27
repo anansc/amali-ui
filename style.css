@@ -296,3 +296,60 @@ footer{
   color: #fff;
 }
 
+ /* ini: Preloader */
+ 
+ #preloader {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color:#6614c5; /* cor do background que vai ocupar o body */
+  z-index:999; /* z-index para jogar para frente e sobrepor tudo */
+}
+@keyframes animarBola {
+  0% {
+    -webkit-transform: scale(10);
+    transform: scale(10);
+    opacity: 1;
+  }
+  16% {
+    -webkit-transform: scale(10);
+    transform: scale(10);
+    opacity: 0.7;
+  }
+  33% {
+    -webkit-transform: scale(10);
+    transform: scale(10);
+    opacity: 1; 
+  } }
+#preloader .inner {
+  position: absolute;
+  top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+  left: 50%;
+  transform: translate(-50%, -50%);  
+  animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: both;
+animation-fill-mode: both;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+animation-name: animarBola;
+}
+.bolas > div {
+display: inline-block;
+background-color: #fff;
+width: 25px;
+height: 25px;
+border-radius: 100%;
+margin: 3px;
+-webkit-animation-fill-mode: both;
+animation-fill-mode: both;
+animation-name: animarBola;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+ 
+}
+
+
+}
+/* end: Preloader */
