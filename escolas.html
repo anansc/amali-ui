@@ -73,96 +73,96 @@
   <section class="tela_inicio">
     <div class="inicio_conteudo">
       <i class='bx bx-menu' ></i>
-      <span class="texto">Amali-UI Atulizado 20.11</span>
+      <span class="texto">Recursos recebidos por municipio/modalidade</span>
     </div>
-    <div class="graficoescolas">
+    <div class="divgrafico2">
       <div class="grafico">
          <h2 class="titulografico">• Amapá</h2>
-         <canvas id="line-chartAmapá"></canvas>
+         <canvas id="line-chartAmapa"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Calçoene</h2>
          <canvas id="line-chartCalcoene"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Cutias</h2>
          <canvas id="line-chartCutias"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Ferreira Gomes</h2>
          <canvas id="line-chartFerreira"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Itaubal</h2>
          <canvas id="line-chartItaubal"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Laranjal do Jari</h2>
          <canvas id="line-chartLaranjal"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Macapá</h2>
-         <canvas id="line-chartMacapá"></canvas>
+         <canvas id="line-chartMacapa"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Mazagão</h2>
-         <canvas id="line-chartMazagão"></canvas>
+         <canvas id="line-chartMazagao"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Oiapoque</h2>
          <canvas id="line-chartOiapoque"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Pedra Branca</h2>
          <canvas id="line-chartPedra"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Porto Grande</h2>
          <canvas id="line-chartPorto"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Pracuúba</h2>
          <canvas id="line-chartPracuuba"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Santana</h2>
          <canvas id="line-chartSantana"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Serra do Navio</h2>
          <canvas id="line-chartSerra"></canvas>
       </div>
   </div>
-  <div class="graficoescolas">
+  <div class="divgrafico">
       <div class="grafico">
          <h2 class="titulografico">• Tartarugalzinho</h2>
-         <canvas id="line-chartTartaruga"></canvas>
+         <canvas id="line-chartTartarugal"></canvas>
       </div>
   </div>
   <div class="divgrafico">
@@ -172,11 +172,35 @@
       </div>
   </div>
   </section>
+  <!-- início do preloader -->
+  <div id="preloader">
+    <div class="inner">
+       <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+       <img src="image/server.gif"/>     
+    </div>
+  </div>
+<!-- fim do preloader --> 
 
-  <script src="script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="app.js"></script>
-  <script src="ana.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.js" integrity="sha512-CWVDkca3f3uAWgDNVzW+W4XJbiC3CH84P2aWZXj+DqI6PNbTzXbl1dIzEHeNJpYSn4B6U8miSZb/hCws7FnUZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/chart/vitoria.js"></script>
+  <script src="js/chart/macapa.js"></script>
+  <script src="js/chart/serra.js"></script>
+  <script src="js/chart/cutias.js"></script>
+  <script src="js/chart/ferreira.js"></script>
+  <script src="js/chart/amapa.js"></script>
+  <script src="js/chart/santana.js"></script>
+  <script src="js/chart/calcoene.js"></script>
+  <script src="js/chart/oiapoque.js"></script>
+  <script src="js/chart/itaubal.js"></script>
+  <script src="js/chart/laranjal.js"></script>
+  <script src="js/chart/mazagao.js"></script>
+  <script src="js/chart/porto.js"></script>
+  <script src="js/chart/pedra.js"></script>
+  <script src="js/chart/pracuuba.js"></script>
+  <script src="js/chart/tartarugal.js"></script>
+  <script src="js/preload.js"></script>
+
 
 </body>
 </html>
