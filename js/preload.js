@@ -3,7 +3,17 @@
 
 
 $(window).on('load', function () {
-    $('#preloader .inner').delay(8000).fadeOut();
-    $('#preloader').delay(8000).fadeOut('slow'); 
-    $('body').delay(8000).css({'overflow': 'visible'});
+    $('#preloader .inner').delay(200).fadeOut();
+    $('#preloader').delay(200).fadeOut('slow'); 
+    $('body').delay(200).css({'overflow': 'visible'});
   })
+$(document).ready(function(){
+  $('.grafico').click(function(){
+    $('#line-chartAmapa').css("display", "block")
+    $('.preChart').css("display", "none")
+  })
+  $('.grafico').click(function(){
+    $('#line-chartAmapa').css("display", "none")
+    $('.preChart').css("display", "block")
+  })
+})

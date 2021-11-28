@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   height: 100px;
-  width: 100%s;
+  width: 260%s;
   background: #11101d;
   z-index: 100;
   transition: all 0.5s ease;
@@ -325,19 +325,46 @@ footer{
   } }
 #preloader .inner {
   position: absolute;
-  top: 40%; /* centralizar a parte interna do preload (onde fica a animação)*/
+  top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
   left: 50%;
   transform: translate(-50%, -50%);  
   animation-iteration-count: infinite;
   -webkit-animation-fill-mode: both;
-animation-fill-mode: both;
-animation-timing-function: linear;
-animation-iteration-count: infinite;
-animation-name: animarBola;
+ animation-fill-mode: both;
+ animation-timing-function: linear;
+ animation-iteration-count: infinite;
+ animation-name: animarBola;
 }
 #preloader .tagp {
-  top: 50%;
-  left: 80%;
+  position: absolute;
+  top: 70%;
+  left:32%;
   text-align: center;
 }
-
+ .preChart {
+  position: relative;
+  margin-left:auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  transform: translate(-50%, -50%);  
+  animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: both;
+ animation-fill-mode: both;
+ animation-timing-function: linear;
+ animation-iteration-count: infinite;
+ animation-name: animarBola;
+}
+.preChart img {
+  position: relative;
+  top: 50%;
+  left:37%;
+  text-align: center;
+}
+.divgrafico .preChart img{
+  vertical-align: middle;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
