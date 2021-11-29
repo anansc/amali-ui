@@ -2,9 +2,11 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Responsive Navbar</title>
-  <link rel="stylesheet" href="./style.css">
-
+  <title>AmaliAPI</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -20,12 +22,11 @@
     </button>
     <div id="navbar-menu" aria-labelledby="navbar-toggle">
       <ul class="navbar-links">
-        <li class="navbar-item"><a class="navbar-link" href="/about">About</a></li>
-        <li class="navbar-item"><a class="navbar-link" href="/blog">Blog</a></li>
-        <li class="navbar-item"><a class="navbar-link" href="/careers">Careers</a></li>
-        <li class="navbar-item"><a class="navbar-link" href="/contact">Contact</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="index.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAApxJREFUSEuVlut12zAMhT9s0A2cTeQNukK6QTewNUFXSDaxN2k2yAbo4RskIarWj5yYAgFc3AtAwuoRQHuDduS8XDqb/dSTpdMX4kTTE/vw2nvuEWu+/CrKKaawh8rZcxO4O9apxlN6o5vBc7SvNhPAGXGyHZj1y+JX0z0d4khM6Ug9D4QN5Qlci5HPX3CkltcHsIE8QetdWwSZCtYOnMv/rbCatMDVK18XeMDuIX4HLghfKB/ZPp3BF8JHJiknnavlqO1I1cFnfzlFeQhsSnAo11jeA7tUaiew6RRXOQIPtZdz4OhQeKKV95igwFOFa4/Y4ThHexXxejad6CNXqGqstpsdFIL2iB1dLaRWaYri8u6asx/AT+CtikZ4G9rpXeCiQUhYcckF1J5lYcpf0CLCb+AT4Tv0nS31b+BPCtrNStPH8hB0U4fjKCTLcZoByVP786skbAOH+XybBqp2AjGqtuKSTdCntkFTEKf11gLvQIiD7eO7wM1pdovY7ElnVrdqFY6NGKP9jnAvuZSXCXG+bBQ4j0yrbTtDrapjqTvKwq2GuPmQO2gNbLZTFzjObctfchBsAsqCuXTEjDiWuhfXzHFy0w16gbsKt2F/JSQT4qk0Pset1Ga8dNspes6U5I2UTPeYUItzzHERl8npAHG/FrMqIyVGXhVJPi0LZuzOXT1VW8TGaadqQQOy2/Ahs+fzgqO2UxPpmarnBZ2mTxNo2K/9cicOliCo8oRVWSZgPRRoiH1Vdxxbhcz/L74kBjqcdkq9mNppaj0nbu5dW0a7eRaZDn28WDNj1nZeLEuxNCx97Ey/KZeT5NZ8+AxVQocvRSuKPC/66O3X61nZ7XSQ9JFTK4b+89ZPaEj6xG0amv1OPa7qJDqnO3LAfwOtRjPiFzDjAAAAAElFTkSuQmCC" width="20px" height="20px">Início </a> </li>
+          <li class="navbar-item"><a class="navbar-link" href="recursos.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAqRJREFUSEutl3F5GzEMxX9C0DLYIIRBEwYZgo1By6AJgxbBxiAbgqUIWggbgw2B9+ksn+WzLnfpt/snic+WnqSnJ0dwjwDJfvvvfk/9vrxjem5qP7arq1fYrlsXDtlr/RifK/zMg11Ce9mxICRSh8TWL7htX7UGVqV62OTQra/9OpK4VMsW0lfgYxiQR3Ix4iArOYA/wA54U/L4Gh+Ax8bmXNHfT4YjoH7McY7mIKTHnNKmGr8hfcuAfDQXUX0BPgTtdEyN47yjjzivPws8XFljBfo5qEgUcevYxfMJ+L5E5En8e4RT0BYTxz7iSqK/wBPIoerZsFGN3pMGMurvM8hRSOeSFQNZM1hRHREOekwc0rwxLyj7zkGUOYVBf0Mao5mc2wCvtnYh4sKinhl7kpwGYQHNRkn/HuTGoh8AB51XklEd+4gFjNVNJgoEzcAd6lTYkuTNQGhE+u4G4cWVwEOfcZy9+1T3Gl419Bl4mDSdY7GIAfKNWR2XGru3rp384VE3i3gvOG5EqRRuqA8Q1dgLSJtqc63svYPkpG/QlA2JnwK3CX4MrO80KBNDIBYQX+OO0cKexMlAqHNHLm7N2Y4UdkNfY+fAK9cWeGmc9zyYdpWlseu1DcJrm2rxKR2Ewg8JjerJ6jJiENia3irD9VGAB4FIQO6tBOX8knI1se46o35OB4NbYJ8GyTQ7XrmiIVFr3MzUkcWBks0tWXu1s7khVwXTsLrqV+IXYGPRRzA78HWTjsV6oagZWhqLLUGa6Txegd91GwglU5mskdUB/h9uIM6E6rv66K4+QfesqGo8qXwXGMcmWXQ17v9HzBn1rDbl8Ppc4c6VrFz2gjnWyd5C8KsrXkD7iCvq4FIXWK54Y/qNl0bbOJ1a87GsSXVgdM6gT+w/ap0uMg7EkU8AAAAASUVORK5CYII=" width="20px" height="20px">Recursos</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="sobre.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAl9JREFUSEudlu151DAQhN+tgFABlHBUwF0JVECogHSQdABUkEsHdJBLBRwdQAdOBeJZ3dqWrF3Lh3/5Q9qP2ZmRBfcShETyP17/VqAOpvG7V70rP5Wvmhd1wPLzvE2QpphuIf+7oG3AKXFLcAu0pXKn7QrqLTGaknwsbVkc8crEcgPpM3AL7Cz6GTgKPCUYtmCla65JrIkeBXYe2wXOCb4AWkh8jRPaCO8N8At4bxH/Aie73wPv7P4P8IGp80iWCzmtFHEEFGK9fgB3F7Cm3r8LfLWnJxtFt/HAQma9CgwJ3gAvAvsx3cyrfKcIfLRu37ZBa/GHBlIsUyifLZDOULs3elTTvgO+GRIHhNOa9V0SO5IsVKLz3dkaJc7grQfKAg8jBxqTK4Q2odJ3wrLChhEPCPfmpyGSY7JiQWtp1Sx95xjrv4X0aA8v1v28ozQZg3jLjIORTpgdSRPjXy3pORjHPNammLKzjsgFTunCZL1eEfakjoGMHTexV723wvsBuLc3v63TYaHvasOSQwXPAjP0daG+rNoukq56RjWydsZ9eJW4e5I8578U4ROJn6uydOoJyFUL26ll1qxwIE2+vcrkbLFF6FjHzhCMAkqi0c0OICfrPvts/38t/Odyeqzpn93MXp1JDPMOxwa9BpoNG/hhx+N4WulppMehS9JIrqFzNYFqLWRy2bE4+XJ1Uvo6rcoLOFcTYSG0TC6LnRN3xNDkaH9vnRHNcJUfl3aw8vvv4L2u45gn0Ui9c9pFtOj4CrCc+ZUS8glVyyw0kL4WO07bUUeVuN/zFnNwjomGDsI/s2XuKC2YHKQAAAAASUVORK5CYII=" width="20px" height="20px"> Sobre API</a></li>
       </ul>
-    </div>
+      </div>
   </nav>
 </header>
 <!-- partial -->
