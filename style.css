@@ -172,8 +172,15 @@ body {
 
 footer {
   background-color: black;
-  height: 50px;
+  height: 100px;
   width: 100%;
   text-align: center;
   color: white;
+  font-size: 9;
+}
+footer p{
+  margin: 0;
+}
+.telatela {
+  min-height: 800px;
 }
