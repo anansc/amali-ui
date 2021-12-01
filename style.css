@@ -1,8 +1,8 @@
 :root {
-  --navbar-bg-color: hsl(0, 0%, 15%);
-  --navbar-text-color: hsl(0, 0%, 85%);
-  --navbar-text-color-focus: white;
-  --navbar-bg-contrast: hsl(0, 0%, 25%);
+  --navbar-bg-color:#1d1b31;
+  --navbar-text-color: #ffff;
+  --navbar-text-color-focus:#fff;
+  --navbar-bg-contrast: #A8A8A9;
 }
 * {
   box-sizing: border-box;
@@ -11,7 +11,7 @@
 }
 body {
   margin-top: 200PX;
-  height: 150vh;
+  height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
@@ -29,7 +29,7 @@ body {
   background-color: var(--navbar-bg-color);
   left: 0;
   right: 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px #1d1b31;
 }
 .navbar-container {
   display: flex;
@@ -69,9 +69,12 @@ body {
 .navbar-logo {
   background-color: var(--navbar-text-color-focus);
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   margin-right: 0.5em;
+}
+.navbar-logo img {
+  border-radius: 50%;
 }
 #navbar-toggle {
   cursor: pointer;
@@ -170,17 +173,55 @@ body {
   margin-right: 15px;
 }
 
-footer {
-  background-color: black;
-  height: 100px;
-  width: 100%;
+footer{
   text-align: center;
-  color: white;
-  font-size: 9;
-}
-footer p{
-  margin: 0;
+  height: 60px;
+  background: #1d1b31;
+  color: #fff;
 }
 .telatela {
   min-height: 800px;
+}
+.navbar-logo .img{
+  padding-left: px;
+}
+
+a:link {
+  color: #fff,
+  
+}
+
+
+
+
+
+
+
+
+
+
+.esquerda1{
+  height: 400px;
+  background-color: blue;
+  float: left;
+  width: 50%;
+}
+.direita1{
+  height: 400px;
+  background-color: pink;
+  float: left;
+  width: 50%;
+}
+.esquerda2{
+  height: 400px;
+  background-color: pink;
+  float: left;
+  width: 50%;
+}
+.direita2{
+  height: 400px;
+  background-color: blue;
+  
+  float: left;
+  width: 50%;
 }
