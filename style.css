@@ -218,3 +218,36 @@ a:link {
 #divum{
   margin-left: 12px
 }
+
+/*//////Sobre nós//////*/
+
+.divhtml{
+  height: 82px;
+  width: 82px;
+  display:inline-block;
+  align-items: center;
+}
+.imghtml{
+   height: 64px;
+  width: 64px;
+}
+.phtml{
+  text-align: center;
+  width: 100%;
+}
+
+.divperfil{
+  align-items: center;
+}
+
+.imgfoto{
+  margin-left: 2px;
+  margin-right:2px;
+  height: 35px;
+  width: 35px;
+  
+}
+
+.imgperfil{
+  border-radius: 50px;
+}
