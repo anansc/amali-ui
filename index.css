@@ -1,0 +1,14 @@
+.infoboxes{
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 1%, rgba(34,12,81,1) 33%, rgba(42,20,88,1) 39%, rgba(47,15,95,1) 44%, rgba(48,28,73,1) 96%);
+}
+.infobox-chart{
+    
+    width: 40%;
+}
+.infobox-texto{
+    
+    color: antiquewhite;
+    font-size: medium;
+    width: 60%;
+}
