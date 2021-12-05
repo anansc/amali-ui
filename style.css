@@ -12,6 +12,10 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+header{
+  height: 64px;
+  z-index:99;
+}
 /*
 .container {
   max-width: 1000px;
@@ -277,16 +281,12 @@ a:link {
 .divcontainer{
   height: 100%;
   width: 100%;
-  color: #f7f7f7;
   font-size: 15px;
   font-weight: 400;
-  margin: 10px;
-  background-color: black;
-  
-  
- -webkit-box-shadow: 0px 0px 5px 0px rgba(49, 50, 50, 0.24);
- -moz-box-shadow:    0px 0px 5px 0px rgba(49, 50, 50, 0.24);
-  box-shadow:         0px 0px 5px 0px rgba(49, 50, 50, 0.24);
+ 
+  background-color: ;
+  -webkit-box-shadow: 0px 0px 10px 0px #000000; 
+  box-shadow: 0px 0px 6px 0px #000000;
   border-radius: 20px;
 }
 
@@ -324,6 +324,10 @@ p.text-end.fs-3{
 }
 .text-center {
   text-align: center;
+}
+img, svg {
+  vertical-align: middle;
+  border-radius: 35px;
 }
 
 
