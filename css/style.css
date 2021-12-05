@@ -228,7 +228,7 @@ a:link {
   width: 110px;
   display: -webkit-inline-box;
   align-items: baseline;
-  text-aligh-last: justify;
+  text-align-last: justify;
   text-align-last: left;
 }
 .imghtml{
@@ -307,7 +307,7 @@ a:link {
   width: 600px;
 }
 main{
-  padding-top:64px
+  padding-top:90px
 }
 p.text-end.fs-3{
   padding-left: 10px;
