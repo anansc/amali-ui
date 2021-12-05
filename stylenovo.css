@@ -186,7 +186,7 @@ footer{
   }
   footer::before{
     content: '';
-    position: absolute;
+    position: inherit;
     left: 0;
     top: 100px;
     height: 1px;
@@ -393,6 +393,7 @@ footer{
   @media (max-width: 520px){
     footer::before{
       top: 145px;
+      position: inherit;
     }
     footer .content .top{
       flex-direction: column;
@@ -434,4 +435,31 @@ h3{
   top:64px;
   width: 50%;
   height: 400px;
+  box-shadow: -92px 1px 121px -33px rgba(255,255,255,1) inset;
+  -webkit-box-shadow: -92px 1px 121px -33px rgba(255,255,255,1) inset;
+  -moz-box-shadow: -92px 1px 121px -33px rgba(255,255,255,1) inset;
+  padding-top: 10px;
+  padding-left: 6px;
+ 
+}
+
+.imgcode{
+  position: inherit;
+  right: 0px;
+  top: 464px;
+  width: 490px;
+  height: 490px;
+  padding-top: 6px;
+  
+  padding-left:80px;
+}
+.fs-3{
+  font-family: initial;
+  font-size: 1.5rem;
+}
+.container {
+  padding-top: 10px;
+  
+  
+ 
 }

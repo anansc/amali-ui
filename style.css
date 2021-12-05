@@ -176,6 +176,7 @@ footer{
   height: 60px;
   background: #1d1b31;
   color: #fff;
+  position: inherit;
 }
 .telatela {
   min-height: 800px;
@@ -219,19 +220,22 @@ a:link {
 /*//////Sobre nós//////*/
 
 .divhtml{
-  height: 82px;
-  width: 82px;
-  display:inline-block;
-  align-items: center;
+  height: 30px;
+  width: 110px;
+  display: -webkit-inline-box;
+  align-items: baseline;
+  text-aligh-last: justify;
+  text-align-last: left;
 }
 .imghtml{
-  height: 82px;
-
-  width: 82px;
+  height: 19px;
+  width: 19px;
 }
+
 .phtml{
   text-align: center;
   width: 100%;
+  padding-left: 10px;
 }
 
 .divperfil{
@@ -305,3 +309,21 @@ a:link {
 main{
   padding-top:64px
 }
+p.text-end.fs-3{
+  padding-left: 10px;
+}
+.lh-base {
+  line-height: 1.5!important;
+  text-align: justify;
+}
+.imgfototext-center{
+ text-align: center;  
+}
+.row-cols-5{
+  text-align: center
+}
+.text-center {
+  text-align: center;
+}
+
+
