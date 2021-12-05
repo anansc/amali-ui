@@ -255,7 +255,9 @@ a:link {
 }
 
 .imgperfil{
-  border-radius: 50px;
+  border-radius: 100px;
+  height: 60px;
+  width: 60px;
 }
 .titulosobre{
   padding-left: 30px;

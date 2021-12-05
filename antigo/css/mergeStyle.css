@@ -3,30 +3,30 @@
     --navbar-text-color: #ffff;
     --navbar-text-color-focus:#fff;
     --navbar-bg-contrast: #A8A8A9;
-  }
-  * {
-    box-sizing: border-box;
+ }
+* {
+  box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
-  body {
+body {
     margin-top: 200px;
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
   }
-  header{
+header{
     height: 64px;
     z-index:99;
   }
-  .container {
+.container {
     max-width: 1000px;
     padding-left: 1.4rem;
     padding-right: 1.4rem;
     margin-left: auto;
     margin-right: auto;
   }
-  #navbar {
+#navbar {
     --navbar-height: 64px;
     position: fixed;
     height: var(--navbar-height);
@@ -35,18 +35,18 @@
     right: 0;
     box-shadow: 0 2px 4px #1d1b31;
   }
-  .navbar-container {
+.navbar-container {
     display: flex;
     justify-content: space-between;
     height: 100%;
     align-items: center;
   }
-  .navbar-item {
+.navbar-item {
     margin: 0.4em;
     width: 100%;
   }
-  
-  .home-link,
+
+.home-link,
   .navbar-link {
     color: var(--navbar-text-color);
     text-decoration: none;
@@ -54,33 +54,35 @@
     font-weight: 400;
     align-items: center;
   }
-  
-  .home-link:is(:focus, :hover) {
+
+.home-link:is(:focus, :hover) {
     color: var(--navbar-text-color-focus);
   }
-  
-  .navbar-link {
+
+.navbar-link {
     justify-content: center;
     width: 100%;
     padding: 0.4em 0.8em;
     border-radius: 5px;
-  }
-  
-  .navbar-link:is(:focus, :hover) {
+}
+
+.navbar-link:is(:focus, :hover) {
     color: var(--navbar-text-color-focus);
     background-color: var(--navbar-bg-contrast);
-  }
-  .navbar-logo {
+}
+
+.navbar-logo {
     background-color: var(--navbar-text-color-focus);
     border-radius: 50%;
     width: 50px;
     height: 50px;
     margin-right: 0.5em;
-  }
-  .navbar-logo img {
+}
+.navbar-logo img {
     border-radius: 50%;
-  }
-  #navbar-toggle {
+}
+
+#navbar-toggle {
     cursor: pointer;
     border: none;
     background-color: transparent;
@@ -90,32 +92,32 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
-  .icon-bar {
+ }
+.icon-bar {
     display: block;
     width: 25px;
     height: 4px;
     margin: 2px;
     background-color: var(--navbar-text-color);
-  }
-  #navbar-toggle:is(:focus, :hover) .icon-bar {
+}
+#navbar-toggle:is(:focus, :hover) .icon-bar {
     background-color: var(--navbar-text-color-focus);
-  }
-  #navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
+}	
+#navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
     position: absolute;
     margin: 0;
     width: 30px;
-  }
-  #navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
+}
+#navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
     transform: rotate(45deg);
-  }
-  #navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+}
+#navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
     opacity: 0;
-  }
-  #navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
+}
+#navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
     transform: rotate(-45deg);
-  }
-  #navbar-menu {
+}
+#navbar-menu {
     position: fixed;
     top: var(--navbar-height);
     bottom: 0;
@@ -123,13 +125,13 @@
     visibility: hidden;
     left: 0;
     right: 0;
-  }
-  #navbar-toggle[aria-expanded="true"] + #navbar-menu {
+}
+#navbar-toggle[aria-expanded="true"] + #navbar-menu {
     background-color: rgba(0, 0, 0, 0.4);
     opacity: 1;
     visibility: visible;
-  }
-  .navbar-links {
+}
+.navbar-links {
     list-style: none;
     position: absolute;
     background-color: var(--navbar-bg-color);
@@ -141,17 +143,15 @@
     margin: 1.4rem;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  }
-  
-  #navbar-toggle[aria-expanded="true"] + #navbar-menu .navbar-links {
+}
+#navbar-toggle[aria-expanded="true"] + #navbar-menu .navbar-links {
     padding: 1em;
-  }
-  @media screen and (min-width: 700px) {
+}
+@media screen and (min-width: 700px) {
     #navbar-toggle,
     #navbar-toggle[aria-expanded="true"] {
       display: none;
-    }
-  
+    }	
     #navbar-menu,
     #navbar-toggle[aria-expanded="true"] #navbar-menu {
       visibility: visible;
@@ -159,10 +159,10 @@
       position: static;
       display: block;
       height: 100%;
-    }
+     }
   
-    .navbar-links,
-    #navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-links {
+  
+    .navbar-links, #navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-links {
       margin: 0;
       padding: 0;
       box-shadow: none;
@@ -171,9 +171,9 @@
       width: 100%;
       height: 100%;
     }
-  }
-  
-  .navbar-link img {
+ }
+
+.navbar-link img {
     margin-right: 15px;
 }
 
@@ -218,7 +218,17 @@ footer{
     border-radius: 50%;
     text-align: center;
     line-height: 40px;
-    color: #fff;
+    background: #1d1b31;
+}
+.telatela {
+  min-height: 800px;
+}
+.navbar-logo .img{
+  padding-left: px;
+}
+  
+a:link {
+  color: #fff,
     font-size: 17px;
     text-decoration: none;
     transition: all 0.4s ease;
@@ -266,10 +276,14 @@ footer{
   footer .content .link-boxes .box{
     width: calc(100% / 5 - 10px);
   }
-  .content .link-boxes .box .link_name{
+  .content .link-boxes .  
+}
+
+.info-box {
+  box .link_name{
     color: #fff;
     font-size: 18px;
-    font-weight: 400;
+    -shadow: 0 0 1px rgb(0 0 0 / 13%);
     margin-bottom: 10px;
     position: relative;
   }
@@ -292,7 +306,7 @@ footer{
     font-weight: 400;
     text-decoration: none;
     opacity: 0.8;
-    transition: all 0.4s ease
+    transition: all 0.4s ease / 20%);
   }
   .content .link-boxes .box li a:hover{
     opacity: 1;
@@ -308,7 +322,12 @@ footer{
     border: 2px solid #AFAFB6;
     background: #140B5C;
     border-radius: 4px;
-    padding: 0 15px;
+  background-color: #fff;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  margin-bottom: 1rem;
+  min-height: 80px;
+  padding: 0 15px;
     font-size: 15px;
     color: #fff;
     margin-top: 5px;
@@ -433,7 +452,8 @@ h3{
   position: absolute;
   left: 0px;
   top:64px;
-  width: 50%;
+  width: font-weight: 400;
+ 50%;
   height: 400px;
   box-shadow: -92px 1px 121px -33px rgba(255,255,255,1) inset;
   -webkit-box-shadow: -92px 1px 121px -33px rgba(255,255,255,1) inset;
@@ -451,9 +471,7 @@ h3{
   height: 490px;
   padding-top: 6px;
   
-  padding-left:px;
-}
-.fs-3{
+  padding-left:.fs-3{
   font-family: initial;
   font-size: 1.5rem;
 }
@@ -466,5 +484,4 @@ h3{
 div.col{
   font-family: 'Times New Roman', Times, serif;
 
-}
 }
