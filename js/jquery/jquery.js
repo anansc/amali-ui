@@ -3219,8 +3219,8 @@ $('.timer').countTo({
     }
   });
   
-  $('.chart.chart-line').sparkline([3,5,4,3,5,7,3], {
-    type: 'line',
+  $('.chart.chart-line').sparkline([1,5,4,3,5,7,5], {
+    type: 'pie',
     lineColor: 'rgba(255,255,255,1)',
     fillColor: 'rgba(255,255,255,0)',
     spotColor: 'rgba(255,255,255,0)',
