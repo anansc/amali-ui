@@ -201,13 +201,18 @@
   
   main{
     padding-top: 64px;
-    background-color: #735f9b;
-
+    background-color: #2d2145;
   }
-
+  
 
   /*footer*/
-
+  footer{
+    text-align: center;
+    height: 60px;
+    background: #1d1b31;
+    color: #fff;
+    position: inherit;
+  }
   
 footer .bottom-details{
   width: 100%;
@@ -286,4 +291,32 @@ footer .bottom-details .bottom_text{
     footer .content .link-boxes .input-box{
       width: 100%;
     }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*barchart/*/
+  #barchart{
+    width: 100%;
+    height: 100%;
   }
