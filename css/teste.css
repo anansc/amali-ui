@@ -51,6 +51,7 @@
     display: flex;
     font-weight: 400;
     align-items: center;
+    font-size: unset;
     }
 
     .home-link:is(:focus, :hover) {
@@ -58,9 +59,10 @@
     }
 
     .navbar-link {
-    justify-content: center;
+    justify-content: normal;
     width: 100%;
     border-radius: 5px;
+    padding-left: 39%;
     }
 
     .navbar-link:is(:focus, :hover) {
@@ -195,4 +197,10 @@
         height: 50%;
     }
   
-    
+  /*main*/
+  
+  main{
+    margin-top: 64px;
+    background-color: #2d2145;
+
+  }
