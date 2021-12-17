@@ -62,7 +62,7 @@
     justify-content: normal;
     width: 100%;
     border-radius: 5px;
-    padding-left: 30%;
+    padding-left: 35%;
     }
 
     .navbar-link:is(:focus, :hover) {
@@ -207,6 +207,34 @@
 
 
   /*footer*/
+
+  
+footer .bottom-details{
+  width: 100%;
+  background: rgba(153, 32, 32, 0);
+}
+footer .bottom-details .bottom_text{
+  max-width: 1250px;
+  margin: auto;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.bottom-details .bottom_text span,
+.bottom-details .bottom_text a{
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: none;
+}
+.bottom-details .bottom_text a:hover{
+  opacity: 1;
+  text-decoration: underline;
+}
+.bottom-details .bottom_text a{
+  margin-right: 10px;
+}
 
   @media (max-width: 900px) {
     footer .content .link-boxes{
