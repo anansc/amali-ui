@@ -27,7 +27,6 @@
     height: var(--navbar-height);
     left: 0;
     right: 0;
-    padding: 0% 3%;
 
     background-color: var(--navbar-bg-color);
     box-shadow: 0 2px 4px #1d1b31;
@@ -61,8 +60,8 @@
     .navbar-link {
     justify-content: normal;
     width: 100%;
+    padding: 0.4em 0.8em;
     border-radius: 5px;
-    padding-left: 35%;
     }
 
     .navbar-link:is(:focus, :hover) {
