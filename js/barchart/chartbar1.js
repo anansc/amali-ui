@@ -19,30 +19,30 @@ option = {
     }
   },
   legend: {
-    data: [],
-    type: "scroll",
-    align: "left",
-    top: '8%',
-    left: '13%',
-    widht: '30px',
-    textStyle:{
-        fontSize: '9px',
-        align: 'right'
-    },
-    },
+    show: false
+  },
   grid: {
-    left: '3%',
-    right: '4%',
-    bottom: '3%',
+    top: '1%',
+    left: '1%',
+    right: '1%',
+    bottom: '1%',
     containLabel: true
   },
   xAxis: {
-    type: 'value',
-    boundaryGap: [0, 0.01]
+    show: false
   },
   yAxis: {
     type: 'category',
-    data: ['Brazil', 'Indonesia', 'USA', 'India', 'China', 'World']
+    data: ['Amapá', 'Calçoene', 'Macapá', 'Santana', 'Mazagão', 'Pedra Branca'],
+    axisTick:{
+      show: false
+    },
+    axisLine:{
+      show: false
+    },
+    axisLabel:{
+      ali
+    }
   },
   series: [
     {
@@ -50,11 +50,6 @@ option = {
       type: 'bar',
       data: [18203, 23489, 29034, 104970, 131744, 630230]
     },
-    {
-      name: '2012',
-      type: 'bar',
-      data: [19325, 23438, 31000, 121594, 134141, 681807]
-    }
   ]
 };
 
