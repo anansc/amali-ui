@@ -304,10 +304,11 @@ a:link {
 }
 main{
   padding-top:90px;
-  background-color: #9370DB;
+  background-color: #2d2145;
 }
 p.text-end.fs-3{
   padding-left: 10px;
+  color: #ffff;
 }
 .lh-base {
   line-height: 1.5!important;
@@ -402,5 +403,28 @@ footer .bottom-details .bottom_text{
 
 .imgsobre{
   width: 100%;
-  height: 100%
+  height: 100%;
+  border-radius: 35px;
+}
+.fs-3 {
+  font-size: 1.75rem!important;
+  color: #fff;
+}
+.fw-bolder {
+  font-weight: bolder!important;
+  color: #ffff;
+}
+.phtml {
+  text-align: center;
+  width: 100%;
+  padding-left: 10px;
+  color: #fff;
+}
+.col-xxl-6 {
+  flex: 0 0 auto;
+  width: 50%;
+  color: #fff;
+}
+.fs-3 {
+  font-size: 1.75rem!important;
 }
