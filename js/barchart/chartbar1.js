@@ -41,7 +41,7 @@ option = {
       show: false
     },
     axisLabel:{
-      ali
+      
     }
   },
   series: [

@@ -17,7 +17,7 @@ await getQuiloDataAmapa()
 await getRepasseDataAmapa()
 
     
-    var dom = document.getElementById("recursosAmapa")
+    var dom = document.getElementById("chart-recurso-amapa")
     var echartAmapa = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -282,7 +282,7 @@ async function calcoeneChart() {
     await getQuiloDataCalcoene()
     await getRepasseDataCalcoene()
 
-        var dom = document.getElementById("recursosCalcoene")
+        var dom = document.getElementById("chart-recurso-calcoene")
     var echartCalcoene = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -547,7 +547,7 @@ async function cutiasChart() {
     await getQuiloDataCutias()
     await getRepasseDataCutias()
 
-        var dom = document.getElementById("recursosCutias")
+        var dom = document.getElementById("chart-recurso-cutias")
     var echartCutias = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -812,7 +812,7 @@ async function macapaChart() {
     await getQuiloDataMacapa()
     await getRepasseDataMacapa()
 
-        var dom = document.getElementById("recursosMacapa")
+        var dom = document.getElementById("chart-recurso-macapa")
     var echartMacapa = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -1077,7 +1077,7 @@ async function pedraChart() {
     await getQuiloDataPedra()
     await getRepasseDataPedra()
 
-        var dom = document.getElementById("recursosPedra")
+        var dom = document.getElementById("chart-recurso-pedra")
     var echartPedra = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -1342,7 +1342,7 @@ async function ferreiraChart() {
     await getQuiloDataFerreira()
     await getRepasseDataFerreira()
 
-        var dom = document.getElementById("recursosFerreira")
+        var dom = document.getElementById("chart-recurso-ferreira")
     var echartFerreira = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -1608,7 +1608,7 @@ async function itaubalChart() {
     await getQuiloDataItaubal()
     await getRepasseDataItaubal()
 
-        var dom = document.getElementById("recursosItaubal")
+        var dom = document.getElementById("chart-recurso-itaubal")
     var echartItaubal = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -1873,7 +1873,7 @@ async function laranjalChart() {
     await getQuiloDataLaranjal()
     await getRepasseDataLaranjal()
 
-        var dom = document.getElementById("recursosLaranjal")
+        var dom = document.getElementById("chart-recurso-laranjal")
     var echartLaranjal = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -2138,7 +2138,7 @@ async function mazagaoChart() {
     await getQuiloDataMazagao()
     await getRepasseDataMazagao()
 
-        var dom = document.getElementById("recursosMazagao")
+        var dom = document.getElementById("chart-recurso-mazagao")
     var echartMazagao = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -2403,7 +2403,7 @@ async function portoChart() {
     await getQuiloDataPorto()
     await getRepasseDataPorto()
 
-        var dom = document.getElementById("recursosPorto")
+        var dom = document.getElementById("chart-recurso-porto")
     var echartPorto = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -2668,7 +2668,7 @@ async function santanaChart() {
     await getQuiloDataSantana()
     await getRepasseDataSantana()
 
-        var dom = document.getElementById("recursosSantana")
+        var dom = document.getElementById("chart-recurso-santana")
     var echartSantana = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -2933,7 +2933,7 @@ async function serraChart() {
     await getQuiloDataSerra()
     await getRepasseDataSerra()
 
-        var dom = document.getElementById("recursosSerra")
+        var dom = document.getElementById("chart-recurso-serra")
     var echartSerra = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -3198,7 +3198,7 @@ async function tartarugalChart() {
     await getQuiloDataTartarugal()
     await getRepasseDataTartarugal()
 
-    var dom = document.getElementById("recursosTartarugal")
+    var dom = document.getElementById("chart-recurso-tartarugal")
     var echartTartarugal = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -3463,7 +3463,7 @@ async function vitoriaChart() {
     await getQuiloDataVitoria()
     await getRepasseDataVitoria()
 
-        var dom = document.getElementById("recursosVitoria")
+        var dom = document.getElementById("chart-recurso-vitoria")
     var echartVitoria = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -3729,7 +3729,7 @@ await getQuiloDataOiapoque()
 await getRepasseDataOiapoque()
 
     
-    var dom = document.getElementById("recursosOiapoque")
+    var dom = document.getElementById("chart-recurso-oiapoque")
     var echartOiapoque = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -3998,7 +3998,7 @@ await getQuiloDataPracuuba()
 await getRepasseDataPracuuba()
 
     
-    var dom = document.getElementById("recursosPracuuba")
+    var dom = document.getElementById("chart-recurso-pracuuba")
     var echartPracuuba = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {

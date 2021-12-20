@@ -323,8 +323,7 @@ background-color: #1d1b31 !important;
   /*grafico*/
 
   .grafico{
-    height: 400px;
-    width: 600px;
+    
   }
   #barchart{
     width: 100%;
@@ -333,6 +332,24 @@ background-color: #1d1b31 !important;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*metricas*/
+  .text-table{
+    font-size: x-small;
+  }
 
 
 

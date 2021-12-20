@@ -3233,3 +3233,4 @@ $('.timer').countTo({
     height: '60px' ,
     width: '64px'
 });
+
