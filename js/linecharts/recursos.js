@@ -153,7 +153,7 @@ await getRepasseDataAmapa()
     }
 }
 async function getRepasseDataAmapa(){
-    var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=amapa&esferaGoverno=municipal"
+    var url = "http://localhost:8080/repasse/pMunicipio?municipio=amapa&esferaGoverno=municipal"
 
     var response = await fetch(url,{
         method: 'GET',
@@ -169,7 +169,7 @@ async function getRepasseDataAmapa(){
     anoDataAmapa = anoU
 }
 async function getFundDataAmapa(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
 
     response = await fetch(url,{
         method: 'GET',
@@ -184,7 +184,7 @@ async function getFundDataAmapa(){
     fundDataAmapa = valor
 }
 async function getCrecheDataAmapa(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=creche"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=creche"
  
     response = await fetch(url,{
          method: 'GET',
@@ -198,7 +198,7 @@ async function getCrecheDataAmapa(){
      crecheDataAmapa = valor
 }
 async function getPreDataAmapa(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -212,7 +212,7 @@ async function getPreDataAmapa(){
     preDataAmapa = valor
 }
 async function getAeeDataAmapa(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=aee"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=aee"
  
     response = await fetch(url,{
          method: 'GET',
@@ -226,7 +226,7 @@ async function getAeeDataAmapa(){
     aeeDataAmapa = valor
 }
 async function getEjaDataAmapa(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=eja"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=eja"
  
     response = await fetch(url,{
          method: 'GET',
@@ -240,7 +240,7 @@ async function getEjaDataAmapa(){
     ejaDataAmapa = valor
 }
 async function getMaisFundDataAmapa(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
  
     response = await fetch(url,{
          method: 'GET',
@@ -254,7 +254,7 @@ async function getMaisFundDataAmapa(){
     maisFundDataAmapa = valor
 }
 async function getQuiloDataAmapa(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsino=quilombola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -282,7 +282,7 @@ async function calcoeneChart() {
     await getQuiloDataCalcoene()
     await getRepasseDataCalcoene()
 
-        var dom = document.getElementById("chart-recurso-calcoene")
+    var dom = document.getElementById("chart-recurso-calcoene")
     var echartCalcoene = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -418,7 +418,7 @@ async function calcoeneChart() {
         }
 }
 async function getRepasseDataCalcoene(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=calcoene&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=calcoene&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -434,7 +434,7 @@ async function getRepasseDataCalcoene(){
         anoDataCalcoene = anoU
 }
 async function getFundDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -449,7 +449,7 @@ async function getFundDataCalcoene(){
         fundDataCalcoene = valor
 }
 async function getCrecheDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -463,7 +463,7 @@ async function getCrecheDataCalcoene(){
          crecheDataCalcoene = valor
 }
 async function getPreDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -477,7 +477,7 @@ async function getPreDataCalcoene(){
         preDataCalcoene = valor
 }
 async function getAeeDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -491,7 +491,7 @@ async function getAeeDataCalcoene(){
         aeeDataCalcoene = valor
 }
 async function getEjaDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -505,7 +505,7 @@ async function getEjaDataCalcoene(){
         ejaDataCalcoene = valor
 }
 async function getMaisFundDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -519,7 +519,7 @@ async function getMaisFundDataCalcoene(){
         maisFundDataCalcoene = valor
 }
 async function getQuiloDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -683,7 +683,7 @@ async function cutiasChart() {
         }
 }
 async function getRepasseDataCutias(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=cutias&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=cutias&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -699,7 +699,7 @@ async function getRepasseDataCutias(){
         anoDataCutias = anoU
 }
 async function getFundDataCutias(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -714,7 +714,7 @@ async function getFundDataCutias(){
         fundDataCutias = valor
 }
 async function getCrecheDataCutias(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -728,7 +728,7 @@ async function getCrecheDataCutias(){
          crecheDataCutias = valor
 }
 async function getPreDataCutias(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -742,7 +742,7 @@ async function getPreDataCutias(){
         preDataCutias = valor
 }
 async function getAeeDataCutias(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -756,7 +756,7 @@ async function getAeeDataCutias(){
         aeeDataCutias = valor
 }
 async function getEjaDataCutias(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -770,7 +770,7 @@ async function getEjaDataCutias(){
         ejaDataCutias = valor
 }
 async function getMaisFundDataCutias(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -784,7 +784,7 @@ async function getMaisFundDataCutias(){
         maisFundDataCutias = valor
 }
 async function getQuiloDataCutias(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -948,7 +948,7 @@ async function macapaChart() {
         }
 }
 async function getRepasseDataMacapa(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=macapa&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=macapa&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -964,7 +964,7 @@ async function getRepasseDataMacapa(){
         anoDataMacapa = anoU
 }
 async function getFundDataMacapa(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -979,7 +979,7 @@ async function getFundDataMacapa(){
         fundDataMacapa = valor
 }
 async function getCrecheDataMacapa(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -993,7 +993,7 @@ async function getCrecheDataMacapa(){
          crecheDataMacapa = valor
 }
 async function getPreDataMacapa(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1007,7 +1007,7 @@ async function getPreDataMacapa(){
         preDataMacapa = valor
 }
 async function getAeeDataMacapa(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1021,7 +1021,7 @@ async function getAeeDataMacapa(){
         aeeDataMacapa = valor
 }
 async function getEjaDataMacapa(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1035,7 +1035,7 @@ async function getEjaDataMacapa(){
         ejaDataMacapa = valor
 }
 async function getMaisFundDataMacapa(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1049,7 +1049,7 @@ async function getMaisFundDataMacapa(){
         maisFundDataMacapa = valor
 }
 async function getQuiloDataMacapa(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1213,7 +1213,7 @@ async function pedraChart() {
         }
 }
 async function getRepasseDataPedra(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=pedra_branca_do_amapari&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=pedra_branca_do_amapari&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -1229,7 +1229,7 @@ async function getRepasseDataPedra(){
         anoDataPedra = anoU
 }
 async function getFundDataPedra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -1244,7 +1244,7 @@ async function getFundDataPedra(){
         fundDataPedra = valor
 }
 async function getCrecheDataPedra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1258,7 +1258,7 @@ async function getCrecheDataPedra(){
          crecheDataPedra = valor
 }
 async function getPreDataPedra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1272,7 +1272,7 @@ async function getPreDataPedra(){
         preDataPedra = valor
 }
 async function getAeeDataPedra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1286,7 +1286,7 @@ async function getAeeDataPedra(){
         aeeDataPedra = valor
 }
 async function getEjaDataPedra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1300,7 +1300,7 @@ async function getEjaDataPedra(){
         ejaDataPedra = valor
 }
 async function getMaisFundDataPedra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1314,7 +1314,7 @@ async function getMaisFundDataPedra(){
         maisFundDataPedra = valor
 }
 async function getQuiloDataPedra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1478,7 +1478,7 @@ async function ferreiraChart() {
         }
 }
 async function getRepasseDataFerreira(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=ferreira_gomes_gomes&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=ferreira_gomes_gomes&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -1494,7 +1494,7 @@ async function getRepasseDataFerreira(){
         anoDataFerreira = anoU
 }
 async function getFundDataFerreira(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -1509,7 +1509,7 @@ async function getFundDataFerreira(){
         fundDataFerreira = valor
 }
 async function getCrecheDataFerreira(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1523,7 +1523,7 @@ async function getCrecheDataFerreira(){
          crecheDataFerreira = valor
 }
 async function getPreDataFerreira(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1537,7 +1537,7 @@ async function getPreDataFerreira(){
         preDataFerreira = valor
 }
 async function getAeeDataFerreira(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1551,7 +1551,7 @@ async function getAeeDataFerreira(){
         aeeDataFerreira = valor
 }
 async function getEjaDataFerreira(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1565,7 +1565,7 @@ async function getEjaDataFerreira(){
         ejaDataFerreira = valor
 }
 async function getMaisFundDataFerreira(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1579,7 +1579,7 @@ async function getMaisFundDataFerreira(){
         maisFundDataFerreira = valor
 }
 async function getQuiloDataFerreira(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1744,7 +1744,7 @@ async function itaubalChart() {
         }
 }
 async function getRepasseDataItaubal(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=itaubal&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=itaubal&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -1760,7 +1760,7 @@ async function getRepasseDataItaubal(){
         anoDataItaubal = anoU
 }
 async function getFundDataItaubal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -1775,7 +1775,7 @@ async function getFundDataItaubal(){
         fundDataItaubal = valor
 }
 async function getCrecheDataItaubal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1789,7 +1789,7 @@ async function getCrecheDataItaubal(){
          crecheDataItaubal = valor
 }
 async function getPreDataItaubal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1803,7 +1803,7 @@ async function getPreDataItaubal(){
         preDataItaubal = valor
 }
 async function getAeeDataItaubal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1817,7 +1817,7 @@ async function getAeeDataItaubal(){
         aeeDataItaubal = valor
 }
 async function getEjaDataItaubal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1831,7 +1831,7 @@ async function getEjaDataItaubal(){
         ejaDataItaubal = valor
 }
 async function getMaisFundDataItaubal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1845,7 +1845,7 @@ async function getMaisFundDataItaubal(){
         maisFundDataItaubal = valor
 }
 async function getQuiloDataItaubal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2009,7 +2009,7 @@ async function laranjalChart() {
         }
 }
 async function getRepasseDataLaranjal(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=laranjal_do_jari&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=laranjal_do_jari&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -2025,7 +2025,7 @@ async function getRepasseDataLaranjal(){
         anoDataLaranjal = anoU
 }
 async function getFundDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -2040,7 +2040,7 @@ async function getFundDataLaranjal(){
         fundDataLaranjal = valor
 }
 async function getCrecheDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2054,7 +2054,7 @@ async function getCrecheDataLaranjal(){
          crecheDataLaranjal = valor
 }
 async function getPreDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2068,7 +2068,7 @@ async function getPreDataLaranjal(){
         preDataLaranjal = valor
 }
 async function getAeeDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2082,7 +2082,7 @@ async function getAeeDataLaranjal(){
         aeeDataLaranjal = valor
 }
 async function getEjaDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2096,7 +2096,7 @@ async function getEjaDataLaranjal(){
         ejaDataLaranjal = valor
 }
 async function getMaisFundDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2110,7 +2110,7 @@ async function getMaisFundDataLaranjal(){
         maisFundDataLaranjal = valor
 }
 async function getQuiloDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2274,7 +2274,7 @@ async function mazagaoChart() {
         }
 }
 async function getRepasseDataMazagao(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=mazagao&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=mazagao&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -2290,7 +2290,7 @@ async function getRepasseDataMazagao(){
         anoDataMazagao = anoU
 }
 async function getFundDataMazagao(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -2305,7 +2305,7 @@ async function getFundDataMazagao(){
         fundDataMazagao = valor
 }
 async function getCrecheDataMazagao(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2319,7 +2319,7 @@ async function getCrecheDataMazagao(){
          crecheDataMazagao = valor
 }
 async function getPreDataMazagao(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2333,7 +2333,7 @@ async function getPreDataMazagao(){
         preDataMazagao = valor
 }
 async function getAeeDataMazagao(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2347,7 +2347,7 @@ async function getAeeDataMazagao(){
         aeeDataMazagao = valor
 }
 async function getEjaDataMazagao(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2361,7 +2361,7 @@ async function getEjaDataMazagao(){
         ejaDataMazagao = valor
 }
 async function getMaisFundDataMazagao(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2375,7 +2375,7 @@ async function getMaisFundDataMazagao(){
         maisFundDataMazagao = valor
 }
 async function getQuiloDataMazagao(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2539,7 +2539,7 @@ async function portoChart() {
         }
 }
 async function getRepasseDataPorto(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=porto_grande&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=porto_grande&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -2555,7 +2555,7 @@ async function getRepasseDataPorto(){
         anoDataPorto = anoU
 }
 async function getFundDataPorto(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -2570,7 +2570,7 @@ async function getFundDataPorto(){
         fundDataPorto = valor
 }
 async function getCrecheDataPorto(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2584,7 +2584,7 @@ async function getCrecheDataPorto(){
          crecheDataPorto = valor
 }
 async function getPreDataPorto(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2598,7 +2598,7 @@ async function getPreDataPorto(){
         preDataPorto = valor
 }
 async function getAeeDataPorto(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2612,7 +2612,7 @@ async function getAeeDataPorto(){
         aeeDataPorto = valor
 }
 async function getEjaDataPorto(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2626,7 +2626,7 @@ async function getEjaDataPorto(){
         ejaDataPorto = valor
 }
 async function getMaisFundDataPorto(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2640,7 +2640,7 @@ async function getMaisFundDataPorto(){
         maisFundDataPorto = valor
 }
 async function getQuiloDataPorto(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2804,7 +2804,7 @@ async function santanaChart() {
         }
 }
 async function getRepasseDataSantana(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=santana&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=santana&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -2820,7 +2820,7 @@ async function getRepasseDataSantana(){
         anoDataSantana = anoU
 }
 async function getFundDataSantana(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -2835,7 +2835,7 @@ async function getFundDataSantana(){
         fundDataSantana = valor
 }
 async function getCrecheDataSantana(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2849,7 +2849,7 @@ async function getCrecheDataSantana(){
          crecheDataSantana = valor
 }
 async function getPreDataSantana(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2863,7 +2863,7 @@ async function getPreDataSantana(){
         preDataSantana = valor
 }
 async function getAeeDataSantana(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2877,7 +2877,7 @@ async function getAeeDataSantana(){
         aeeDataSantana = valor
 }
 async function getEjaDataSantana(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2891,7 +2891,7 @@ async function getEjaDataSantana(){
         ejaDataSantana = valor
 }
 async function getMaisFundDataSantana(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2905,7 +2905,7 @@ async function getMaisFundDataSantana(){
         maisFundDataSantana = valor
 }
 async function getQuiloDataSantana(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3069,7 +3069,7 @@ async function serraChart() {
         }
 }
 async function getRepasseDataSerra(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=serra_do_navio&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=serra_do_navio&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -3085,7 +3085,7 @@ async function getRepasseDataSerra(){
         anoDataSerra = anoU
 }
 async function getFundDataSerra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -3100,7 +3100,7 @@ async function getFundDataSerra(){
         fundDataSerra = valor
 }
 async function getCrecheDataSerra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3114,7 +3114,7 @@ async function getCrecheDataSerra(){
          crecheDataSerra = valor
 }
 async function getPreDataSerra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3128,7 +3128,7 @@ async function getPreDataSerra(){
         preDataSerra = valor
 }
 async function getAeeDataSerra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3142,7 +3142,7 @@ async function getAeeDataSerra(){
         aeeDataSerra = valor
 }
 async function getEjaDataSerra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3156,7 +3156,7 @@ async function getEjaDataSerra(){
         ejaDataSerra = valor
 }
 async function getMaisFundDataSerra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3170,7 +3170,7 @@ async function getMaisFundDataSerra(){
         maisFundDataSerra = valor
 }
 async function getQuiloDataSerra(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3334,7 +3334,7 @@ async function tartarugalChart() {
         }
 }
 async function getRepasseDataTartarugal(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=tartarugalzinho&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=tartarugalzinho&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -3350,7 +3350,7 @@ async function getRepasseDataTartarugal(){
         anoDataTartarugal = anoU
 }
 async function getFundDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -3365,7 +3365,7 @@ async function getFundDataTartarugal(){
         fundDataTartarugal = valor
 }
 async function getCrecheDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3379,7 +3379,7 @@ async function getCrecheDataTartarugal(){
          crecheDataTartarugal = valor
 }
 async function getPreDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3393,7 +3393,7 @@ async function getPreDataTartarugal(){
         preDataTartarugal = valor
 }
 async function getAeeDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3407,7 +3407,7 @@ async function getAeeDataTartarugal(){
         aeeDataTartarugal = valor
 }
 async function getEjaDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3421,7 +3421,7 @@ async function getEjaDataTartarugal(){
         ejaDataTartarugal = valor
 }
 async function getMaisFundDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3435,7 +3435,7 @@ async function getMaisFundDataTartarugal(){
         maisFundDataTartarugal = valor
 }
 async function getQuiloDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3599,7 +3599,7 @@ async function vitoriaChart() {
         }
 }
 async function getRepasseDataVitoria(){
-        var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal"
+        var url = "http://localhost:8080/repasse/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -3615,7 +3615,7 @@ async function getRepasseDataVitoria(){
         anoDataVitoria = anoU
 }
 async function getFundDataVitoria(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -3630,7 +3630,7 @@ async function getFundDataVitoria(){
         fundDataVitoria = valor
 }
 async function getCrecheDataVitoria(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=creche"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3644,7 +3644,7 @@ async function getCrecheDataVitoria(){
          crecheDataVitoria = valor
 }
 async function getPreDataVitoria(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3658,7 +3658,7 @@ async function getPreDataVitoria(){
         preDataVitoria = valor
 }
 async function getAeeDataVitoria(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=aee"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=aee"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3672,7 +3672,7 @@ async function getAeeDataVitoria(){
         aeeDataVitoria = valor
 }
 async function getEjaDataVitoria(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=eja"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=eja"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3686,7 +3686,7 @@ async function getEjaDataVitoria(){
         ejaDataVitoria = valor
 }
 async function getMaisFundDataVitoria(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3700,7 +3700,7 @@ async function getMaisFundDataVitoria(){
         maisFundDataVitoria = valor
 }
 async function getQuiloDataVitoria(){
-        url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+        url = "http://localhost:8080/repasse/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3865,7 +3865,7 @@ await getRepasseDataOiapoque()
     }
 }
 async function getRepasseDataOiapoque(){
-    var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=oiapoque&esferaGoverno=municipal"
+    var url = "http://localhost:8080/repasse/pMunicipio?municipio=oiapoque&esferaGoverno=municipal"
 
     var response = await fetch(url,{
         method: 'GET',
@@ -3881,7 +3881,7 @@ async function getRepasseDataOiapoque(){
     anoDataOiapoque = anoU
 }
 async function getFundDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
 
     response = await fetch(url,{
         method: 'GET',
@@ -3896,7 +3896,7 @@ async function getFundDataOiapoque(){
     fundDataOiapoque = valor
 }
 async function getCrecheDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=creche"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=creche"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3910,7 +3910,7 @@ async function getCrecheDataOiapoque(){
      crecheDataOiapoque = valor
 }
 async function getPreDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3924,7 +3924,7 @@ async function getPreDataOiapoque(){
     preDataOiapoque = valor
 }
 async function getAeeDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=aee"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=aee"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3938,7 +3938,7 @@ async function getAeeDataOiapoque(){
     aeeDataOiapoque = valor
 }
 async function getEjaDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=eja"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=eja"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3952,7 +3952,7 @@ async function getEjaDataOiapoque(){
     ejaDataOiapoque = valor
 }
 async function getMaisFundDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3966,7 +3966,7 @@ async function getMaisFundDataOiapoque(){
     maisFundDataOiapoque = valor
 }
 async function getQuiloDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsino=quilombola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4134,7 +4134,7 @@ await getRepasseDataPracuuba()
     }
 }
 async function getRepasseDataPracuuba(){
-    var url = "https://amali-api.herokuapp.com/repasse/pMunicipio?municipio=pracuuba&esferaGoverno=municipal"
+    var url = "http://localhost:8080/repasse/pMunicipio?municipio=pracuuba&esferaGoverno=municipal"
 
     var response = await fetch(url,{
         method: 'GET',
@@ -4150,7 +4150,7 @@ async function getRepasseDataPracuuba(){
     anoDataPracuuba = anoU
 }
 async function getFundDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=ensino_fundamental"
 
     response = await fetch(url,{
         method: 'GET',
@@ -4165,7 +4165,7 @@ async function getFundDataPracuuba(){
     fundDataPracuuba = valor
 }
 async function getCrecheDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=creche"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=creche"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4179,7 +4179,7 @@ async function getCrecheDataPracuuba(){
      crecheDataPracuuba = valor
 }
 async function getPreDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=pre_escola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4193,7 +4193,7 @@ async function getPreDataPracuuba(){
     preDataPracuuba = valor
 }
 async function getAeeDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=aee"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=aee"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4207,7 +4207,7 @@ async function getAeeDataPracuuba(){
     aeeDataPracuuba = valor
 }
 async function getEjaDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=eja"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=eja"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4221,7 +4221,7 @@ async function getEjaDataPracuuba(){
     ejaDataPracuuba = valor
 }
 async function getMaisFundDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4235,7 +4235,7 @@ async function getMaisFundDataPracuuba(){
     maisFundDataPracuuba = valor
 }
 async function getQuiloDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=quilombola"
+    url = "http://localhost:8080/repasse/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsino=quilombola"
  
     response = await fetch(url,{
          method: 'GET',

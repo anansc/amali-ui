@@ -322,9 +322,7 @@ background-color: #1d1b31 !important;
 
   /*grafico*/
 
-  .grafico{
-    
-  }
+  
   #barchart{
     width: 100%;
     height: 100%;
@@ -522,3 +520,24 @@ margin-right: 10px;
 
 
 
+
+
+.desativado{
+  display: none;
+}
+.ativado{
+  display: block;
+}
+
+
+.canvas{
+  height: 200px;
+  width: 100%;
+}
+
+
+
+canvas{
+  
+  position: inherit;
+}

@@ -3,21 +3,21 @@ function unique(value, index, self) {
     return self.indexOf(value) === index;
 }
 //////////////////////////// amapa   
-var anoDataAmapa = [], modalidadeDataAmapa = [], crecheDataAmapa = [], fundDataAmapa = [], preDataAmapa = [], aeeDataAmapa = [], ejaDataAmapa = [], maisFundDataAmapa = [], quiloDataAmapa = [];
+var anoDataAlunosAmapa = [], modalidadeDataAlunosAmapa = [], crecheDataAlunosAmapa = [], fundDataAlunosAmapa = [], preDataAlunosAmapa = [], aeeDataAlunosAmapa = [], ejaDataAlunosAmapa = [], maisFundDataAlunosAmapa = [], quiloDataAlunosAmapa = [];
 amapaChart()
 async function amapaChart() {
 
-await getAeeDataAmapa()
-await getCrecheDataAmapa()
-await getEjaDataAmapa()
-await getFundDataAmapa()
-await getMaisFundDataAmapa()
-await getPreDataAmapa()
-await getQuiloDataAmapa()
-await getRepasseDataAmapa()
+await getAeeDataAlunosAmapa()
+await getCrecheDataAlunosAmapa()
+await getEjaDataAlunosAmapa()
+await getFundDataAlunosAmapa()
+await getMaisFundDataAlunosAmapa()
+await getPreDataAlunosAmapa()
+await getQuiloDataAlunosAmapa()
+await getRepasseDataAlunosAmapa()
 
     
-    var dom = document.getElementById("recursosAmapa")
+    var dom = document.getElementById("chart-aluno-amapa")
     var echartAmapa = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -68,7 +68,7 @@ await getRepasseDataAmapa()
                     nameGap: 23,
                     type: 'category',
                     boundaryGap: false, 
-                    data: anoDataAmapa,
+                    data: anoDataAlunosAmapa,
                     axisLine:{
                         show: false
                     }
@@ -89,7 +89,7 @@ await getRepasseDataAmapa()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataAmapa
+                    data: crecheDataAlunosAmapa
                     
                     
                 },
@@ -99,7 +99,7 @@ await getRepasseDataAmapa()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: fundDataAmapa
+                    data: fundDataAlunosAmapa
                 },
                 {
                     name: 'Pré-Escola',
@@ -107,7 +107,7 @@ await getRepasseDataAmapa()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: preDataAmapa
+                    data: preDataAlunosAmapa
                 },
                 {
                     name: 'AEE',
@@ -115,7 +115,7 @@ await getRepasseDataAmapa()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: aeeDataAmapa
+                    data: aeeDataAlunosAmapa
                 },
                 {
                     name: 'EJA',
@@ -123,7 +123,7 @@ await getRepasseDataAmapa()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: ejaDataAmapa 
+                    data: ejaDataAlunosAmapa 
                 },
                 {
                     name: '+Educação',
@@ -131,7 +131,7 @@ await getRepasseDataAmapa()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: maisFundDataAmapa 
+                    data: maisFundDataAlunosAmapa 
                 },
                 {
                     name: 'Quilombola',
@@ -139,7 +139,7 @@ await getRepasseDataAmapa()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: quiloDataAmapa 
+                    data: quiloDataAlunosAmapa 
                 },
                 
                 ]
@@ -152,8 +152,8 @@ await getRepasseDataAmapa()
         echartAmapa.setOption(option);
     }
 }
-async function getRepasseDataAmapa(){
-    var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=amapa&esferaGoverno=municipal"
+async function getRepasseDataAlunosAmapa(){
+    var url = "http://localhost:8080/alunos/pMunicipio?municipio=amapa&esferaGoverno=municipal"
 
     var response = await fetch(url,{
         method: 'GET',
@@ -162,14 +162,14 @@ async function getRepasseDataAmapa(){
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
             }});
-    var DataAmapa = await response.json();
+    var DataAlunosAmapa = await response.json();
     
-    const ano = DataAmapa.map((x) => x.ano)
+    const ano = DataAlunosAmapa.map((x) => x.ano)
     const anoU = ano.filter(unique) 
-    anoDataAmapa = anoU
+    anoDataAlunosAmapa = anoU
 }
-async function getFundDataAmapa(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosAmapa(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
 
     response = await fetch(url,{
         method: 'GET',
@@ -178,13 +178,13 @@ async function getFundDataAmapa(){
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
           }});
-    DataAmapa = await response.json();
+    DataAlunosAmapa = await response.json();
 
-    var valor = DataAmapa.map((x) => x.qtAlunos)
-    fundDataAmapa = valor
+    var valor = DataAlunosAmapa.map((x) => x.qtAlunos)
+    fundDataAlunosAmapa = valor
 }
-async function getCrecheDataAmapa(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosAmapa(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=creche"
  
     response = await fetch(url,{
          method: 'GET',
@@ -193,12 +193,12 @@ async function getCrecheDataAmapa(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-     DataAmapa = await response.json();
-     valor = DataAmapa.map((x) => x.qtAlunos)
-     crecheDataAmapa = valor
+     DataAlunosAmapa = await response.json();
+     valor = DataAlunosAmapa.map((x) => x.qtAlunos)
+     crecheDataAlunosAmapa = valor
 }
-async function getPreDataAmapa(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosAmapa(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=pre_escola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -207,12 +207,12 @@ async function getPreDataAmapa(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataAmapa = await response.json();
-    valor = DataAmapa.map((x) => x.qtAlunos)
-    preDataAmapa = valor
+    DataAlunosAmapa = await response.json();
+    valor = DataAlunosAmapa.map((x) => x.qtAlunos)
+    preDataAlunosAmapa = valor
 }
-async function getAeeDataAmapa(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosAmapa(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
  
     response = await fetch(url,{
          method: 'GET',
@@ -221,12 +221,12 @@ async function getAeeDataAmapa(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataAmapa = await response.json();
-    valor = DataAmapa.map((x) => x.qtAlunos)
-    aeeDataAmapa = valor
+    DataAlunosAmapa = await response.json();
+    valor = DataAlunosAmapa.map((x) => x.qtAlunos)
+    aeeDataAlunosAmapa = valor
 }
-async function getEjaDataAmapa(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosAmapa(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
  
     response = await fetch(url,{
          method: 'GET',
@@ -235,12 +235,12 @@ async function getEjaDataAmapa(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataAmapa = await response.json();
-    valor = DataAmapa.map((x) => x.qtAlunos)
-    ejaDataAmapa = valor
+    DataAlunosAmapa = await response.json();
+    valor = DataAlunosAmapa.map((x) => x.qtAlunos)
+    ejaDataAlunosAmapa = valor
 }
-async function getMaisFundDataAmapa(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosAmapa(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
  
     response = await fetch(url,{
          method: 'GET',
@@ -249,12 +249,12 @@ async function getMaisFundDataAmapa(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataAmapa = await response.json();
-    valor = DataAmapa.map((x) => x.qtAlunos)
-    maisFundDataAmapa = valor
+    DataAlunosAmapa = await response.json();
+    valor = DataAlunosAmapa.map((x) => x.qtAlunos)
+    maisFundDataAlunosAmapa = valor
 }
-async function getQuiloDataAmapa(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosAmapa(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=amapa&esferaGoverno=municipal&etapaEnsino=quilombola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -263,26 +263,26 @@ async function getQuiloDataAmapa(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataAmapa = await response.json();
-    valor = DataAmapa.map((x) => x.qtAlunos)
-    quiloDataAmapa = valor
+    DataAlunosAmapa = await response.json();
+    valor = DataAlunosAmapa.map((x) => x.qtAlunos)
+    quiloDataAlunosAmapa = valor
 }
 
 /////////////calcoene
-var anoDataCalcoene = [], modalidadeDataCalcoene = [], crecheDataCalcoene = [], fundDataCalcoene = [], preDataCalcoene = [], aeeDataCalcoene = [], ejaDataCalcoene = [], maisFundDataCalcoene = [], quiloDataCalcoene = [];
+var anoDataAlunosCalcoene = [], modalidadeDataAlunosCalcoene = [], crecheDataAlunosCalcoene = [], fundDataAlunosCalcoene = [], preDataAlunosCalcoene = [], aeeDataAlunosCalcoene = [], ejaDataAlunosCalcoene = [], maisFundDataAlunosCalcoene = [], quiloDataAlunosCalcoene = [];
 calcoeneChart()
 async function calcoeneChart() {
 
-    await getAeeDataCalcoene()
-    await getCrecheDataCalcoene()
-    await getEjaDataCalcoene()
-    await getFundDataCalcoene()
-    await getMaisFundDataCalcoene()
-    await getPreDataCalcoene()
-    await getQuiloDataCalcoene()
-    await getRepasseDataCalcoene()
+    await getAeeDataAlunosCalcoene()
+    await getCrecheDataAlunosCalcoene()
+    await getEjaDataAlunosCalcoene()
+    await getFundDataAlunosCalcoene()
+    await getMaisFundDataAlunosCalcoene()
+    await getPreDataAlunosCalcoene()
+    await getQuiloDataAlunosCalcoene()
+    await getRepasseDataAlunosCalcoene()
 
-        var dom = document.getElementById("recursosCalcoene")
+        var dom = document.getElementById("chart-aluno-calcoene")
     var echartCalcoene = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -333,7 +333,7 @@ async function calcoeneChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataCalcoene,
+                        data: anoDataAlunosCalcoene,
                         axisLine:{
                             show: false
                         }
@@ -354,7 +354,7 @@ async function calcoeneChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataCalcoene
+                    data: crecheDataAlunosCalcoene
                         
                         
                     },
@@ -364,7 +364,7 @@ async function calcoeneChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataCalcoene
+                        data: fundDataAlunosCalcoene
                     },
                     
                     {
@@ -373,7 +373,7 @@ async function calcoeneChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataCalcoene
+                        data: preDataAlunosCalcoene
                     },
                     {
                         name: 'AEE',
@@ -381,7 +381,7 @@ async function calcoeneChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataCalcoene
+                        data: aeeDataAlunosCalcoene
                     },
                     {
                         name: 'EJA',
@@ -389,7 +389,7 @@ async function calcoeneChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataCalcoene 
+                        data: ejaDataAlunosCalcoene 
                     },
                     {
                         name: '+Educação',
@@ -397,7 +397,7 @@ async function calcoeneChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataCalcoene 
+                        data: maisFundDataAlunosCalcoene 
                     },
                     {
                         name: 'Quilombola',
@@ -405,7 +405,7 @@ async function calcoeneChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataCalcoene 
+                        data: quiloDataAlunosCalcoene 
                     },
                     
                     ]
@@ -418,8 +418,8 @@ async function calcoeneChart() {
             echartCalcoene.setOption(option);
         }
 }
-async function getRepasseDataCalcoene(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=calcoene&esferaGoverno=municipal"
+async function getRepasseDataAlunosCalcoene(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=calcoene&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -428,14 +428,14 @@ async function getRepasseDataCalcoene(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataCalcoene = await response.json();
+        var DataAlunosCalcoene = await response.json();
         
-        const ano = DataCalcoene.map((x) => x.ano)
+        const ano = DataAlunosCalcoene.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataCalcoene = anoU
+        anoDataAlunosCalcoene = anoU
 }
-async function getFundDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosCalcoene(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -444,13 +444,13 @@ async function getFundDataCalcoene(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataCalcoene = await response.json();
+        DataAlunosCalcoene = await response.json();
     
-        var valor = DataCalcoene.map((x) => x.qtAlunos)
-        fundDataCalcoene = valor
+        var valor = DataAlunosCalcoene.map((x) => x.qtAlunos)
+        fundDataAlunosCalcoene = valor
 }
-async function getCrecheDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosCalcoene(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -459,12 +459,12 @@ async function getCrecheDataCalcoene(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataCalcoene = await response.json();
-         valor = DataCalcoene.map((x) => x.qtAlunos)
-         crecheDataCalcoene = valor
+         DataAlunosCalcoene = await response.json();
+         valor = DataAlunosCalcoene.map((x) => x.qtAlunos)
+         crecheDataAlunosCalcoene = valor
 }
-async function getPreDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosCalcoene(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -473,12 +473,12 @@ async function getPreDataCalcoene(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCalcoene = await response.json();
-        valor = DataCalcoene.map((x) => x.qtAlunos)
-        preDataCalcoene = valor
+        DataAlunosCalcoene = await response.json();
+        valor = DataAlunosCalcoene.map((x) => x.qtAlunos)
+        preDataAlunosCalcoene = valor
 }
-async function getAeeDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosCalcoene(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -487,12 +487,12 @@ async function getAeeDataCalcoene(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCalcoene = await response.json();
-        valor = DataCalcoene.map((x) => x.qtAlunos)
-        aeeDataCalcoene = valor
+        DataAlunosCalcoene = await response.json();
+        valor = DataAlunosCalcoene.map((x) => x.qtAlunos)
+        aeeDataAlunosCalcoene = valor
 }
-async function getEjaDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosCalcoene(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -501,12 +501,12 @@ async function getEjaDataCalcoene(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCalcoene = await response.json();
-        valor = DataCalcoene.map((x) => x.qtAlunos)
-        ejaDataCalcoene = valor
+        DataAlunosCalcoene = await response.json();
+        valor = DataAlunosCalcoene.map((x) => x.qtAlunos)
+        ejaDataAlunosCalcoene = valor
 }
-async function getMaisFundDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosCalcoene(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -515,12 +515,12 @@ async function getMaisFundDataCalcoene(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCalcoene = await response.json();
-        valor = DataCalcoene.map((x) => x.qtAlunos)
-        maisFundDataCalcoene = valor
+        DataAlunosCalcoene = await response.json();
+        valor = DataAlunosCalcoene.map((x) => x.qtAlunos)
+        maisFundDataAlunosCalcoene = valor
 }
-async function getQuiloDataCalcoene(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosCalcoene(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=calcoene&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -529,26 +529,26 @@ async function getQuiloDataCalcoene(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCalcoene = await response.json();
-        valor = DataCalcoene.map((x) => x.qtAlunos)
-        quiloDataCalcoene = valor
+        DataAlunosCalcoene = await response.json();
+        valor = DataAlunosCalcoene.map((x) => x.qtAlunos)
+        quiloDataAlunosCalcoene = valor
 }
 
 ////////////cutias
-var anoDataCutias = [], modalidadeDataCutias = [], crecheDataCutias = [], fundDataCutias = [], preDataCutias = [], aeeDataCutias = [], ejaDataCutias = [], maisFundDataCutias = [], quiloDataCutias = [];
+var anoDataAlunosCutias = [], modalidadeDataAlunosCutias = [], crecheDataAlunosCutias = [], fundDataAlunosCutias = [], preDataAlunosCutias = [], aeeDataAlunosCutias = [], ejaDataAlunosCutias = [], maisFundDataAlunosCutias = [], quiloDataAlunosCutias = [];
 cutiasChart()
 async function cutiasChart() {
 
-    await getAeeDataCutias()
-    await getCrecheDataCutias()
-    await getEjaDataCutias()
-    await getFundDataCutias()
-    await getMaisFundDataCutias()
-    await getPreDataCutias()
-    await getQuiloDataCutias()
-    await getRepasseDataCutias()
+    await getAeeDataAlunosCutias()
+    await getCrecheDataAlunosCutias()
+    await getEjaDataAlunosCutias()
+    await getFundDataAlunosCutias()
+    await getMaisFundDataAlunosCutias()
+    await getPreDataAlunosCutias()
+    await getQuiloDataAlunosCutias()
+    await getRepasseDataAlunosCutias()
 
-        var dom = document.getElementById("recursosCutias")
+        var dom = document.getElementById("chart-aluno-cutias")
     var echartCutias = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -599,7 +599,7 @@ async function cutiasChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataCutias,
+                        data: anoDataAlunosCutias,
                         axisLine:{
                             show: false
                         }
@@ -620,7 +620,7 @@ async function cutiasChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataCutias
+                    data: crecheDataAlunosCutias
                         
                         
                     },
@@ -630,7 +630,7 @@ async function cutiasChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataCutias
+                        data: fundDataAlunosCutias
                     },
                     {
                         name: 'Pré-Escola',
@@ -638,7 +638,7 @@ async function cutiasChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataCutias
+                        data: preDataAlunosCutias
                     },
                     {
                         name: 'AEE',
@@ -646,7 +646,7 @@ async function cutiasChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataCutias
+                        data: aeeDataAlunosCutias
                     },
                     {
                         name: 'EJA',
@@ -654,7 +654,7 @@ async function cutiasChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataCutias 
+                        data: ejaDataAlunosCutias 
                     },
                     {
                         name: '+Educação',
@@ -662,7 +662,7 @@ async function cutiasChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataCutias 
+                        data: maisFundDataAlunosCutias 
                     },
                     {
                         name: 'Quilombola',
@@ -670,7 +670,7 @@ async function cutiasChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataCutias 
+                        data: quiloDataAlunosCutias 
                     },
                     
                     ]
@@ -683,8 +683,8 @@ async function cutiasChart() {
             echartCutias.setOption(option);
         }
 }
-async function getRepasseDataCutias(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=cutias&esferaGoverno=municipal"
+async function getRepasseDataAlunosCutias(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=cutias&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -693,14 +693,14 @@ async function getRepasseDataCutias(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataCutias = await response.json();
+        var DataAlunosCutias = await response.json();
         
-        const ano = DataCutias.map((x) => x.ano)
+        const ano = DataAlunosCutias.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataCutias = anoU
+        anoDataAlunosCutias = anoU
 }
-async function getFundDataCutias(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosCutias(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -709,13 +709,13 @@ async function getFundDataCutias(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataCutias = await response.json();
+        DataAlunosCutias = await response.json();
     
-        var valor = DataCutias.map((x) => x.qtAlunos)
-        fundDataCutias = valor
+        var valor = DataAlunosCutias.map((x) => x.qtAlunos)
+        fundDataAlunosCutias = valor
 }
-async function getCrecheDataCutias(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosCutias(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -724,12 +724,12 @@ async function getCrecheDataCutias(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataCutias = await response.json();
-         valor = DataCutias.map((x) => x.qtAlunos)
-         crecheDataCutias = valor
+         DataAlunosCutias = await response.json();
+         valor = DataAlunosCutias.map((x) => x.qtAlunos)
+         crecheDataAlunosCutias = valor
 }
-async function getPreDataCutias(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosCutias(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -738,12 +738,12 @@ async function getPreDataCutias(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCutias = await response.json();
-        valor = DataCutias.map((x) => x.qtAlunos)
-        preDataCutias = valor
+        DataAlunosCutias = await response.json();
+        valor = DataAlunosCutias.map((x) => x.qtAlunos)
+        preDataAlunosCutias = valor
 }
-async function getAeeDataCutias(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosCutias(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -752,12 +752,12 @@ async function getAeeDataCutias(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCutias = await response.json();
-        valor = DataCutias.map((x) => x.qtAlunos)
-        aeeDataCutias = valor
+        DataAlunosCutias = await response.json();
+        valor = DataAlunosCutias.map((x) => x.qtAlunos)
+        aeeDataAlunosCutias = valor
 }
-async function getEjaDataCutias(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosCutias(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -766,12 +766,12 @@ async function getEjaDataCutias(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCutias = await response.json();
-        valor = DataCutias.map((x) => x.qtAlunos)
-        ejaDataCutias = valor
+        DataAlunosCutias = await response.json();
+        valor = DataAlunosCutias.map((x) => x.qtAlunos)
+        ejaDataAlunosCutias = valor
 }
-async function getMaisFundDataCutias(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosCutias(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -780,12 +780,12 @@ async function getMaisFundDataCutias(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCutias = await response.json();
-        valor = DataCutias.map((x) => x.qtAlunos)
-        maisFundDataCutias = valor
+        DataAlunosCutias = await response.json();
+        valor = DataAlunosCutias.map((x) => x.qtAlunos)
+        maisFundDataAlunosCutias = valor
 }
-async function getQuiloDataCutias(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosCutias(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=cutias&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -794,26 +794,26 @@ async function getQuiloDataCutias(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataCutias = await response.json();
-        valor = DataCutias.map((x) => x.qtAlunos)
-        quiloDataCutias = valor
+        DataAlunosCutias = await response.json();
+        valor = DataAlunosCutias.map((x) => x.qtAlunos)
+        quiloDataAlunosCutias = valor
 }
 
 //////////macapa
-var anoDataMacapa = [], modalidadeDataMacapa = [], crecheDataMacapa = [], fundDataMacapa = [], preDataMacapa = [], aeeDataMacapa = [], ejaDataMacapa = [], maisFundDataMacapa = [], quiloDataMacapa = [];
+var anoDataAlunosMacapa = [], modalidadeDataAlunosMacapa = [], crecheDataAlunosMacapa = [], fundDataAlunosMacapa = [], preDataAlunosMacapa = [], aeeDataAlunosMacapa = [], ejaDataAlunosMacapa = [], maisFundDataAlunosMacapa = [], quiloDataAlunosMacapa = [];
 macapaChart()
 async function macapaChart() {
 
-    await getAeeDataMacapa()
-    await getCrecheDataMacapa()
-    await getEjaDataMacapa()
-    await getFundDataMacapa()
-    await getMaisFundDataMacapa()
-    await getPreDataMacapa()
-    await getQuiloDataMacapa()
-    await getRepasseDataMacapa()
+    await getAeeDataAlunosMacapa()
+    await getCrecheDataAlunosMacapa()
+    await getEjaDataAlunosMacapa()
+    await getFundDataAlunosMacapa()
+    await getMaisFundDataAlunosMacapa()
+    await getPreDataAlunosMacapa()
+    await getQuiloDataAlunosMacapa()
+    await getRepasseDataAlunosMacapa()
 
-        var dom = document.getElementById("recursosMacapa")
+        var dom = document.getElementById("chart-aluno-macapa")
     var echartMacapa = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -864,7 +864,7 @@ async function macapaChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataMacapa,
+                        data: anoDataAlunosMacapa,
                         axisLine:{
                             show: false
                         }
@@ -885,7 +885,7 @@ async function macapaChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataMacapa
+                    data: crecheDataAlunosMacapa
                         
                         
                     },
@@ -895,7 +895,7 @@ async function macapaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataMacapa
+                        data: fundDataAlunosMacapa
                     },
                     {
                         name: 'Pré-Escola',
@@ -903,7 +903,7 @@ async function macapaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataMacapa
+                        data: preDataAlunosMacapa
                     },
                     {
                         name: 'AEE',
@@ -911,7 +911,7 @@ async function macapaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataMacapa
+                        data: aeeDataAlunosMacapa
                     },
                     {
                         name: 'EJA',
@@ -919,7 +919,7 @@ async function macapaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataMacapa 
+                        data: ejaDataAlunosMacapa 
                     },
                     {
                         name: '+Educação',
@@ -927,7 +927,7 @@ async function macapaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataMacapa 
+                        data: maisFundDataAlunosMacapa 
                     },
                     {
                         name: 'Quilombola',
@@ -935,7 +935,7 @@ async function macapaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataMacapa 
+                        data: quiloDataAlunosMacapa 
                     },
                     
                     ]
@@ -948,8 +948,8 @@ async function macapaChart() {
             echartMacapa.setOption(option);
         }
 }
-async function getRepasseDataMacapa(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=macapa&esferaGoverno=municipal"
+async function getRepasseDataAlunosMacapa(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=macapa&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -958,14 +958,14 @@ async function getRepasseDataMacapa(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataMacapa = await response.json();
+        var DataAlunosMacapa = await response.json();
         
-        const ano = DataMacapa.map((x) => x.ano)
+        const ano = DataAlunosMacapa.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataMacapa = anoU
+        anoDataAlunosMacapa = anoU
 }
-async function getFundDataMacapa(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosMacapa(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -974,13 +974,13 @@ async function getFundDataMacapa(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataMacapa = await response.json();
+        DataAlunosMacapa = await response.json();
     
-        var valor = DataMacapa.map((x) => x.qtAlunos)
-        fundDataMacapa = valor
+        var valor = DataAlunosMacapa.map((x) => x.qtAlunos)
+        fundDataAlunosMacapa = valor
 }
-async function getCrecheDataMacapa(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosMacapa(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -989,12 +989,12 @@ async function getCrecheDataMacapa(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataMacapa = await response.json();
-         valor = DataMacapa.map((x) => x.qtAlunos)
-         crecheDataMacapa = valor
+         DataAlunosMacapa = await response.json();
+         valor = DataAlunosMacapa.map((x) => x.qtAlunos)
+         crecheDataAlunosMacapa = valor
 }
-async function getPreDataMacapa(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosMacapa(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1003,12 +1003,12 @@ async function getPreDataMacapa(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMacapa = await response.json();
-        valor = DataMacapa.map((x) => x.qtAlunos)
-        preDataMacapa = valor
+        DataAlunosMacapa = await response.json();
+        valor = DataAlunosMacapa.map((x) => x.qtAlunos)
+        preDataAlunosMacapa = valor
 }
-async function getAeeDataMacapa(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosMacapa(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1017,12 +1017,12 @@ async function getAeeDataMacapa(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMacapa = await response.json();
-        valor = DataMacapa.map((x) => x.qtAlunos)
-        aeeDataMacapa = valor
+        DataAlunosMacapa = await response.json();
+        valor = DataAlunosMacapa.map((x) => x.qtAlunos)
+        aeeDataAlunosMacapa = valor
 }
-async function getEjaDataMacapa(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosMacapa(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1031,12 +1031,12 @@ async function getEjaDataMacapa(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMacapa = await response.json();
-        valor = DataMacapa.map((x) => x.qtAlunos)
-        ejaDataMacapa = valor
+        DataAlunosMacapa = await response.json();
+        valor = DataAlunosMacapa.map((x) => x.qtAlunos)
+        ejaDataAlunosMacapa = valor
 }
-async function getMaisFundDataMacapa(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosMacapa(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1045,12 +1045,12 @@ async function getMaisFundDataMacapa(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMacapa = await response.json();
-        valor = DataMacapa.map((x) => x.qtAlunos)
-        maisFundDataMacapa = valor
+        DataAlunosMacapa = await response.json();
+        valor = DataAlunosMacapa.map((x) => x.qtAlunos)
+        maisFundDataAlunosMacapa = valor
 }
-async function getQuiloDataMacapa(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosMacapa(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=macapa&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1059,26 +1059,26 @@ async function getQuiloDataMacapa(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMacapa = await response.json();
-        valor = DataMacapa.map((x) => x.qtAlunos)
-        quiloDataMacapa = valor
+        DataAlunosMacapa = await response.json();
+        valor = DataAlunosMacapa.map((x) => x.qtAlunos)
+        quiloDataAlunosMacapa = valor
 }
 
 //////////PedraBranca
-var anoDataPedra = [], modalidadeDataPedra = [], crecheDataPedra = [], fundDataPedra = [], preDataPedra = [], aeeDataPedra = [], ejaDataPedra = [], maisFundDataPedra = [], quiloDataPedra = [];
+var anoDataAlunosPedra = [], modalidadeDataAlunosPedra = [], crecheDataAlunosPedra = [], fundDataAlunosPedra = [], preDataAlunosPedra = [], aeeDataAlunosPedra = [], ejaDataAlunosPedra = [], maisFundDataAlunosPedra = [], quiloDataAlunosPedra = [];
 pedraChart()
 async function pedraChart() {
 
-    await getAeeDataPedra()
-    await getCrecheDataPedra()
-    await getEjaDataPedra()
-    await getFundDataPedra()
-    await getMaisFundDataPedra()
-    await getPreDataPedra()
-    await getQuiloDataPedra()
-    await getRepasseDataPedra()
+    await getAeeDataAlunosPedra()
+    await getCrecheDataAlunosPedra()
+    await getEjaDataAlunosPedra()
+    await getFundDataAlunosPedra()
+    await getMaisFundDataAlunosPedra()
+    await getPreDataAlunosPedra()
+    await getQuiloDataAlunosPedra()
+    await getRepasseDataAlunosPedra()
 
-        var dom = document.getElementById("recursosPedra")
+        var dom = document.getElementById("chart-aluno-pedra")
     var echartPedra = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -1129,7 +1129,7 @@ async function pedraChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataPedra,
+                        data: anoDataAlunosPedra,
                         axisLine:{
                             show: false
                         }
@@ -1150,7 +1150,7 @@ async function pedraChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataPedra
+                    data: crecheDataAlunosPedra
                         
                         
                     },
@@ -1160,7 +1160,7 @@ async function pedraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataPedra
+                        data: fundDataAlunosPedra
                     },
                     {
                         name: 'Pré-Escola',
@@ -1168,7 +1168,7 @@ async function pedraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataPedra
+                        data: preDataAlunosPedra
                     },
                     {
                         name: 'AEE',
@@ -1176,7 +1176,7 @@ async function pedraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataPedra
+                        data: aeeDataAlunosPedra
                     },
                     {
                         name: 'EJA',
@@ -1184,7 +1184,7 @@ async function pedraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataPedra 
+                        data: ejaDataAlunosPedra 
                     },
                     {
                         name: '+Educação',
@@ -1192,7 +1192,7 @@ async function pedraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataPedra 
+                        data: maisFundDataAlunosPedra 
                     },
                     {
                         name: 'Quilombola',
@@ -1200,7 +1200,7 @@ async function pedraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataPedra 
+                        data: quiloDataAlunosPedra 
                     },
                     
                     ]
@@ -1213,8 +1213,8 @@ async function pedraChart() {
             echartPedra.setOption(option);
         }
 }
-async function getRepasseDataPedra(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=pedra_branca_do_amapari&esferaGoverno=municipal"
+async function getRepasseDataAlunosPedra(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=pedra_branca_do_amapari&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -1223,14 +1223,14 @@ async function getRepasseDataPedra(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataPedra = await response.json();
+        var DataAlunosPedra = await response.json();
         
-        const ano = DataPedra.map((x) => x.ano)
+        const ano = DataAlunosPedra.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataPedra = anoU
+        anoDataAlunosPedra = anoU
 }
-async function getFundDataPedra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosPedra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -1239,13 +1239,13 @@ async function getFundDataPedra(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataPedra = await response.json();
+        DataAlunosPedra = await response.json();
     
-        var valor = DataPedra.map((x) => x.qtAlunos)
-        fundDataPedra = valor
+        var valor = DataAlunosPedra.map((x) => x.qtAlunos)
+        fundDataAlunosPedra = valor
 }
-async function getCrecheDataPedra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosPedra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1254,12 +1254,12 @@ async function getCrecheDataPedra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataPedra = await response.json();
-         valor = DataPedra.map((x) => x.qtAlunos)
-         crecheDataPedra = valor
+         DataAlunosPedra = await response.json();
+         valor = DataAlunosPedra.map((x) => x.qtAlunos)
+         crecheDataAlunosPedra = valor
 }
-async function getPreDataPedra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosPedra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1268,12 +1268,12 @@ async function getPreDataPedra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPedra = await response.json();
-        valor = DataPedra.map((x) => x.qtAlunos)
-        preDataPedra = valor
+        DataAlunosPedra = await response.json();
+        valor = DataAlunosPedra.map((x) => x.qtAlunos)
+        preDataAlunosPedra = valor
 }
-async function getAeeDataPedra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosPedra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1282,12 +1282,12 @@ async function getAeeDataPedra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPedra = await response.json();
-        valor = DataPedra.map((x) => x.qtAlunos)
-        aeeDataPedra = valor
+        DataAlunosPedra = await response.json();
+        valor = DataAlunosPedra.map((x) => x.qtAlunos)
+        aeeDataAlunosPedra = valor
 }
-async function getEjaDataPedra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosPedra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1296,12 +1296,12 @@ async function getEjaDataPedra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPedra = await response.json();
-        valor = DataPedra.map((x) => x.qtAlunos)
-        ejaDataPedra = valor
+        DataAlunosPedra = await response.json();
+        valor = DataAlunosPedra.map((x) => x.qtAlunos)
+        ejaDataAlunosPedra = valor
 }
-async function getMaisFundDataPedra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosPedra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1310,12 +1310,12 @@ async function getMaisFundDataPedra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPedra = await response.json();
-        valor = DataPedra.map((x) => x.qtAlunos)
-        maisFundDataPedra = valor
+        DataAlunosPedra = await response.json();
+        valor = DataAlunosPedra.map((x) => x.qtAlunos)
+        maisFundDataAlunosPedra = valor
 }
-async function getQuiloDataPedra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosPedra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=pedra_branca_do_amapari&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1324,26 +1324,26 @@ async function getQuiloDataPedra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPedra = await response.json();
-        valor = DataPedra.map((x) => x.qtAlunos)
-        quiloDataPedra = valor
+        DataAlunosPedra = await response.json();
+        valor = DataAlunosPedra.map((x) => x.qtAlunos)
+        quiloDataAlunosPedra = valor
 }
 
 /////////ferreira
-var anoDataFerreira = [], modalidadeDataFerreira = [], crecheDataFerreira = [], fundDataFerreira = [], preDataFerreira = [], aeeDataFerreira = [], ejaDataFerreira = [], maisFundDataFerreira = [], quiloDataFerreira = [];
+var anoDataAlunosFerreira = [], modalidadeDataAlunosFerreira = [], crecheDataAlunosFerreira = [], fundDataAlunosFerreira = [], preDataAlunosFerreira = [], aeeDataAlunosFerreira = [], ejaDataAlunosFerreira = [], maisFundDataAlunosFerreira = [], quiloDataAlunosFerreira = [];
 ferreiraChart()
 async function ferreiraChart() {
 
-    await getAeeDataFerreira()
-    await getCrecheDataFerreira()
-    await getEjaDataFerreira()
-    await getFundDataFerreira()
-    await getMaisFundDataFerreira()
-    await getPreDataFerreira()
-    await getQuiloDataFerreira()
-    await getRepasseDataFerreira()
+    await getAeeDataAlunosFerreira()
+    await getCrecheDataAlunosFerreira()
+    await getEjaDataAlunosFerreira()
+    await getFundDataAlunosFerreira()
+    await getMaisFundDataAlunosFerreira()
+    await getPreDataAlunosFerreira()
+    await getQuiloDataAlunosFerreira()
+    await getRepasseDataAlunosFerreira()
 
-        var dom = document.getElementById("recursosFerreira")
+        var dom = document.getElementById("chart-aluno-ferreira")
     var echartFerreira = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -1394,7 +1394,7 @@ async function ferreiraChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataFerreira,
+                        data: anoDataAlunosFerreira,
                         axisLine:{
                             show: false
                         }
@@ -1415,7 +1415,7 @@ async function ferreiraChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataFerreira
+                    data: crecheDataAlunosFerreira
                         
                         
                     },
@@ -1425,7 +1425,7 @@ async function ferreiraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataFerreira
+                        data: fundDataAlunosFerreira
                     },
                     {
                         name: 'Pré-Escola',
@@ -1433,7 +1433,7 @@ async function ferreiraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataFerreira
+                        data: preDataAlunosFerreira
                     },
                     {
                         name: 'AEE',
@@ -1441,7 +1441,7 @@ async function ferreiraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataFerreira
+                        data: aeeDataAlunosFerreira
                     },
                     {
                         name: 'EJA',
@@ -1449,7 +1449,7 @@ async function ferreiraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataFerreira 
+                        data: ejaDataAlunosFerreira 
                     },
                     {
                         name: '+Educação',
@@ -1457,7 +1457,7 @@ async function ferreiraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataFerreira 
+                        data: maisFundDataAlunosFerreira 
                     },
                     {
                         name: 'Quilombola',
@@ -1465,7 +1465,7 @@ async function ferreiraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataFerreira 
+                        data: quiloDataAlunosFerreira 
                     },
                     
                     ]
@@ -1478,8 +1478,8 @@ async function ferreiraChart() {
             echartFerreira.setOption(option);
         }
 }
-async function getRepasseDataFerreira(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=ferreira_gomes_gomes&esferaGoverno=municipal"
+async function getRepasseDataAlunosFerreira(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=ferreira_gomes_gomes&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -1488,14 +1488,14 @@ async function getRepasseDataFerreira(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataFerreira = await response.json();
+        var DataAlunosFerreira = await response.json();
         
-        const ano = DataFerreira.map((x) => x.ano)
+        const ano = DataAlunosFerreira.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataFerreira = anoU
+        anoDataAlunosFerreira = anoU
 }
-async function getFundDataFerreira(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosFerreira(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -1504,13 +1504,13 @@ async function getFundDataFerreira(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataFerreira = await response.json();
+        DataAlunosFerreira = await response.json();
     
-        var valor = DataFerreira.map((x) => x.qtAlunos)
-        fundDataFerreira = valor
+        var valor = DataAlunosFerreira.map((x) => x.qtAlunos)
+        fundDataAlunosFerreira = valor
 }
-async function getCrecheDataFerreira(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosFerreira(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1519,13 +1519,13 @@ async function getCrecheDataFerreira(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataFerreira = await response.json();
-         valor = DataFerreira.map((x) => x.qtAlunos)
-         crecheDataFerreira = valor
-         console.log(crecheDataFerreira)
+         DataAlunosFerreira = await response.json();
+         valor = DataAlunosFerreira.map((x) => x.qtAlunos)
+         crecheDataAlunosFerreira = valor
+         console.log(crecheDataAlunosFerreira)
 }
-async function getPreDataFerreira(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosFerreira(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1534,12 +1534,12 @@ async function getPreDataFerreira(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataFerreira = await response.json();
-        valor = DataFerreira.map((x) => x.qtAlunos)
-        preDataFerreira = valor
+        DataAlunosFerreira = await response.json();
+        valor = DataAlunosFerreira.map((x) => x.qtAlunos)
+        preDataAlunosFerreira = valor
 }
-async function getAeeDataFerreira(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosFerreira(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1548,13 +1548,13 @@ async function getAeeDataFerreira(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataFerreira = await response.json();
-        console.log(DataFerreira)
-        valor = DataFerreira.map((x) => x.qtAlunos)
-        aeeDataFerreira = valor
+        DataAlunosFerreira = await response.json();
+        console.log(DataAlunosFerreira)
+        valor = DataAlunosFerreira.map((x) => x.qtAlunos)
+        aeeDataAlunosFerreira = valor
 }
-async function getEjaDataFerreira(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosFerreira(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1563,12 +1563,12 @@ async function getEjaDataFerreira(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataFerreira = await response.json();
-        valor = DataFerreira.map((x) => x.qtAlunos)
-        ejaDataFerreira = valor
+        DataAlunosFerreira = await response.json();
+        valor = DataAlunosFerreira.map((x) => x.qtAlunos)
+        ejaDataAlunosFerreira = valor
 }
-async function getMaisFundDataFerreira(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosFerreira(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1577,12 +1577,12 @@ async function getMaisFundDataFerreira(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataFerreira = await response.json();
-        valor = DataFerreira.map((x) => x.qtAlunos)
-        maisFundDataFerreira = valor
+        DataAlunosFerreira = await response.json();
+        valor = DataAlunosFerreira.map((x) => x.qtAlunos)
+        maisFundDataAlunosFerreira = valor
 }
-async function getQuiloDataFerreira(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosFerreira(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=ferreira_gomes&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1591,27 +1591,27 @@ async function getQuiloDataFerreira(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataFerreira = await response.json();
-        valor = DataFerreira.map((x) => x.qtAlunos)
-        quiloDataFerreira = valor
+        DataAlunosFerreira = await response.json();
+        valor = DataAlunosFerreira.map((x) => x.qtAlunos)
+        quiloDataAlunosFerreira = valor
 }
 
 /////////////itaubal
 
-var anoDataItaubal = [], modalidadeDataItaubal = [], crecheDataItaubal = [], fundDataItaubal = [], preDataItaubal = [], aeeDataItaubal = [], ejaDataItaubal = [], maisFundDataItaubal = [], quiloDataItaubal = [];
+var anoDataAlunosItaubal = [], modalidadeDataAlunosItaubal = [], crecheDataAlunosItaubal = [], fundDataAlunosItaubal = [], preDataAlunosItaubal = [], aeeDataAlunosItaubal = [], ejaDataAlunosItaubal = [], maisFundDataAlunosItaubal = [], quiloDataAlunosItaubal = [];
 itaubalChart()
 async function itaubalChart() {
 
-    await getAeeDataItaubal()
-    await getCrecheDataItaubal()
-    await getEjaDataItaubal()
-    await getFundDataItaubal()
-    await getMaisFundDataItaubal()
-    await getPreDataItaubal()
-    await getQuiloDataItaubal()
-    await getRepasseDataItaubal()
+    await getAeeDataAlunosItaubal()
+    await getCrecheDataAlunosItaubal()
+    await getEjaDataAlunosItaubal()
+    await getFundDataAlunosItaubal()
+    await getMaisFundDataAlunosItaubal()
+    await getPreDataAlunosItaubal()
+    await getQuiloDataAlunosItaubal()
+    await getRepasseDataAlunosItaubal()
 
-        var dom = document.getElementById("recursosItaubal")
+        var dom = document.getElementById("chart-aluno-itaubal")
     var echartItaubal = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -1662,7 +1662,7 @@ async function itaubalChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataItaubal,
+                        data: anoDataAlunosItaubal,
                         axisLine:{
                             show: false
                         }
@@ -1683,7 +1683,7 @@ async function itaubalChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataItaubal
+                    data: crecheDataAlunosItaubal
                         
                         
                     },
@@ -1693,7 +1693,7 @@ async function itaubalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataItaubal
+                        data: fundDataAlunosItaubal
                     },
                     {
                         name: 'Pré-Escola',
@@ -1701,7 +1701,7 @@ async function itaubalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataItaubal
+                        data: preDataAlunosItaubal
                     },
                     {
                         name: 'AEE',
@@ -1709,7 +1709,7 @@ async function itaubalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataItaubal
+                        data: aeeDataAlunosItaubal
                     },
                     {
                         name: 'EJA',
@@ -1717,7 +1717,7 @@ async function itaubalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataItaubal 
+                        data: ejaDataAlunosItaubal 
                     },
                     {
                         name: '+Educação',
@@ -1725,7 +1725,7 @@ async function itaubalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataItaubal 
+                        data: maisFundDataAlunosItaubal 
                     },
                     {
                         name: 'Quilombola',
@@ -1733,7 +1733,7 @@ async function itaubalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataItaubal 
+                        data: quiloDataAlunosItaubal 
                     },
                     
                     ]
@@ -1746,8 +1746,8 @@ async function itaubalChart() {
             echartItaubal.setOption(option);
         }
 }
-async function getRepasseDataItaubal(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=itaubal&esferaGoverno=municipal"
+async function getRepasseDataAlunosItaubal(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=itaubal&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -1756,14 +1756,14 @@ async function getRepasseDataItaubal(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataItaubal = await response.json();
+        var DataAlunosItaubal = await response.json();
         
-        const ano = DataItaubal.map((x) => x.ano)
+        const ano = DataAlunosItaubal.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataItaubal = anoU
+        anoDataAlunosItaubal = anoU
 }
-async function getFundDataItaubal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosItaubal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -1772,13 +1772,13 @@ async function getFundDataItaubal(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataItaubal = await response.json();
+        DataAlunosItaubal = await response.json();
     
-        var valor = DataItaubal.map((x) => x.qtAlunos)
-        fundDataItaubal = valor
+        var valor = DataAlunosItaubal.map((x) => x.qtAlunos)
+        fundDataAlunosItaubal = valor
 }
-async function getCrecheDataItaubal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosItaubal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1787,12 +1787,12 @@ async function getCrecheDataItaubal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataItaubal = await response.json();
-         valor = DataItaubal.map((x) => x.qtAlunos)
-         crecheDataItaubal = valor
+         DataAlunosItaubal = await response.json();
+         valor = DataAlunosItaubal.map((x) => x.qtAlunos)
+         crecheDataAlunosItaubal = valor
 }
-async function getPreDataItaubal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosItaubal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1801,12 +1801,12 @@ async function getPreDataItaubal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataItaubal = await response.json();
-        valor = DataItaubal.map((x) => x.qtAlunos)
-        preDataItaubal = valor
+        DataAlunosItaubal = await response.json();
+        valor = DataAlunosItaubal.map((x) => x.qtAlunos)
+        preDataAlunosItaubal = valor
 }
-async function getAeeDataItaubal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosItaubal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1815,12 +1815,12 @@ async function getAeeDataItaubal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataItaubal = await response.json();
-        valor = DataItaubal.map((x) => x.qtAlunos)
-        aeeDataItaubal = valor
+        DataAlunosItaubal = await response.json();
+        valor = DataAlunosItaubal.map((x) => x.qtAlunos)
+        aeeDataAlunosItaubal = valor
 }
-async function getEjaDataItaubal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosItaubal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1829,12 +1829,12 @@ async function getEjaDataItaubal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataItaubal = await response.json();
-        valor = DataItaubal.map((x) => x.qtAlunos)
-        ejaDataItaubal = valor
+        DataAlunosItaubal = await response.json();
+        valor = DataAlunosItaubal.map((x) => x.qtAlunos)
+        ejaDataAlunosItaubal = valor
 }
-async function getMaisFundDataItaubal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosItaubal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1843,12 +1843,12 @@ async function getMaisFundDataItaubal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataItaubal = await response.json();
-        valor = DataItaubal.map((x) => x.qtAlunos)
-        maisFundDataItaubal = valor
+        DataAlunosItaubal = await response.json();
+        valor = DataAlunosItaubal.map((x) => x.qtAlunos)
+        maisFundDataAlunosItaubal = valor
 }
-async function getQuiloDataItaubal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosItaubal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=itaubal&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -1857,26 +1857,26 @@ async function getQuiloDataItaubal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataItaubal = await response.json();
-        valor = DataItaubal.map((x) => x.qtAlunos)
-        quiloDataItaubal = valor
+        DataAlunosItaubal = await response.json();
+        valor = DataAlunosItaubal.map((x) => x.qtAlunos)
+        quiloDataAlunosItaubal = valor
 }
 
 /////////////laranjal
-var anoDataLaranjal = [], modalidadeDataLaranjal = [], crecheDataLaranjal = [], fundDataLaranjal = [], preDataLaranjal = [], aeeDataLaranjal = [], ejaDataLaranjal = [], maisFundDataLaranjal = [], quiloDataLaranjal = [];
+var anoDataAlunosLaranjal = [], modalidadeDataAlunosLaranjal = [], crecheDataAlunosLaranjal = [], fundDataAlunosLaranjal = [], preDataAlunosLaranjal = [], aeeDataAlunosLaranjal = [], ejaDataAlunosLaranjal = [], maisFundDataAlunosLaranjal = [], quiloDataAlunosLaranjal = [];
 laranjalChart()
 async function laranjalChart() {
 
-    await getAeeDataLaranjal()
-    await getCrecheDataLaranjal()
-    await getEjaDataLaranjal()
-    await getFundDataLaranjal()
-    await getMaisFundDataLaranjal()
-    await getPreDataLaranjal()
-    await getQuiloDataLaranjal()
-    await getRepasseDataLaranjal()
+    await getAeeDataAlunosLaranjal()
+    await getCrecheDataAlunosLaranjal()
+    await getEjaDataAlunosLaranjal()
+    await getFundDataAlunosLaranjal()
+    await getMaisFundDataAlunosLaranjal()
+    await getPreDataAlunosLaranjal()
+    await getQuiloDataAlunosLaranjal()
+    await getRepasseDataAlunosLaranjal()
 
-        var dom = document.getElementById("recursosLaranjal")
+        var dom = document.getElementById("chart-aluno-laranjal")
     var echartLaranjal = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -1927,7 +1927,7 @@ async function laranjalChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataLaranjal,
+                        data: anoDataAlunosLaranjal,
                         axisLine:{
                             show: false
                         }
@@ -1948,7 +1948,7 @@ async function laranjalChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataLaranjal
+                    data: crecheDataAlunosLaranjal
                         
                         
                     },
@@ -1958,7 +1958,7 @@ async function laranjalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataLaranjal
+                        data: fundDataAlunosLaranjal
                     },
                     {
                         name: 'Pré-Escola',
@@ -1966,7 +1966,7 @@ async function laranjalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataLaranjal
+                        data: preDataAlunosLaranjal
                     },
                     {
                         name: 'AEE',
@@ -1974,7 +1974,7 @@ async function laranjalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataLaranjal
+                        data: aeeDataAlunosLaranjal
                     },
                     {
                         name: 'EJA',
@@ -1982,7 +1982,7 @@ async function laranjalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataLaranjal 
+                        data: ejaDataAlunosLaranjal 
                     },
                     {
                         name: '+Educação',
@@ -1990,7 +1990,7 @@ async function laranjalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataLaranjal 
+                        data: maisFundDataAlunosLaranjal 
                     },
                     {
                         name: 'Quilombola',
@@ -1998,7 +1998,7 @@ async function laranjalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataLaranjal 
+                        data: quiloDataAlunosLaranjal 
                     },
                     
                     ]
@@ -2011,8 +2011,8 @@ async function laranjalChart() {
             echartLaranjal.setOption(option);
         }
 }
-async function getRepasseDataLaranjal(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=laranjal_do_jari&esferaGoverno=municipal"
+async function getRepasseDataAlunosLaranjal(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=laranjal_do_jari&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -2021,14 +2021,14 @@ async function getRepasseDataLaranjal(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataLaranjal = await response.json();
+        var DataAlunosLaranjal = await response.json();
         
-        const ano = DataLaranjal.map((x) => x.ano)
+        const ano = DataAlunosLaranjal.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataLaranjal = anoU
+        anoDataAlunosLaranjal = anoU
 }
-async function getFundDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosLaranjal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -2037,13 +2037,13 @@ async function getFundDataLaranjal(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataLaranjal = await response.json();
+        DataAlunosLaranjal = await response.json();
     
-        var valor = DataLaranjal.map((x) => x.qtAlunos)
-        fundDataLaranjal = valor
+        var valor = DataAlunosLaranjal.map((x) => x.qtAlunos)
+        fundDataAlunosLaranjal = valor
 }
-async function getCrecheDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosLaranjal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2052,12 +2052,12 @@ async function getCrecheDataLaranjal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataLaranjal = await response.json();
-         valor = DataLaranjal.map((x) => x.qtAlunos)
-         crecheDataLaranjal = valor
+         DataAlunosLaranjal = await response.json();
+         valor = DataAlunosLaranjal.map((x) => x.qtAlunos)
+         crecheDataAlunosLaranjal = valor
 }
-async function getPreDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosLaranjal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2066,12 +2066,12 @@ async function getPreDataLaranjal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataLaranjal = await response.json();
-        valor = DataLaranjal.map((x) => x.qtAlunos)
-        preDataLaranjal = valor
+        DataAlunosLaranjal = await response.json();
+        valor = DataAlunosLaranjal.map((x) => x.qtAlunos)
+        preDataAlunosLaranjal = valor
 }
-async function getAeeDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosLaranjal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2080,12 +2080,12 @@ async function getAeeDataLaranjal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataLaranjal = await response.json();
-        valor = DataLaranjal.map((x) => x.qtAlunos)
-        aeeDataLaranjal = valor
+        DataAlunosLaranjal = await response.json();
+        valor = DataAlunosLaranjal.map((x) => x.qtAlunos)
+        aeeDataAlunosLaranjal = valor
 }
-async function getEjaDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosLaranjal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2094,12 +2094,12 @@ async function getEjaDataLaranjal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataLaranjal = await response.json();
-        valor = DataLaranjal.map((x) => x.qtAlunos)
-        ejaDataLaranjal = valor
+        DataAlunosLaranjal = await response.json();
+        valor = DataAlunosLaranjal.map((x) => x.qtAlunos)
+        ejaDataAlunosLaranjal = valor
 }
-async function getMaisFundDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosLaranjal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2108,12 +2108,12 @@ async function getMaisFundDataLaranjal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataLaranjal = await response.json();
-        valor = DataLaranjal.map((x) => x.qtAlunos)
-        maisFundDataLaranjal = valor
+        DataAlunosLaranjal = await response.json();
+        valor = DataAlunosLaranjal.map((x) => x.qtAlunos)
+        maisFundDataAlunosLaranjal = valor
 }
-async function getQuiloDataLaranjal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosLaranjal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=laranjal_do_jari&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2122,26 +2122,26 @@ async function getQuiloDataLaranjal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataLaranjal = await response.json();
-        valor = DataLaranjal.map((x) => x.qtAlunos)
-        quiloDataLaranjal = valor
+        DataAlunosLaranjal = await response.json();
+        valor = DataAlunosLaranjal.map((x) => x.qtAlunos)
+        quiloDataAlunosLaranjal = valor
 }
 
 ///////////mazagao
-var anoDataMazagao = [], modalidadeDataMazagao = [], crecheDataMazagao = [], fundDataMazagao = [], preDataMazagao = [], aeeDataMazagao = [], ejaDataMazagao = [], maisFundDataMazagao = [], quiloDataMazagao = [];
+var anoDataAlunosMazagao = [], modalidadeDataAlunosMazagao = [], crecheDataAlunosMazagao = [], fundDataAlunosMazagao = [], preDataAlunosMazagao = [], aeeDataAlunosMazagao = [], ejaDataAlunosMazagao = [], maisFundDataAlunosMazagao = [], quiloDataAlunosMazagao = [];
 mazagaoChart()
 async function mazagaoChart() {
 
-    await getAeeDataMazagao()
-    await getCrecheDataMazagao()
-    await getEjaDataMazagao()
-    await getFundDataMazagao()
-    await getMaisFundDataMazagao()
-    await getPreDataMazagao()
-    await getQuiloDataMazagao()
-    await getRepasseDataMazagao()
+    await getAeeDataAlunosMazagao()
+    await getCrecheDataAlunosMazagao()
+    await getEjaDataAlunosMazagao()
+    await getFundDataAlunosMazagao()
+    await getMaisFundDataAlunosMazagao()
+    await getPreDataAlunosMazagao()
+    await getQuiloDataAlunosMazagao()
+    await getRepasseDataAlunosMazagao()
 
-        var dom = document.getElementById("recursosMazagao")
+        var dom = document.getElementById("chart-aluno-mazagao")
     var echartMazagao = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -2192,7 +2192,7 @@ async function mazagaoChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataMazagao,
+                        data: anoDataAlunosMazagao,
                         axisLine:{
                             show: false
                         }
@@ -2213,7 +2213,7 @@ async function mazagaoChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataMazagao
+                    data: crecheDataAlunosMazagao
                         
                         
                     },
@@ -2223,7 +2223,7 @@ async function mazagaoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataMazagao
+                        data: fundDataAlunosMazagao
                     },
                     {
                         name: 'Pré-Escola',
@@ -2231,7 +2231,7 @@ async function mazagaoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataMazagao
+                        data: preDataAlunosMazagao
                     },
                     {
                         name: 'AEE',
@@ -2239,7 +2239,7 @@ async function mazagaoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataMazagao
+                        data: aeeDataAlunosMazagao
                     },
                     {
                         name: 'EJA',
@@ -2247,7 +2247,7 @@ async function mazagaoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataMazagao 
+                        data: ejaDataAlunosMazagao 
                     },
                     {
                         name: '+Educação',
@@ -2255,7 +2255,7 @@ async function mazagaoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataMazagao 
+                        data: maisFundDataAlunosMazagao 
                     },
                     {
                         name: 'Quilombola',
@@ -2263,7 +2263,7 @@ async function mazagaoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataMazagao 
+                        data: quiloDataAlunosMazagao 
                     },
                     
                     ]
@@ -2276,8 +2276,8 @@ async function mazagaoChart() {
             echartMazagao.setOption(option);
         }
 }
-async function getRepasseDataMazagao(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=mazagao&esferaGoverno=municipal"
+async function getRepasseDataAlunosMazagao(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=mazagao&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -2286,14 +2286,14 @@ async function getRepasseDataMazagao(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataMazagao = await response.json();
+        var DataAlunosMazagao = await response.json();
         
-        const ano = DataMazagao.map((x) => x.ano)
+        const ano = DataAlunosMazagao.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataMazagao = anoU
+        anoDataAlunosMazagao = anoU
 }
-async function getFundDataMazagao(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosMazagao(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -2302,13 +2302,13 @@ async function getFundDataMazagao(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataMazagao = await response.json();
+        DataAlunosMazagao = await response.json();
     
-        var valor = DataMazagao.map((x) => x.qtAlunos)
-        fundDataMazagao = valor
+        var valor = DataAlunosMazagao.map((x) => x.qtAlunos)
+        fundDataAlunosMazagao = valor
 }
-async function getCrecheDataMazagao(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosMazagao(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2317,12 +2317,12 @@ async function getCrecheDataMazagao(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataMazagao = await response.json();
-         valor = DataMazagao.map((x) => x.qtAlunos)
-         crecheDataMazagao = valor
+         DataAlunosMazagao = await response.json();
+         valor = DataAlunosMazagao.map((x) => x.qtAlunos)
+         crecheDataAlunosMazagao = valor
 }
-async function getPreDataMazagao(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosMazagao(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2331,12 +2331,12 @@ async function getPreDataMazagao(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMazagao = await response.json();
-        valor = DataMazagao.map((x) => x.qtAlunos)
-        preDataMazagao = valor
+        DataAlunosMazagao = await response.json();
+        valor = DataAlunosMazagao.map((x) => x.qtAlunos)
+        preDataAlunosMazagao = valor
 }
-async function getAeeDataMazagao(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosMazagao(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2345,12 +2345,12 @@ async function getAeeDataMazagao(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMazagao = await response.json();
-        valor = DataMazagao.map((x) => x.qtAlunos)
-        aeeDataMazagao = valor
+        DataAlunosMazagao = await response.json();
+        valor = DataAlunosMazagao.map((x) => x.qtAlunos)
+        aeeDataAlunosMazagao = valor
 }
-async function getEjaDataMazagao(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosMazagao(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2359,12 +2359,12 @@ async function getEjaDataMazagao(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMazagao = await response.json();
-        valor = DataMazagao.map((x) => x.qtAlunos)
-        ejaDataMazagao = valor
+        DataAlunosMazagao = await response.json();
+        valor = DataAlunosMazagao.map((x) => x.qtAlunos)
+        ejaDataAlunosMazagao = valor
 }
-async function getMaisFundDataMazagao(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosMazagao(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2373,12 +2373,12 @@ async function getMaisFundDataMazagao(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMazagao = await response.json();
-        valor = DataMazagao.map((x) => x.qtAlunos)
-        maisFundDataMazagao = valor
+        DataAlunosMazagao = await response.json();
+        valor = DataAlunosMazagao.map((x) => x.qtAlunos)
+        maisFundDataAlunosMazagao = valor
 }
-async function getQuiloDataMazagao(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosMazagao(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=mazagao&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2387,26 +2387,26 @@ async function getQuiloDataMazagao(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataMazagao = await response.json();
-        valor = DataMazagao.map((x) => x.qtAlunos)
-        quiloDataMazagao = valor
+        DataAlunosMazagao = await response.json();
+        valor = DataAlunosMazagao.map((x) => x.qtAlunos)
+        quiloDataAlunosMazagao = valor
 }
 
 ////////////porto
-var anoDataPorto = [], modalidadeDataPorto = [], crecheDataPorto = [], fundDataPorto = [], preDataPorto = [], aeeDataPorto = [], ejaDataPorto = [], maisFundDataPorto = [], quiloDataPorto = [];
+var anoDataAlunosPorto = [], modalidadeDataAlunosPorto = [], crecheDataAlunosPorto = [], fundDataAlunosPorto = [], preDataAlunosPorto = [], aeeDataAlunosPorto = [], ejaDataAlunosPorto = [], maisFundDataAlunosPorto = [], quiloDataAlunosPorto = [];
 portoChart()
 async function portoChart() {
 
-    await getAeeDataPorto()
-    await getCrecheDataPorto()
-    await getEjaDataPorto()
-    await getFundDataPorto()
-    await getMaisFundDataPorto()
-    await getPreDataPorto()
-    await getQuiloDataPorto()
-    await getRepasseDataPorto()
+    await getAeeDataAlunosPorto()
+    await getCrecheDataAlunosPorto()
+    await getEjaDataAlunosPorto()
+    await getFundDataAlunosPorto()
+    await getMaisFundDataAlunosPorto()
+    await getPreDataAlunosPorto()
+    await getQuiloDataAlunosPorto()
+    await getRepasseDataAlunosPorto()
 
-        var dom = document.getElementById("recursosPorto")
+        var dom = document.getElementById("chart-aluno-porto")
     var echartPorto = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -2457,7 +2457,7 @@ async function portoChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataPorto,
+                        data: anoDataAlunosPorto,
                         axisLine:{
                             show: false
                         }
@@ -2478,7 +2478,7 @@ async function portoChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataPorto
+                    data: crecheDataAlunosPorto
                         
                         
                     },
@@ -2488,7 +2488,7 @@ async function portoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataPorto
+                        data: fundDataAlunosPorto
                     },
                     {
                         name: 'Pré-Escola',
@@ -2496,7 +2496,7 @@ async function portoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataPorto
+                        data: preDataAlunosPorto
                     },
                     {
                         name: 'AEE',
@@ -2504,7 +2504,7 @@ async function portoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataPorto
+                        data: aeeDataAlunosPorto
                     },
                     {
                         name: 'EJA',
@@ -2512,7 +2512,7 @@ async function portoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataPorto 
+                        data: ejaDataAlunosPorto 
                     },
                     {
                         name: '+Educação',
@@ -2520,7 +2520,7 @@ async function portoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataPorto 
+                        data: maisFundDataAlunosPorto 
                     },
                     {
                         name: 'Quilombola',
@@ -2528,7 +2528,7 @@ async function portoChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataPorto 
+                        data: quiloDataAlunosPorto 
                     },
                     
                     ]
@@ -2541,8 +2541,8 @@ async function portoChart() {
             echartPorto.setOption(option);
         }
 }
-async function getRepasseDataPorto(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=porto_grande&esferaGoverno=municipal"
+async function getRepasseDataAlunosPorto(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=porto_grande&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -2551,14 +2551,14 @@ async function getRepasseDataPorto(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataPorto = await response.json();
+        var DataAlunosPorto = await response.json();
         
-        const ano = DataPorto.map((x) => x.ano)
+        const ano = DataAlunosPorto.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataPorto = anoU
+        anoDataAlunosPorto = anoU
 }
-async function getFundDataPorto(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosPorto(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -2567,13 +2567,13 @@ async function getFundDataPorto(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataPorto = await response.json();
+        DataAlunosPorto = await response.json();
     
-        var valor = DataPorto.map((x) => x.qtAlunos)
-        fundDataPorto = valor
+        var valor = DataAlunosPorto.map((x) => x.qtAlunos)
+        fundDataAlunosPorto = valor
 }
-async function getCrecheDataPorto(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosPorto(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2582,12 +2582,12 @@ async function getCrecheDataPorto(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataPorto = await response.json();
-         valor = DataPorto.map((x) => x.qtAlunos)
-         crecheDataPorto = valor
+         DataAlunosPorto = await response.json();
+         valor = DataAlunosPorto.map((x) => x.qtAlunos)
+         crecheDataAlunosPorto = valor
 }
-async function getPreDataPorto(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosPorto(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2596,12 +2596,12 @@ async function getPreDataPorto(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPorto = await response.json();
-        valor = DataPorto.map((x) => x.qtAlunos)
-        preDataPorto = valor
+        DataAlunosPorto = await response.json();
+        valor = DataAlunosPorto.map((x) => x.qtAlunos)
+        preDataAlunosPorto = valor
 }
-async function getAeeDataPorto(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosPorto(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2610,12 +2610,12 @@ async function getAeeDataPorto(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPorto = await response.json();
-        valor = DataPorto.map((x) => x.qtAlunos)
-        aeeDataPorto = valor
+        DataAlunosPorto = await response.json();
+        valor = DataAlunosPorto.map((x) => x.qtAlunos)
+        aeeDataAlunosPorto = valor
 }
-async function getEjaDataPorto(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosPorto(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2624,12 +2624,12 @@ async function getEjaDataPorto(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPorto = await response.json();
-        valor = DataPorto.map((x) => x.qtAlunos)
-        ejaDataPorto = valor
+        DataAlunosPorto = await response.json();
+        valor = DataAlunosPorto.map((x) => x.qtAlunos)
+        ejaDataAlunosPorto = valor
 }
-async function getMaisFundDataPorto(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosPorto(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2638,12 +2638,12 @@ async function getMaisFundDataPorto(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPorto = await response.json();
-        valor = DataPorto.map((x) => x.qtAlunos)
-        maisFundDataPorto = valor
+        DataAlunosPorto = await response.json();
+        valor = DataAlunosPorto.map((x) => x.qtAlunos)
+        maisFundDataAlunosPorto = valor
 }
-async function getQuiloDataPorto(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosPorto(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=porto_grande&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2652,26 +2652,26 @@ async function getQuiloDataPorto(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataPorto = await response.json();
-        valor = DataPorto.map((x) => x.qtAlunos)
-        quiloDataPorto = valor
+        DataAlunosPorto = await response.json();
+        valor = DataAlunosPorto.map((x) => x.qtAlunos)
+        quiloDataAlunosPorto = valor
 }
 
 /////////santana
-var anoDataSantana = [], modalidadeDataSantana = [], crecheDataSantana = [], fundDataSantana = [], preDataSantana = [], aeeDataSantana = [], ejaDataSantana = [], maisFundDataSantana = [], quiloDataSantana = [];
+var anoDataAlunosSantana = [], modalidadeDataAlunosSantana = [], crecheDataAlunosSantana = [], fundDataAlunosSantana = [], preDataAlunosSantana = [], aeeDataAlunosSantana = [], ejaDataAlunosSantana = [], maisFundDataAlunosSantana = [], quiloDataAlunosSantana = [];
 santanaChart()
 async function santanaChart() {
 
-    await getAeeDataSantana()
-    await getCrecheDataSantana()
-    await getEjaDataSantana()
-    await getFundDataSantana()
-    await getMaisFundDataSantana()
-    await getPreDataSantana()
-    await getQuiloDataSantana()
-    await getRepasseDataSantana()
+    await getAeeDataAlunosSantana()
+    await getCrecheDataAlunosSantana()
+    await getEjaDataAlunosSantana()
+    await getFundDataAlunosSantana()
+    await getMaisFundDataAlunosSantana()
+    await getPreDataAlunosSantana()
+    await getQuiloDataAlunosSantana()
+    await getRepasseDataAlunosSantana()
 
-        var dom = document.getElementById("recursosSantana")
+        var dom = document.getElementById("chart-aluno-santana")
     var echartSantana = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -2722,7 +2722,7 @@ async function santanaChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataSantana,
+                        data: anoDataAlunosSantana,
                         axisLine:{
                             show: false
                         }
@@ -2743,7 +2743,7 @@ async function santanaChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataSantana
+                    data: crecheDataAlunosSantana
                         
                         
                     },
@@ -2753,7 +2753,7 @@ async function santanaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataSantana
+                        data: fundDataAlunosSantana
                     },
                     {
                         name: 'Pré-Escola',
@@ -2761,7 +2761,7 @@ async function santanaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataSantana
+                        data: preDataAlunosSantana
                     },
                     {
                         name: 'AEE',
@@ -2769,7 +2769,7 @@ async function santanaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataSantana
+                        data: aeeDataAlunosSantana
                     },
                     {
                         name: 'EJA',
@@ -2777,7 +2777,7 @@ async function santanaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataSantana 
+                        data: ejaDataAlunosSantana 
                     },
                     {
                         name: '+Educação',
@@ -2785,7 +2785,7 @@ async function santanaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataSantana 
+                        data: maisFundDataAlunosSantana 
                     },
                     {
                         name: 'Quilombola',
@@ -2793,7 +2793,7 @@ async function santanaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataSantana 
+                        data: quiloDataAlunosSantana 
                     },
                     
                     ]
@@ -2806,8 +2806,8 @@ async function santanaChart() {
             echartSantana.setOption(option);
         }
 }
-async function getRepasseDataSantana(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=santana&esferaGoverno=municipal"
+async function getRepasseDataAlunosSantana(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=santana&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -2816,14 +2816,14 @@ async function getRepasseDataSantana(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataSantana = await response.json();
+        var DataAlunosSantana = await response.json();
         
-        const ano = DataSantana.map((x) => x.ano)
+        const ano = DataAlunosSantana.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataSantana = anoU
+        anoDataAlunosSantana = anoU
 }
-async function getFundDataSantana(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosSantana(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -2832,13 +2832,13 @@ async function getFundDataSantana(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataSantana = await response.json();
+        DataAlunosSantana = await response.json();
     
-        var valor = DataSantana.map((x) => x.qtAlunos)
-        fundDataSantana = valor
+        var valor = DataAlunosSantana.map((x) => x.qtAlunos)
+        fundDataAlunosSantana = valor
 }
-async function getCrecheDataSantana(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosSantana(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2847,12 +2847,12 @@ async function getCrecheDataSantana(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataSantana = await response.json();
-         valor = DataSantana.map((x) => x.qtAlunos)
-         crecheDataSantana = valor
+         DataAlunosSantana = await response.json();
+         valor = DataAlunosSantana.map((x) => x.qtAlunos)
+         crecheDataAlunosSantana = valor
 }
-async function getPreDataSantana(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosSantana(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2861,12 +2861,12 @@ async function getPreDataSantana(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSantana = await response.json();
-        valor = DataSantana.map((x) => x.qtAlunos)
-        preDataSantana = valor
+        DataAlunosSantana = await response.json();
+        valor = DataAlunosSantana.map((x) => x.qtAlunos)
+        preDataAlunosSantana = valor
 }
-async function getAeeDataSantana(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosSantana(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2875,12 +2875,12 @@ async function getAeeDataSantana(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSantana = await response.json();
-        valor = DataSantana.map((x) => x.qtAlunos)
-        aeeDataSantana = valor
+        DataAlunosSantana = await response.json();
+        valor = DataAlunosSantana.map((x) => x.qtAlunos)
+        aeeDataAlunosSantana = valor
 }
-async function getEjaDataSantana(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosSantana(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2889,12 +2889,12 @@ async function getEjaDataSantana(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSantana = await response.json();
-        valor = DataSantana.map((x) => x.qtAlunos)
-        ejaDataSantana = valor
+        DataAlunosSantana = await response.json();
+        valor = DataAlunosSantana.map((x) => x.qtAlunos)
+        ejaDataAlunosSantana = valor
 }
-async function getMaisFundDataSantana(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosSantana(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2903,12 +2903,12 @@ async function getMaisFundDataSantana(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSantana = await response.json();
-        valor = DataSantana.map((x) => x.qtAlunos)
-        maisFundDataSantana = valor
+        DataAlunosSantana = await response.json();
+        valor = DataAlunosSantana.map((x) => x.qtAlunos)
+        maisFundDataAlunosSantana = valor
 }
-async function getQuiloDataSantana(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosSantana(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=santana&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -2917,26 +2917,26 @@ async function getQuiloDataSantana(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSantana = await response.json();
-        valor = DataSantana.map((x) => x.qtAlunos)
-        quiloDataSantana = valor
+        DataAlunosSantana = await response.json();
+        valor = DataAlunosSantana.map((x) => x.qtAlunos)
+        quiloDataAlunosSantana = valor
 }
 ////////serra do navio
 
-var anoDataSerra = [], modalidadeDataSerra = [], crecheDataSerra = [], fundDataSerra = [], preDataSerra = [], aeeDataSerra = [], ejaDataSerra = [], maisFundDataSerra = [], quiloDataSerra = [];
+var anoDataAlunosSerra = [], modalidadeDataAlunosSerra = [], crecheDataAlunosSerra = [], fundDataAlunosSerra = [], preDataAlunosSerra = [], aeeDataAlunosSerra = [], ejaDataAlunosSerra = [], maisFundDataAlunosSerra = [], quiloDataAlunosSerra = [];
 serraChart()
 async function serraChart() {
 
-    await getAeeDataSerra()
-    await getCrecheDataSerra()
-    await getEjaDataSerra()
-    await getFundDataSerra()
-    await getMaisFundDataSerra()
-    await getPreDataSerra()
-    await getQuiloDataSerra()
-    await getRepasseDataSerra()
+    await getAeeDataAlunosSerra()
+    await getCrecheDataAlunosSerra()
+    await getEjaDataAlunosSerra()
+    await getFundDataAlunosSerra()
+    await getMaisFundDataAlunosSerra()
+    await getPreDataAlunosSerra()
+    await getQuiloDataAlunosSerra()
+    await getRepasseDataAlunosSerra()
 
-        var dom = document.getElementById("recursosSerra")
+        var dom = document.getElementById("chart-aluno-serra")
     var echartSerra = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -2987,7 +2987,7 @@ async function serraChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataSerra,
+                        data: anoDataAlunosSerra,
                         axisLine:{
                             show: false
                         }
@@ -3008,7 +3008,7 @@ async function serraChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataSerra
+                    data: crecheDataAlunosSerra
                         
                         
                     },
@@ -3018,7 +3018,7 @@ async function serraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataSerra
+                        data: fundDataAlunosSerra
                     },
                     {
                         name: 'Pré-Escola',
@@ -3026,7 +3026,7 @@ async function serraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataSerra
+                        data: preDataAlunosSerra
                     },
                     {
                         name: 'AEE',
@@ -3034,7 +3034,7 @@ async function serraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataSerra
+                        data: aeeDataAlunosSerra
                     },
                     {
                         name: 'EJA',
@@ -3042,7 +3042,7 @@ async function serraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataSerra 
+                        data: ejaDataAlunosSerra 
                     },
                     {
                         name: '+Educação',
@@ -3050,7 +3050,7 @@ async function serraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataSerra 
+                        data: maisFundDataAlunosSerra 
                     },
                     {
                         name: 'Quilombola',
@@ -3058,7 +3058,7 @@ async function serraChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataSerra 
+                        data: quiloDataAlunosSerra 
                     },
                     
                     ]
@@ -3071,8 +3071,8 @@ async function serraChart() {
             echartSerra.setOption(option);
         }
 }
-async function getRepasseDataSerra(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=serra_do_navio&esferaGoverno=municipal"
+async function getRepasseDataAlunosSerra(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=serra_do_navio&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -3081,14 +3081,14 @@ async function getRepasseDataSerra(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataSerra = await response.json();
+        var DataAlunosSerra = await response.json();
         
-        const ano = DataSerra.map((x) => x.ano)
+        const ano = DataAlunosSerra.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataSerra = anoU
+        anoDataAlunosSerra = anoU
 }
-async function getFundDataSerra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosSerra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -3097,13 +3097,13 @@ async function getFundDataSerra(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataSerra = await response.json();
+        DataAlunosSerra = await response.json();
     
-        var valor = DataSerra.map((x) => x.qtAlunos)
-        fundDataSerra = valor
+        var valor = DataAlunosSerra.map((x) => x.qtAlunos)
+        fundDataAlunosSerra = valor
 }
-async function getCrecheDataSerra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosSerra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3112,12 +3112,12 @@ async function getCrecheDataSerra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataSerra = await response.json();
-         valor = DataSerra.map((x) => x.qtAlunos)
-         crecheDataSerra = valor
+         DataAlunosSerra = await response.json();
+         valor = DataAlunosSerra.map((x) => x.qtAlunos)
+         crecheDataAlunosSerra = valor
 }
-async function getPreDataSerra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosSerra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3126,12 +3126,12 @@ async function getPreDataSerra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSerra = await response.json();
-        valor = DataSerra.map((x) => x.qtAlunos)
-        preDataSerra = valor
+        DataAlunosSerra = await response.json();
+        valor = DataAlunosSerra.map((x) => x.qtAlunos)
+        preDataAlunosSerra = valor
 }
-async function getAeeDataSerra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosSerra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3140,12 +3140,12 @@ async function getAeeDataSerra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSerra = await response.json();
-        valor = DataSerra.map((x) => x.qtAlunos)
-        aeeDataSerra = valor
+        DataAlunosSerra = await response.json();
+        valor = DataAlunosSerra.map((x) => x.qtAlunos)
+        aeeDataAlunosSerra = valor
 }
-async function getEjaDataSerra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosSerra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3154,12 +3154,12 @@ async function getEjaDataSerra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSerra = await response.json();
-        valor = DataSerra.map((x) => x.qtAlunos)
-        ejaDataSerra = valor
+        DataAlunosSerra = await response.json();
+        valor = DataAlunosSerra.map((x) => x.qtAlunos)
+        ejaDataAlunosSerra = valor
 }
-async function getMaisFundDataSerra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosSerra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3168,12 +3168,12 @@ async function getMaisFundDataSerra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSerra = await response.json();
-        valor = DataSerra.map((x) => x.qtAlunos)
-        maisFundDataSerra = valor
+        DataAlunosSerra = await response.json();
+        valor = DataAlunosSerra.map((x) => x.qtAlunos)
+        maisFundDataAlunosSerra = valor
 }
-async function getQuiloDataSerra(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosSerra(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=serra_do_navio&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3182,26 +3182,26 @@ async function getQuiloDataSerra(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataSerra = await response.json();
-        valor = DataSerra.map((x) => x.qtAlunos)
-        quiloDataSerra = valor
+        DataAlunosSerra = await response.json();
+        valor = DataAlunosSerra.map((x) => x.qtAlunos)
+        quiloDataAlunosSerra = valor
 }
 
 ////////////////////tartarugal
-var anoDataTartarugal = [], modalidadeDataTartarugal = [], crecheDataTartarugal = [], fundDataTartarugal = [], preDataTartarugal = [], aeeDataTartarugal = [], ejaDataTartarugal = [], maisFundDataTartarugal = [], quiloDataTartarugal = [];
+var anoDataAlunosTartarugal = [], modalidadeDataAlunosTartarugal = [], crecheDataAlunosTartarugal = [], fundDataAlunosTartarugal = [], preDataAlunosTartarugal = [], aeeDataAlunosTartarugal = [], ejaDataAlunosTartarugal = [], maisFundDataAlunosTartarugal = [], quiloDataAlunosTartarugal = [];
 tartarugalChart()
 async function tartarugalChart() {
 
-    await getAeeDataTartarugal()
-    await getCrecheDataTartarugal()
-    await getEjaDataTartarugal()
-    await getFundDataTartarugal()
-    await getMaisFundDataTartarugal()
-    await getPreDataTartarugal()
-    await getQuiloDataTartarugal()
-    await getRepasseDataTartarugal()
+    await getAeeDataAlunosTartarugal()
+    await getCrecheDataAlunosTartarugal()
+    await getEjaDataAlunosTartarugal()
+    await getFundDataAlunosTartarugal()
+    await getMaisFundDataAlunosTartarugal()
+    await getPreDataAlunosTartarugal()
+    await getQuiloDataAlunosTartarugal()
+    await getRepasseDataAlunosTartarugal()
 
-    var dom = document.getElementById("recursosTartarugal")
+    var dom = document.getElementById("chart-aluno-tartarugal")
     var echartTartarugal = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -3252,7 +3252,7 @@ async function tartarugalChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataTartarugal,
+                        data: anoDataAlunosTartarugal,
                         axisLine:{
                             show: false
                         }
@@ -3273,7 +3273,7 @@ async function tartarugalChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataTartarugal
+                    data: crecheDataAlunosTartarugal
                         
                         
                     },
@@ -3283,7 +3283,7 @@ async function tartarugalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataTartarugal
+                        data: fundDataAlunosTartarugal
                     },
                     {
                         name: 'Pré-Escola',
@@ -3291,7 +3291,7 @@ async function tartarugalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataTartarugal
+                        data: preDataAlunosTartarugal
                     },
                     {
                         name: 'AEE',
@@ -3299,7 +3299,7 @@ async function tartarugalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataTartarugal
+                        data: aeeDataAlunosTartarugal
                     },
                     {
                         name: 'EJA',
@@ -3307,7 +3307,7 @@ async function tartarugalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataTartarugal 
+                        data: ejaDataAlunosTartarugal 
                     },
                     {
                         name: '+Educação',
@@ -3315,7 +3315,7 @@ async function tartarugalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataTartarugal 
+                        data: maisFundDataAlunosTartarugal 
                     },
                     {
                         name: 'Quilombola',
@@ -3323,7 +3323,7 @@ async function tartarugalChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataTartarugal 
+                        data: quiloDataAlunosTartarugal 
                     },
                     
                     ]
@@ -3336,8 +3336,8 @@ async function tartarugalChart() {
             echartTartarugal.setOption(option);
         }
 }
-async function getRepasseDataTartarugal(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=tartarugalzinho&esferaGoverno=municipal"
+async function getRepasseDataAlunosTartarugal(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=tartarugalzinho&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -3346,14 +3346,14 @@ async function getRepasseDataTartarugal(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataTartarugal = await response.json();
+        var DataAlunosTartarugal = await response.json();
         
-        const ano = DataTartarugal.map((x) => x.ano)
+        const ano = DataAlunosTartarugal.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataTartarugal = anoU
+        anoDataAlunosTartarugal = anoU
 }
-async function getFundDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosTartarugal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -3362,13 +3362,13 @@ async function getFundDataTartarugal(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataTartarugal = await response.json();
+        DataAlunosTartarugal = await response.json();
     
-        var valor = DataTartarugal.map((x) => x.qtAlunos)
-        fundDataTartarugal = valor
+        var valor = DataAlunosTartarugal.map((x) => x.qtAlunos)
+        fundDataAlunosTartarugal = valor
 }
-async function getCrecheDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosTartarugal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3377,12 +3377,12 @@ async function getCrecheDataTartarugal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataTartarugal = await response.json();
-         valor = DataTartarugal.map((x) => x.qtAlunos)
-         crecheDataTartarugal = valor
+         DataAlunosTartarugal = await response.json();
+         valor = DataAlunosTartarugal.map((x) => x.qtAlunos)
+         crecheDataAlunosTartarugal = valor
 }
-async function getPreDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosTartarugal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3391,12 +3391,12 @@ async function getPreDataTartarugal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataTartarugal = await response.json();
-        valor = DataTartarugal.map((x) => x.qtAlunos)
-        preDataTartarugal = valor
+        DataAlunosTartarugal = await response.json();
+        valor = DataAlunosTartarugal.map((x) => x.qtAlunos)
+        preDataAlunosTartarugal = valor
 }
-async function getAeeDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosTartarugal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3405,12 +3405,12 @@ async function getAeeDataTartarugal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataTartarugal = await response.json();
-        valor = DataTartarugal.map((x) => x.qtAlunos)
-        aeeDataTartarugal = valor
+        DataAlunosTartarugal = await response.json();
+        valor = DataAlunosTartarugal.map((x) => x.qtAlunos)
+        aeeDataAlunosTartarugal = valor
 }
-async function getEjaDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosTartarugal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3419,12 +3419,12 @@ async function getEjaDataTartarugal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataTartarugal = await response.json();
-        valor = DataTartarugal.map((x) => x.qtAlunos)
-        ejaDataTartarugal = valor
+        DataAlunosTartarugal = await response.json();
+        valor = DataAlunosTartarugal.map((x) => x.qtAlunos)
+        ejaDataAlunosTartarugal = valor
 }
-async function getMaisFundDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosTartarugal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3433,12 +3433,12 @@ async function getMaisFundDataTartarugal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataTartarugal = await response.json();
-        valor = DataTartarugal.map((x) => x.qtAlunos)
-        maisFundDataTartarugal = valor
+        DataAlunosTartarugal = await response.json();
+        valor = DataAlunosTartarugal.map((x) => x.qtAlunos)
+        maisFundDataAlunosTartarugal = valor
 }
-async function getQuiloDataTartarugal(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosTartarugal(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=tartarugalzinho&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3447,26 +3447,26 @@ async function getQuiloDataTartarugal(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataTartarugal = await response.json();
-        valor = DataTartarugal.map((x) => x.qtAlunos)
-        quiloDataTartarugal = valor
+        DataAlunosTartarugal = await response.json();
+        valor = DataAlunosTartarugal.map((x) => x.qtAlunos)
+        quiloDataAlunosTartarugal = valor
 }
 /////////vitoria
 
-var anoDataVitoria = [], modalidadeDataVitoria = [], crecheDataVitoria = [], fundDataVitoria = [], preDataVitoria = [], aeeDataVitoria = [], ejaDataVitoria = [], maisFundDataVitoria = [], quiloDataVitoria = [];
+var anoDataAlunosVitoria = [], modalidadeDataAlunosVitoria = [], crecheDataAlunosVitoria = [], fundDataAlunosVitoria = [], preDataAlunosVitoria = [], aeeDataAlunosVitoria = [], ejaDataAlunosVitoria = [], maisFundDataAlunosVitoria = [], quiloDataAlunosVitoria = [];
 vitoriaChart()
 async function vitoriaChart() {
 
-    await getAeeDataVitoria()
-    await getCrecheDataVitoria()
-    await getEjaDataVitoria()
-    await getFundDataVitoria()
-    await getMaisFundDataVitoria()
-    await getPreDataVitoria()
-    await getQuiloDataVitoria()
-    await getRepasseDataVitoria()
+    await getAeeDataAlunosVitoria()
+    await getCrecheDataAlunosVitoria()
+    await getEjaDataAlunosVitoria()
+    await getFundDataAlunosVitoria()
+    await getMaisFundDataAlunosVitoria()
+    await getPreDataAlunosVitoria()
+    await getQuiloDataAlunosVitoria()
+    await getRepasseDataAlunosVitoria()
 
-        var dom = document.getElementById("recursosVitoria")
+        var dom = document.getElementById("chart-aluno-vitoria")
     var echartVitoria = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -3517,7 +3517,7 @@ async function vitoriaChart() {
                         nameGap: 23,
                         type: 'category',
                         boundaryGap: false, 
-                        data: anoDataVitoria,
+                        data: anoDataAlunosVitoria,
                         axisLine:{
                             show: false
                         }
@@ -3538,7 +3538,7 @@ async function vitoriaChart() {
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: crecheDataVitoria
+                    data: crecheDataAlunosVitoria
                         
                         
                     },
@@ -3548,7 +3548,7 @@ async function vitoriaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: fundDataVitoria
+                        data: fundDataAlunosVitoria
                     },
                     {
                         name: 'Pré-Escola',
@@ -3556,7 +3556,7 @@ async function vitoriaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: preDataVitoria
+                        data: preDataAlunosVitoria
                     },
                     {
                         name: 'AEE',
@@ -3564,7 +3564,7 @@ async function vitoriaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: aeeDataVitoria
+                        data: aeeDataAlunosVitoria
                     },
                     {
                         name: 'EJA',
@@ -3572,7 +3572,7 @@ async function vitoriaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: ejaDataVitoria 
+                        data: ejaDataAlunosVitoria 
                     },
                     {
                         name: '+Educação',
@@ -3580,7 +3580,7 @@ async function vitoriaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: maisFundDataVitoria 
+                        data: maisFundDataAlunosVitoria 
                     },
                     {
                         name: 'Quilombola',
@@ -3588,7 +3588,7 @@ async function vitoriaChart() {
                         smooth: true,
                         emphasis: { focus: 'series' },
                         connectNulls: true,
-                        data: quiloDataVitoria 
+                        data: quiloDataAlunosVitoria 
                     },
                     
                     ]
@@ -3601,8 +3601,8 @@ async function vitoriaChart() {
             echartVitoria.setOption(option);
         }
 }
-async function getRepasseDataVitoria(){
-        var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal"
+async function getRepasseDataAlunosVitoria(){
+        var url = "http://localhost:8080/alunos/pMunicipio?municipio=vitoria_do_jari&esferaGoverno=municipal"
     
         var response = await fetch(url,{
             method: 'GET',
@@ -3611,14 +3611,14 @@ async function getRepasseDataVitoria(){
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                 }});
-        var DataVitoria = await response.json();
+        var DataAlunosVitoria = await response.json();
         
-        const ano = DataVitoria.map((x) => x.ano)
+        const ano = DataAlunosVitoria.map((x) => x.ano)
         const anoU = ano.filter(unique) 
-        anoDataVitoria = anoU
+        anoDataAlunosVitoria = anoU
 }
-async function getFundDataVitoria(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosVitoria(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
     
         response = await fetch(url,{
             method: 'GET',
@@ -3627,13 +3627,13 @@ async function getFundDataVitoria(){
               'Access-Control-Allow-Origin': '*',
               'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
               }});
-        DataVitoria = await response.json();
+        DataAlunosVitoria = await response.json();
     
-        var valor = DataVitoria.map((x) => x.qtAlunos)
-        fundDataVitoria = valor
+        var valor = DataAlunosVitoria.map((x) => x.qtAlunos)
+        fundDataAlunosVitoria = valor
 }
-async function getCrecheDataVitoria(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosVitoria(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=creche"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3642,12 +3642,12 @@ async function getCrecheDataVitoria(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-         DataVitoria = await response.json();
-         valor = DataVitoria.map((x) => x.qtAlunos)
-         crecheDataVitoria = valor
+         DataAlunosVitoria = await response.json();
+         valor = DataAlunosVitoria.map((x) => x.qtAlunos)
+         crecheDataAlunosVitoria = valor
 }
-async function getPreDataVitoria(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosVitoria(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=pre_escola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3656,12 +3656,12 @@ async function getPreDataVitoria(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataVitoria = await response.json();
-        valor = DataVitoria.map((x) => x.qtAlunos)
-        preDataVitoria = valor
+        DataAlunosVitoria = await response.json();
+        valor = DataAlunosVitoria.map((x) => x.qtAlunos)
+        preDataAlunosVitoria = valor
 }
-async function getAeeDataVitoria(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosVitoria(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3670,12 +3670,12 @@ async function getAeeDataVitoria(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataVitoria = await response.json();
-        valor = DataVitoria.map((x) => x.qtAlunos)
-        aeeDataVitoria = valor
+        DataAlunosVitoria = await response.json();
+        valor = DataAlunosVitoria.map((x) => x.qtAlunos)
+        aeeDataAlunosVitoria = valor
 }
-async function getEjaDataVitoria(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosVitoria(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3684,12 +3684,12 @@ async function getEjaDataVitoria(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataVitoria = await response.json();
-        valor = DataVitoria.map((x) => x.qtAlunos)
-        ejaDataVitoria = valor
+        DataAlunosVitoria = await response.json();
+        valor = DataAlunosVitoria.map((x) => x.qtAlunos)
+        ejaDataAlunosVitoria = valor
 }
-async function getMaisFundDataVitoria(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosVitoria(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3698,12 +3698,12 @@ async function getMaisFundDataVitoria(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataVitoria = await response.json();
-        valor = DataVitoria.map((x) => x.qtAlunos)
-        maisFundDataVitoria = valor
+        DataAlunosVitoria = await response.json();
+        valor = DataAlunosVitoria.map((x) => x.qtAlunos)
+        maisFundDataAlunosVitoria = valor
 }
-async function getQuiloDataVitoria(){
-        url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosVitoria(){
+        url = "http://localhost:8080/alunos/pModalidade?municipio=vitoria_do_jari&esferaGoverno=municipal&etapaEnsino=quilombola"
      
         response = await fetch(url,{
              method: 'GET',
@@ -3712,27 +3712,27 @@ async function getQuiloDataVitoria(){
                'Access-Control-Allow-Origin': '*',
                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
                }});
-        DataVitoria = await response.json();
-        valor = DataVitoria.map((x) => x.qtAlunos)
-        quiloDataVitoria = valor
+        DataAlunosVitoria = await response.json();
+        valor = DataAlunosVitoria.map((x) => x.qtAlunos)
+        quiloDataAlunosVitoria = valor
 }
 
 /////////oiapoque
-var anoDataOiapoque = [], modalidadeDataOiapoque = [], crecheDataOiapoque = [], fundDataOiapoque = [], preDataOiapoque = [], aeeDataOiapoque = [], ejaDataOiapoque = [], maisFundDataOiapoque = [], quiloDataOiapoque = [];
+var anoDataAlunosOiapoque = [], modalidadeDataAlunosOiapoque = [], crecheDataAlunosOiapoque = [], fundDataAlunosOiapoque = [], preDataAlunosOiapoque = [], aeeDataAlunosOiapoque = [], ejaDataAlunosOiapoque = [], maisFundDataAlunosOiapoque = [], quiloDataAlunosOiapoque = [];
 oiapoqueChart()
 async function oiapoqueChart() {
 
-await getAeeDataOiapoque()
-await getCrecheDataOiapoque()
-await getEjaDataOiapoque()
-await getFundDataOiapoque()
-await getMaisFundDataOiapoque()
-await getPreDataOiapoque()
-await getQuiloDataOiapoque()
-await getRepasseDataOiapoque()
+await getAeeDataAlunosOiapoque()
+await getCrecheDataAlunosOiapoque()
+await getEjaDataAlunosOiapoque()
+await getFundDataAlunosOiapoque()
+await getMaisFundDataAlunosOiapoque()
+await getPreDataAlunosOiapoque()
+await getQuiloDataAlunosOiapoque()
+await getRepasseDataAlunosOiapoque()
 
     
-    var dom = document.getElementById("recursosOiapoque")
+    var dom = document.getElementById("chart-aluno-oiapoque")
     var echartOiapoque = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -3783,7 +3783,7 @@ await getRepasseDataOiapoque()
                     nameGap: 23,
                     type: 'category',
                     boundaryGap: false, 
-                    data: anoDataOiapoque,
+                    data: anoDataAlunosOiapoque,
                     axisLine:{
                         show: false
                     }
@@ -3814,7 +3814,7 @@ await getRepasseDataOiapoque()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: fundDataOiapoque
+                    data: fundDataAlunosOiapoque
                 },
                 {
                     name: 'Pré-Escola',
@@ -3822,7 +3822,7 @@ await getRepasseDataOiapoque()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: preDataOiapoque
+                    data: preDataAlunosOiapoque
                 },
                 {
                     name: 'AEE',
@@ -3830,7 +3830,7 @@ await getRepasseDataOiapoque()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: aeeDataOiapoque
+                    data: aeeDataAlunosOiapoque
                 },
                 {
                     name: 'EJA',
@@ -3838,7 +3838,7 @@ await getRepasseDataOiapoque()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: ejaDataOiapoque 
+                    data: ejaDataAlunosOiapoque 
                 },
                 {
                     name: '+Educação',
@@ -3846,7 +3846,7 @@ await getRepasseDataOiapoque()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: maisFundDataOiapoque 
+                    data: maisFundDataAlunosOiapoque 
                 },
                 {
                     name: 'Quilombola',
@@ -3854,7 +3854,7 @@ await getRepasseDataOiapoque()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: quiloDataOiapoque 
+                    data: quiloDataAlunosOiapoque 
                 },
                 
                 ]
@@ -3867,8 +3867,8 @@ await getRepasseDataOiapoque()
         echartOiapoque.setOption(option);
     }
 }
-async function getRepasseDataOiapoque(){
-    var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=oiapoque&esferaGoverno=municipal"
+async function getRepasseDataAlunosOiapoque(){
+    var url = "http://localhost:8080/alunos/pMunicipio?municipio=oiapoque&esferaGoverno=municipal"
 
     var response = await fetch(url,{
         method: 'GET',
@@ -3877,14 +3877,14 @@ async function getRepasseDataOiapoque(){
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
             }});
-    var DataOiapoque = await response.json();
+    var DataAlunosOiapoque = await response.json();
     
-    const ano = DataOiapoque.map((x) => x.ano)
+    const ano = DataAlunosOiapoque.map((x) => x.ano)
     const anoU = ano.filter(unique) 
-    anoDataOiapoque = anoU
+    anoDataAlunosOiapoque = anoU
 }
-async function getFundDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosOiapoque(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
 
     response = await fetch(url,{
         method: 'GET',
@@ -3893,13 +3893,13 @@ async function getFundDataOiapoque(){
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
           }});
-    DataOiapoque = await response.json();
+    DataAlunosOiapoque = await response.json();
 
-    var valor = DataOiapoque.map((x) => x.qtAlunos)
-    fundDataOiapoque = valor
+    var valor = DataAlunosOiapoque.map((x) => x.qtAlunos)
+    fundDataAlunosOiapoque = valor
 }
-async function getCrecheDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosOiapoque(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=creche"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3908,12 +3908,12 @@ async function getCrecheDataOiapoque(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-     DataOiapoque = await response.json();
-     valor = DataOiapoque.map((x) => x.qtAlunos)
-     crecheDataOiapoque = valor
+     DataAlunosOiapoque = await response.json();
+     valor = DataAlunosOiapoque.map((x) => x.qtAlunos)
+     crecheDataAlunosOiapoque = valor
 }
-async function getPreDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosOiapoque(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=pre_escola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3922,12 +3922,12 @@ async function getPreDataOiapoque(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataOiapoque = await response.json();
-    valor = DataOiapoque.map((x) => x.qtAlunos)
-    preDataOiapoque = valor
+    DataAlunosOiapoque = await response.json();
+    valor = DataAlunosOiapoque.map((x) => x.qtAlunos)
+    preDataAlunosOiapoque = valor
 }
-async function getAeeDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosOiapoque(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3936,12 +3936,12 @@ async function getAeeDataOiapoque(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataOiapoque = await response.json();
-    valor = DataOiapoque.map((x) => x.qtAlunos)
-    aeeDataOiapoque = valor
+    DataAlunosOiapoque = await response.json();
+    valor = DataAlunosOiapoque.map((x) => x.qtAlunos)
+    aeeDataAlunosOiapoque = valor
 }
-async function getEjaDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosOiapoque(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3950,12 +3950,12 @@ async function getEjaDataOiapoque(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataOiapoque = await response.json();
-    valor = DataOiapoque.map((x) => x.qtAlunos)
-    ejaDataOiapoque = valor
+    DataAlunosOiapoque = await response.json();
+    valor = DataAlunosOiapoque.map((x) => x.qtAlunos)
+    ejaDataAlunosOiapoque = valor
 }
-async function getMaisFundDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosOiapoque(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3964,12 +3964,12 @@ async function getMaisFundDataOiapoque(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataOiapoque = await response.json();
-    valor = DataOiapoque.map((x) => x.qtAlunos)
-    maisFundDataOiapoque = valor
+    DataAlunosOiapoque = await response.json();
+    valor = DataAlunosOiapoque.map((x) => x.qtAlunos)
+    maisFundDataAlunosOiapoque = valor
 }
-async function getQuiloDataOiapoque(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosOiapoque(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=oiapoque&esferaGoverno=municipal&etapaEnsino=quilombola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -3978,30 +3978,30 @@ async function getQuiloDataOiapoque(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataOiapoque = await response.json();
-    valor = DataOiapoque.map((x) => x.qtAlunos)
-    quiloDataOiapoque = valor
+    DataAlunosOiapoque = await response.json();
+    valor = DataAlunosOiapoque.map((x) => x.qtAlunos)
+    quiloDataAlunosOiapoque = valor
 }
 
 
 
 
 ////////////////pracuuba
-var anoDataPracuuba = [], modalidadeDataPracuuba = [], crecheDataPracuuba = [], fundDataPracuuba = [], preDataPracuuba = [], aeeDataPracuuba = [], ejaDataPracuuba = [], maisFundDataPracuuba = [], quiloDataPracuuba = [];
+var anoDataAlunosPracuuba = [], modalidadeDataAlunosPracuuba = [], crecheDataAlunosPracuuba = [], fundDataAlunosPracuuba = [], preDataAlunosPracuuba = [], aeeDataAlunosPracuuba = [], ejaDataAlunosPracuuba = [], maisFundDataAlunosPracuuba = [], quiloDataAlunosPracuuba = [];
 pracuubaChart()
 async function pracuubaChart() {
 
-await getAeeDataPracuuba()
-await getCrecheDataPracuuba()
-await getEjaDataPracuuba()
-await getFundDataPracuuba()
-await getMaisFundDataPracuuba()
-await getPreDataPracuuba()
-await getQuiloDataPracuuba()
-await getRepasseDataPracuuba()
+await getAeeDataAlunosPracuuba()
+await getCrecheDataAlunosPracuuba()
+await getEjaDataAlunosPracuuba()
+await getFundDataAlunosPracuuba()
+await getMaisFundDataAlunosPracuuba()
+await getPreDataAlunosPracuuba()
+await getQuiloDataAlunosPracuuba()
+await getRepasseDataAlunosPracuuba()
 
     
-    var dom = document.getElementById("recursosPracuuba")
+    var dom = document.getElementById("chart-aluno-pracuuba")
     var echartPracuuba = echarts.init(dom, 'vintage');
     var option;
     window.onresize = function() {
@@ -4052,7 +4052,7 @@ await getRepasseDataPracuuba()
                     nameGap: 23,
                     type: 'category',
                     boundaryGap: false, 
-                    data: anoDataPracuuba,
+                    data: anoDataAlunosPracuuba,
                     axisLine:{
                         show: false
                     }
@@ -4083,7 +4083,7 @@ await getRepasseDataPracuuba()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: fundDataPracuuba
+                    data: fundDataAlunosPracuuba
                 },
                 {
                     name: 'Pré-Escola',
@@ -4091,7 +4091,7 @@ await getRepasseDataPracuuba()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: preDataPracuuba
+                    data: preDataAlunosPracuuba
                 },
                 {
                     name: 'AEE',
@@ -4099,7 +4099,7 @@ await getRepasseDataPracuuba()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: aeeDataPracuuba
+                    data: aeeDataAlunosPracuuba
                 },
                 {
                     name: 'EJA',
@@ -4107,7 +4107,7 @@ await getRepasseDataPracuuba()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: ejaDataPracuuba 
+                    data: ejaDataAlunosPracuuba 
                 },
                 {
                     name: '+Educação',
@@ -4115,7 +4115,7 @@ await getRepasseDataPracuuba()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: maisFundDataPracuuba 
+                    data: maisFundDataAlunosPracuuba 
                 },
                 {
                     name: 'Quilombola',
@@ -4123,7 +4123,7 @@ await getRepasseDataPracuuba()
                     smooth: true,
                     emphasis: { focus: 'series' },
                     connectNulls: true,
-                    data: quiloDataPracuuba 
+                    data: quiloDataAlunosPracuuba 
                 },
                 
                 ]
@@ -4136,8 +4136,8 @@ await getRepasseDataPracuuba()
         echartPracuuba.setOption(option);
     }
 }
-async function getRepasseDataPracuuba(){
-    var url = "https://amali-api.herokuapp.com/alunos/pMunicipio?municipio=pracuuba&esferaGoverno=municipal"
+async function getRepasseDataAlunosPracuuba(){
+    var url = "http://localhost:8080/alunos/pMunicipio?municipio=pracuuba&esferaGoverno=municipal"
 
     var response = await fetch(url,{
         method: 'GET',
@@ -4146,14 +4146,14 @@ async function getRepasseDataPracuuba(){
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
             }});
-    var DataPracuuba = await response.json();
+    var DataAlunosPracuuba = await response.json();
     
-    const ano = DataPracuuba.map((x) => x.ano)
+    const ano = DataAlunosPracuuba.map((x) => x.ano)
     const anoU = ano.filter(unique) 
-    anoDataPracuuba = anoU
+    anoDataAlunosPracuuba = anoU
 }
-async function getFundDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
+async function getFundDataAlunosPracuuba(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=ensino_fundamental"
 
     response = await fetch(url,{
         method: 'GET',
@@ -4162,13 +4162,13 @@ async function getFundDataPracuuba(){
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
           }});
-    DataPracuuba = await response.json();
+    DataAlunosPracuuba = await response.json();
 
-    var valor = DataPracuuba.map((x) => x.qtAlunos)
-    fundDataPracuuba = valor
+    var valor = DataAlunosPracuuba.map((x) => x.qtAlunos)
+    fundDataAlunosPracuuba = valor
 }
-async function getCrecheDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=creche"
+async function getCrecheDataAlunosPracuuba(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=creche"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4177,12 +4177,12 @@ async function getCrecheDataPracuuba(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-     DataPracuuba = await response.json();
-     valor = DataPracuuba.map((x) => x.qtAlunos)
-     crecheDataPracuuba = valor
+     DataAlunosPracuuba = await response.json();
+     valor = DataAlunosPracuuba.map((x) => x.qtAlunos)
+     crecheDataAlunosPracuuba = valor
 }
-async function getPreDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=pre_escola"
+async function getPreDataAlunosPracuuba(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=pre_escola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4191,12 +4191,12 @@ async function getPreDataPracuuba(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataPracuuba = await response.json();
-    valor = DataPracuuba.map((x) => x.qtAlunos)
-    preDataPracuuba = valor
+    DataAlunosPracuuba = await response.json();
+    valor = DataAlunosPracuuba.map((x) => x.qtAlunos)
+    preDataAlunosPracuuba = valor
 }
-async function getAeeDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
+async function getAeeDataAlunosPracuuba(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=atendimento_educacional_especializado_(aee)"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4205,12 +4205,12 @@ async function getAeeDataPracuuba(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataPracuuba = await response.json();
-    valor = DataPracuuba.map((x) => x.qtAlunos)
-    aeeDataPracuuba = valor
+    DataAlunosPracuuba = await response.json();
+    valor = DataAlunosPracuuba.map((x) => x.qtAlunos)
+    aeeDataAlunosPracuuba = valor
 }
-async function getEjaDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
+async function getEjaDataAlunosPracuuba(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=educacao_de_jovens_e_adultos_(eja)"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4219,12 +4219,12 @@ async function getEjaDataPracuuba(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataPracuuba = await response.json();
-    valor = DataPracuuba.map((x) => x.qtAlunos)
-    ejaDataPracuuba = valor
+    DataAlunosPracuuba = await response.json();
+    valor = DataAlunosPracuuba.map((x) => x.qtAlunos)
+    ejaDataAlunosPracuuba = valor
 }
-async function getMaisFundDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
+async function getMaisFundDataAlunosPracuuba(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&modalidadeEnsin0=maiseducação-fundamental"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4233,12 +4233,12 @@ async function getMaisFundDataPracuuba(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataPracuuba = await response.json();
-    valor = DataPracuuba.map((x) => x.qtAlunos)
-    maisFundDataPracuuba = valor
+    DataAlunosPracuuba = await response.json();
+    valor = DataAlunosPracuuba.map((x) => x.qtAlunos)
+    maisFundDataAlunosPracuuba = valor
 }
-async function getQuiloDataPracuuba(){
-    url = "https://amali-api.herokuapp.com/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=quilombola"
+async function getQuiloDataAlunosPracuuba(){
+    url = "http://localhost:8080/alunos/pModalidade?municipio=pracuuba&esferaGoverno=municipal&etapaEnsino=quilombola"
  
     response = await fetch(url,{
          method: 'GET',
@@ -4247,7 +4247,7 @@ async function getQuiloDataPracuuba(){
            'Access-Control-Allow-Origin': '*',
            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'      
            }});
-    DataPracuuba = await response.json();
-    valor = DataPracuuba.map((x) => x.qtAlunos)
-    quiloDataPracuuba = valor
+    DataAlunosPracuuba = await response.json();
+    valor = DataAlunosPracuuba.map((x) => x.qtAlunos)
+    quiloDataAlunosPracuuba = valor
 }

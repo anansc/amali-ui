@@ -4,259 +4,259 @@
 $(document).ready(function(){
     /*amapa*/
     $('#recurso-amapa').click(function(){
-        $('.chart-recurso-amapa').css("display", "block").addClass('ativo')
-        $('.chart-escola-amapa').css("display", "none")
-        $('.chart-aluno-amapa').css("display", "none")
+        $('#chart-recurso-amapa').css("display", "block").addClass('ativado')
+        $('#chart-escola-amapa').css("display", "none").addClass('desativado')
+        $('#chart-aluno-amapa').css("display", "none").addClass('desativado')
     });
     $('#escola-amapa').click(function(){
-        $('.chart-recurso-amapa').css("display", "none")
-        $('.chart-escola-amapa').css("display", "block").addClass('ativo')
-        $('.chart-aluno-amapa').css("display", "none")
+        $('#chart-recurso-amapa').css("display", "none")
+        $('#chart-escola-amapa').css("display", "block").addClass('ativo')
+        $('#chart-aluno-amapa').css("display", "none")
     });
     $('#aluno-amapa').click(function(){
-        $('.chart-recurso-amapa').css("display", "none")
-        $('.chart-escola-amapa').css("display", "none")
-        $('.chart-aluno-amapa').css("display", "block").addClass('ativo')
+        $('#chart-recurso-amapa').css("display", "none").addClass('desativado')
+        $('#chart-escola-amapa').css("display", "none").addClass('desativado')
+        $('#chart-aluno-amapa').css("display", "block").addClass('ativo')
     });
     /*calcoene*/
     $('#recurso-calcoene').click(function(){
-        $('.chart-recurso-calcone').css("display", "block").addClass('ativo')
-        $('.chart-escola-calcone').css("display", "none")
-        $('.chart-aluno-calcone').css("display", "none")
+        $('#chart-recurso-calcone').css("display", "block").addClass('ativo')
+        $('#chart-escola-calcone').css("display", "none")
+        $('#chart-aluno-calcone').css("display", "none")
     });
     $('#escola-calcone').click(function(){
-        $('.chart-recurso-calcone').css("display", "none")
-        $('.chart-escola-calcone').css("display", "block").addClass('ativo')
-        $('.chart-aluno-calcone').css("display", "none")
+        $('#chart-recurso-calcone').css("display", "none")
+        $('#chart-escola-calcone').css("display", "block").addClass('ativo')
+        $('#chart-aluno-calcone').css("display", "none")
     });
     $('#aluno-calcone').click(function(){
-        $('.chart-recurso-calcone').css("display", "none")
-        $('.chart-escola-calcone').css("display", "none")
-        $('.chart-aluno-calcone').css("display", "block").addClass('ativo')
+        $('#chart-recurso-calcone').css("display", "none")
+        $('#chart-escola-calcone').css("display", "none")
+        $('#chart-aluno-calcone').css("display", "block").addClass('ativo')
     });
     /*cutias*/
     $('#recurso-cutias').click(function(){
-        $('.chart-recurso-cutias').css("display", "block").addClass('ativo')
-        $('.chart-escola-cutias').css("display", "none")
-        $('.chart-aluno-cutias').css("display", "none")
+        $('#chart-recurso-cutias').css("display", "block").addClass('ativo')
+        $('#chart-escola-cutias').css("display", "none")
+        $('#chart-aluno-cutias').css("display", "none")
     });
     $('#escola-cutias').click(function(){
-        $('.chart-recurso-cutias').css("display", "none")
-        $('.chart-escola-cutias').css("display", "block").addClass('ativo')
-        $('.chart-aluno-cutias').css("display", "none")
+        $('#chart-recurso-cutias').css("display", "none")
+        $('#chart-escola-cutias').css("display", "block").addClass('ativo')
+        $('#chart-aluno-cutias').css("display", "none")
     });
     $('#aluno-cutias').click(function(){
-        $('.chart-recurso-cutias').css("display", "none")
-        $('.chart-escola-cutias').css("display", "none")
-        $('.chart-aluno-cutias').css("display", "block").addClass('ativo')
+        $('#chart-recurso-cutias').css("display", "none")
+        $('#chart-escola-cutias').css("display", "none")
+        $('#chart-aluno-cutias').css("display", "block").addClass('ativo')
     });
     /*ferreira*/
     $('#recurso-ferreira').click(function(){
-        $('.chart-recurso-ferreira').css("display", "block").addClass('ativo')
-        $('.chart-escola-ferreira').css("display", "none")
-        $('.chart-aluno-ferreira').css("display", "none")
+        $('#chart-recurso-ferreira').css("display", "block").addClass('ativo')
+        $('#chart-escola-ferreira').css("display", "none")
+        $('#chart-aluno-ferreira').css("display", "none")
     });
     $('#escola-ferreira').click(function(){
-        $('.chart-recurso-ferreira').css("display", "none")
-        $('.chart-escola-ferreira').css("display", "block").addClass('ativo')
-        $('.chart-aluno-ferreira').css("display", "none")
+        $('#chart-recurso-ferreira').css("display", "none")
+        $('#chart-escola-ferreira').css("display", "block").addClass('ativo')
+        $('#chart-aluno-ferreira').css("display", "none")
     });
     $('#aluno-ferreira').click(function(){
-        $('.chart-recurso-ferreira').css("display", "none")
-        $('.chart-escola-ferreira').css("display", "none")
-        $('.chart-aluno-ferreira').css("display", "block").addClass('ativo')
+        $('#chart-recurso-ferreira').css("display", "none")
+        $('#chart-escola-ferreira').css("display", "none")
+        $('#chart-aluno-ferreira').css("display", "block").addClass('ativo')
     });
     /*itaubal*/
     $('#recurso-itaubal').click(function(){
-        $('.chart-recurso-itaubal').css("display", "block").addClass('ativo')
-        $('.chart-escola-itaubal').css("display", "none")
-        $('.chart-aluno-itaubal').css("display", "none")
+        $('#chart-recurso-itaubal').css("display", "block").addClass('ativo')
+        $('#chart-escola-itaubal').css("display", "none")
+        $('#chart-aluno-itaubal').css("display", "none")
     });
     $('#escola-itaubal').click(function(){
-        $('.chart-recurso-itaubal').css("display", "none")
-        $('.chart-escola-itaubal').css("display", "block").addClass('ativo')
-        $('.chart-aluno-itaubal').css("display", "none")
+        $('#chart-recurso-itaubal').css("display", "none")
+        $('#chart-escola-itaubal').css("display", "block").addClass('ativo')
+        $('#chart-aluno-itaubal').css("display", "none")
     });
     $('#aluno-itaubal').click(function(){
-        $('.chart-recurso-itaubal').css("display", "none")
-        $('.chart-escola-itaubal').css("display", "none")
-        $('.chart-aluno-itaubal').css("display", "block").addClass('ativo')
+        $('#chart-recurso-itaubal').css("display", "none")
+        $('#chart-escola-itaubal').css("display", "none")
+        $('#chart-aluno-itaubal').css("display", "block").addClass('ativo')
     });
     /*laranjal*/
     $('#recurso-laranjal').click(function(){
-        $('.chart-recurso-laranjal').css("display", "block").addClass('ativo')
-        $('.chart-escola-laranjal').css("display", "none")
-        $('.chart-aluno-laranjal').css("display", "none")
+        $('#chart-recurso-laranjal').css("display", "block").addClass('ativo')
+        $('#chart-escola-laranjal').css("display", "none")
+        $('#chart-aluno-laranjal').css("display", "none")
     });
     $('#escola-laranjal').click(function(){
-        $('.chart-recurso-laranjal').css("display", "none")
-        $('.chart-escola-laranjal').css("display", "block").addClass('ativo')
-        $('.chart-aluno-laranjal').css("display", "none")
+        $('#chart-recurso-laranjal').css("display", "none")
+        $('#chart-escola-laranjal').css("display", "block").addClass('ativo')
+        $('#chart-aluno-laranjal').css("display", "none")
     });
     $('#aluno-laranjal').click(function(){
-        $('.chart-recurso-laranjal').css("display", "none")
-        $('.chart-escola-laranjal').css("display", "none")
-        $('.chart-aluno-laranjal').css("display", "block").addClass('ativo')
+        $('#chart-recurso-laranjal').css("display", "none")
+        $('#chart-escola-laranjal').css("display", "none")
+        $('#chart-aluno-laranjal').css("display", "block").addClass('ativo')
     });
     /*macapa*/
     $('#recurso-macapa').click(function(){
-        $('.chart-recurso-macapa').css("display", "block").addClass('ativo')
-        $('.chart-escola-macapa').css("display", "none")
-        $('.chart-aluno-macapa').css("display", "none")
+        $('#chart-recurso-macapa').css("display", "block").addClass('ativo')
+        $('#chart-escola-macapa').css("display", "none")
+        $('#chart-aluno-macapa').css("display", "none")
     });
     $('#escola-macapa').click(function(){
-        $('.chart-recurso-macapa').css("display", "none")
-        $('.chart-escola-macapa').css("display", "block").addClass('ativo')
-        $('.chart-aluno-macapa').css("display", "none")
+        $('#chart-recurso-macapa').css("display", "none")
+        $('#chart-escola-macapa').css("display", "block").addClass('ativo')
+        $('#chart-aluno-macapa').css("display", "none")
     });
     $('#aluno-macapa').click(function(){
-        $('.chart-recurso-macapa').css("display", "none")
-        $('.chart-escola-macapa').css("display", "none")
-        $('.chart-aluno-macapa').css("display", "block").addClass('ativo')
+        $('#chart-recurso-macapa').css("display", "none")
+        $('#chart-escola-macapa').css("display", "none")
+        $('#chart-aluno-macapa').css("display", "block").addClass('ativo')
     });
     /*mazagao*/
     $('#recurso-mazagao').click(function(){
-        $('.chart-recurso-mazagao').css("display", "block").addClass('ativo')
-        $('.chart-escola-mazagao').css("display", "none")
-        $('.chart-aluno-mazagao').css("display", "none")
+        $('#chart-recurso-mazagao').css("display", "block").addClass('ativo')
+        $('#chart-escola-mazagao').css("display", "none")
+        $('#chart-aluno-mazagao').css("display", "none")
     });
     $('#escola-mazagao').click(function(){
-        $('.chart-recurso-mazagao').css("display", "none")
-        $('.chart-escola-mazagao').css("display", "block").addClass('ativo')
-        $('.chart-aluno-mazagao').css("display", "none")
+        $('#chart-recurso-mazagao').css("display", "none")
+        $('#chart-escola-mazagao').css("display", "block").addClass('ativo')
+        $('#chart-aluno-mazagao').css("display", "none")
     });
     $('#aluno-mazagao').click(function(){
-        $('.chart-recurso-mazagao').css("display", "none")
-        $('.chart-escola-mazagao').css("display", "none")
-        $('.chart-aluno-mazagao').css("display", "block").addClass('ativo')
+        $('#chart-recurso-mazagao').css("display", "none")
+        $('#chart-escola-mazagao').css("display", "none")
+        $('#chart-aluno-mazagao').css("display", "block").addClass('ativo')
     });
     /*oiapoque*/
     $('#recurso-oiapoque').click(function(){
-        $('.chart-recurso-oiapoque').css("display", "block").addClass('ativo')
-        $('.chart-escola-oiapoque').css("display", "none")
-        $('.chart-aluno-oiapoque').css("display", "none")
+        $('#chart-recurso-oiapoque').css("display", "block").addClass('ativo')
+        $('#chart-escola-oiapoque').css("display", "none")
+        $('#chart-aluno-oiapoque').css("display", "none")
     });
     $('#escola-oiapoque').click(function(){
-        $('.chart-recurso-oiapoque').css("display", "none")
-        $('.chart-escola-oiapoque').css("display", "block").addClass('ativo')
-        $('.chart-aluno-oiapoque').css("display", "none")
+        $('#chart-recurso-oiapoque').css("display", "none")
+        $('#chart-escola-oiapoque').css("display", "block").addClass('ativo')
+        $('#chart-aluno-oiapoque').css("display", "none")
     });
     $('#aluno-oiapoque').click(function(){
-        $('.chart-recurso-oiapoque').css("display", "none")
-        $('.chart-escola-oiapoque').css("display", "none")
-        $('.chart-aluno-oiapoque').css("display", "block").addClass('ativo')
+        $('#chart-recurso-oiapoque').css("display", "none")
+        $('#chart-escola-oiapoque').css("display", "none")
+        $('#chart-aluno-oiapoque').css("display", "block").addClass('ativo')
     });
     //Pedra Amapari
     $('#recurso-pedraamapari').click(function(){
-        $('.chart-recurso-pedraamapari').css("display", "block").addClass('ativo')
-        $('.chart-escola-pedraamapari').css("display", "none")
-        $('.chart-aluno-pedraamapari').css("display", "none")
+        $('#chart-recurso-pedraamapari').css("display", "block").addClass('ativo')
+        $('#chart-escola-pedraamapari').css("display", "none")
+        $('#chart-aluno-pedraamapari').css("display", "none")
     });
     $('#escola-pedraamapari').click(function(){
-        $('.chart-recurso-pedraamapari').css("display", "none")
-        $('.chart-escola-pedraamapari').css("display", "block").addClass('ativo')
-        $('.chart-aluno-pedraamapari').css("display", "none")
+        $('#chart-recurso-pedraamapari').css("display", "none")
+        $('#chart-escola-pedraamapari').css("display", "block").addClass('ativo')
+        $('#chart-aluno-pedraamapari').css("display", "none")
     });
     $('#aluno-pedraamapari').click(function(){
-        $('.chart-recurso-pedraamapari').css("display", "none")
-        $('.chart-escola-pedraamapari').css("display", "none")
-        $('.chart-aluno-pedraamapari').css("display", "block").addClass('ativo')
+        $('#chart-recurso-pedraamapari').css("display", "none")
+        $('#chart-escola-pedraamapari').css("display", "none")
+        $('#chart-aluno-pedraamapari').css("display", "block").addClass('ativo')
     });
     //Porto Grande
     $('#recurso-portogrande').click(function(){
-        $('.chart-recurso-portogrande').css("display", "block").addClass('ativo')
-        $('.chart-escola-portogrande').css("display", "none")
-        $('.chart-aluno-portogrande').css("display", "none")
+        $('#chart-recurso-portogrande').css("display", "block").addClass('ativo')
+        $('#chart-escola-portogrande').css("display", "none")
+        $('#chart-aluno-portogrande').css("display", "none")
     });
     $('#escola-portogrande').click(function(){
-        $('.chart-recurso-portogrande').css("display", "none")
-        $('.chart-escola-portogrande').css("display", "block").addClass('ativo')
-        $('.chart-aluno-portogrande').css("display", "none")
+        $('#chart-recurso-portogrande').css("display", "none")
+        $('#chart-escola-portogrande').css("display", "block").addClass('ativo')
+        $('#chart-aluno-portogrande').css("display", "none")
     });
     $('#aluno-portogrande').click(function(){
-        $('.chart-recurso-portogrande').css("display", "none")
-        $('.chart-escola-portogrande').css("display", "none")
-        $('.chart-aluno-portogrande').css("display", "block").addClass('ativo')
+        $('#chart-recurso-portogrande').css("display", "none")
+        $('#chart-escola-portogrande').css("display", "none")
+        $('#chart-aluno-portogrande').css("display", "block").addClass('ativo')
     });
     // Pracuuba
     $('#recurso-pracuuba').click(function(){
-        $('.chart-recurso-pracuuba').css("display", "block").addClass('ativo')
-        $('.chart-escola-pracuuba').css("display", "none")
-        $('.chart-aluno-pracuuba').css("display", "none")
+        $('#chart-recurso-pracuuba').css("display", "block").addClass('ativo')
+        $('#chart-escola-pracuuba').css("display", "none")
+        $('#chart-aluno-pracuuba').css("display", "none")
     });
     $('#escola-pracuuba').click(function(){
-        $('.chart-recurso-pracuuba').css("display", "none")
-        $('.chart-escola-pracuuba').css("display", "block").addClass('ativo')
-        $('.chart-aluno-pracuuba').css("display", "none")
+        $('#chart-recurso-pracuuba').css("display", "none")
+        $('#chart-escola-pracuuba').css("display", "block").addClass('ativo')
+        $('#chart-aluno-pracuuba').css("display", "none")
     });
     $('#aluno-pracuuba').click(function(){
-        $('.chart-recurso-pracuuba').css("display", "none")
-        $('.chart-escola-pracuuba').css("display", "none")
-        $('.chart-aluno-pracuuba').css("display", "block").addClass('ativo')
+        $('#chart-recurso-pracuuba').css("display", "none")
+        $('#chart-escola-pracuuba').css("display", "none")
+        $('#chart-aluno-pracuuba').css("display", "block").addClass('ativo')
     });
     // Santana
     $('#recurso-santana').click(function(){
-        $('.chart-recurso-santana').css("display", "block").addClass('ativo')
-        $('.chart-escola-santana').css("display", "none")
-        $('.chart-aluno-santana').css("display", "none")
+        $('#chart-recurso-santana').css("display", "block").addClass('ativo')
+        $('#chart-escola-santana').css("display", "none")
+        $('#chart-aluno-santana').css("display", "none")
     });
     $('#escola-santana').click(function(){
-        $('.chart-recurso-santana').css("display", "none")
-        $('.chart-escola-santana').css("display", "block").addClass('ativo')
-        $('.chart-aluno-santana').css("display", "none")
+        $('#chart-recurso-santana').css("display", "none")
+        $('#chart-escola-santana').css("display", "block").addClass('ativo')
+        $('#chart-aluno-santana').css("display", "none")
     });
     $('#aluno-santana').click(function(){
-        $('.chart-recurso-santana').css("display", "none")
-        $('.chart-escola-santana').css("display", "none")
-        $('.chart-aluno-santana').css("display", "block").addClass('ativo')
+        $('#chart-recurso-santana').css("display", "none")
+        $('#chart-escola-santana').css("display", "none")
+        $('#chart-aluno-santana').css("display", "block").addClass('ativo')
     });
     // Serra do Navio
     $('#recurso-serranavio').click(function(){
-        $('.chart-recurso-serranavio').css("display", "block").addClass('ativo')
-        $('.chart-escola-serranavio').css("display", "none")
-        $('.chart-aluno-serranavio').css("display", "none")
+        $('#chart-recurso-serranavio').css("display", "block").addClass('ativo')
+        $('#chart-escola-serranavio').css("display", "none")
+        $('#chart-aluno-serranavio').css("display", "none")
     });
     $('#escola-serranavio').click(function(){
-        $('.chart-recurso-serranavio').css("display", "none")
-        $('.chart-escola-serranavio').css("display", "block").addClass('ativo')
-        $('.chart-aluno-serranavio').css("display", "none")
+        $('#chart-recurso-serranavio').css("display", "none")
+        $('#chart-escola-serranavio').css("display", "block").addClass('ativo')
+        $('#chart-aluno-serranavio').css("display", "none")
     });
     $('#aluno-serranavio').click(function(){
-        $('.chart-recurso-serranavio').css("display", "none")
-        $('.chart-escola-serranavio').css("display", "none")
-        $('.chart-aluno-serranavio').css("display", "block").addClass('ativo')
+        $('#chart-recurso-serranavio').css("display", "none")
+        $('#chart-escola-serranavio').css("display", "none")
+        $('#chart-aluno-serranavio').css("display", "block").addClass('ativo')
     });
     // Tartaruga sem casca
     $('#recurso-tartarugalzinho').click(function(){
-        $('.chart-recurso-tartarugalzinho').css("display", "block").addClass('ativo')
-        $('.chart-escola-tartarugalzinho').css("display", "none")
-        $('.chart-aluno-tartarugalzinho').css("display", "none")
+        $('#chart-recurso-tartarugalzinho').css("display", "block").addClass('ativo')
+        $('#chart-escola-tartarugalzinho').css("display", "none")
+        $('#chart-aluno-tartarugalzinho').css("display", "none")
     });
     $('#escola-tartarugalzinho').click(function(){
-        $('.chart-recurso-tartarugalzinho').css("display", "none")
-        $('.chart-escola-tartarugalzinho').css("display", "block").addClass('ativo')
-        $('.chart-aluno-tartarugalzinho').css("display", "none")
+        $('#chart-recurso-tartarugalzinho').css("display", "none")
+        $('#chart-escola-tartarugalzinho').css("display", "block").addClass('ativo')
+        $('#chart-aluno-tartarugalzinho').css("display", "none")
     });
     $('#aluno-tartarugalzinho').click(function(){
-        $('.chart-recurso-tartarugalzinho').css("display", "none")
-        $('.chart-escola-tartarugalzinho').css("display", "none")
-        $('.chart-aluno-tartarugalzinho').css("display", "block").addClass('ativo')
+        $('#chart-recurso-tartarugalzinho').css("display", "none")
+        $('#chart-escola-tartarugalzinho').css("display", "none")
+        $('#chart-aluno-tartarugalzinho').css("display", "block").addClass('ativo')
     });
     // Vitoria do Jari
     $('#recurso-vitoriajari').click(function(){
-        $('.chart-recurso-vitoriajari').css("display", "block").addClass('ativo')
-        $('.chart-escola-vitoriajari').css("display", "none")
-        $('.chart-aluno-vitoriajari').css("display", "none")
+        $('#chart-recurso-vitoriajari').css("display", "block").addClass('ativo')
+        $('#chart-escola-vitoriajari').css("display", "none")
+        $('#chart-aluno-vitoriajari').css("display", "none")
     });
     $('#escola-vitoriajari').click(function(){
-        $('.chart-recurso-vitoriajari').css("display", "none")
-        $('.chart-escola-vitoriajari').css("display", "block").addClass('ativo')
-        $('.chart-aluno-vitoriajari').css("display", "none")
+        $('#chart-recurso-vitoriajari').css("display", "none")
+        $('#chart-escola-vitoriajari').css("display", "block").addClass('ativo')
+        $('#chart-aluno-vitoriajari').css("display", "none")
     });
     $('#aluno-vitoriajari').click(function(){
-        $('.chart-recurso-vitoriajari').css("display", "none")
-        $('.chart-escola-vitoriajari').css("display", "none")
-        $('.chart-aluno-vitoriajari').css("display", "block").addClass('ativo')
+        $('#chart-recurso-vitoriajari').css("display", "none")
+        $('#chart-escola-vitoriajari').css("display", "none")
+        $('#chart-aluno-vitoriajari').css("display", "block").addClass('ativo')
     });
 
 })
